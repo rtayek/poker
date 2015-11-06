@@ -1,0 +1,220 @@
+1c1
+< package poker.holdem;
+---
+> package poker.holdem.old;
+3d2
+< import java.io.IOException;
+8,10c7
+< import poker.holdem.Don.Player;
+< class DonException extends RuntimeException {}
+< public class Don {
+---
+> public class Donb404182010 {
+28c25
+< 				// if(rank[r]==Card.Rank.aceLow) rank[r]=Card.Rank.aceHigh;
+---
+> 				// if(rank[r]==Rank.aceLow) rank[r]=Rank.aceHigh;
+59c56
+< 		final Frequency[] individual=new Frequency[Don.total+1]; // 1-7475
+---
+> 		final Frequency[] individual=new Frequency[Donb404182010.total];
+65,68c62,66
+< 	boolean remove(Rank r,Suit s) {
+< 		if(!deck[r.ordinal()][s.ordinal()]) return false;
+< 		deck[r.ordinal()][s.ordinal()]=false;
+< 		return true;
+---
+> 	void remove(Rank r,Suit s) {
+> 		if(deck[r.ordinal()][s.ordinal()]) deck[r.ordinal()][s.ordinal()]=false;
+> 		else {
+> 			throw new RuntimeException(Card.instance(r,s)+" is already removed");
+> 		}
+76c74,86
+< 	void processArguments(String[] argument) {
+---
+> 	void init(String[] argument) {
+> 		verbose=werbose=xerbose=yerbose=zerbose=aerbose=false;
+> 		board=false;
+> 		fourth=fifth=false;
+> 		report_frequency=100000; // should never report
+> 		distribution=false;
+> 		highest_card_in_deck=Rank.king;
+> 		System.out.println(Rank.values().length);
+> 		System.out.println(Suit.values().length);
+> 		for(int i=0;i<Rank.values().length;i++)
+> 			for(int j=0;j<Suit.values().length;j++)
+> 				deck[i][j]=true;
+> 		output_name="";
+130,131c140,151
+< 					System.out.println("adding player from cla"+rr);
+< 					addPlayer(argument[i]);
+---
+> 					output_name+=argument[i]+'_';
+> 					final Player p=new Player();
+> 					players.add(p);
+> 					p.id=players.size();
+> 					p.holeRanks[0]=Rank.fromCharacter(argument[i].charAt(0));
+> 					if(p.holeRanks[0]==Rank.ace) p.holeRanks[0]=Rank.aceLow;
+> 					p.holeSuits[0]=Suit.fromCharacter(argument[i].charAt(1));
+> 					remove(p.holeRanks[0],p.holeSuits[0]);
+> 					p.holeRanks[1]=Rank.fromCharacter(argument[i].charAt(2));
+> 					if(p.holeRanks[1]==Rank.ace) p.holeRanks[1]=Rank.aceLow;
+> 					p.holeSuits[1]=Suit.fromCharacter(argument[i].charAt(3));
+> 					remove(p.holeRanks[1],p.holeSuits[1]);
+133,190c153,161
+< 	}
+< 	Don() {
+< 		verbose=werbose=xerbose=yerbose=zerbose=aerbose=false;
+< 		board=false;
+< 		fourth=fifth=false;
+< 		report_frequency=100000; // should never report
+< 		distribution=false;
+< 		highest_card_in_deck=Rank.king;
+< 		initializeDeck(deck);
+< 	}
+< 	public static void initializeDeck(boolean[][] deck) {
+< 		for(int i=0;i<Rank.values().length;i++)
+< 			for(int j=0;j<Suit.values().length;j++)
+< 				deck[i][j]=true;
+< 	}
+< 	private void addSomePlayers() {
+< 		addPlayer("AcAd");
+< 		addPlayer("AhKh");
+< 		addPlayer("2c3d");
+< 	}
+< 	void addPlayer(String argument) { // wants a specific hand
+< 		final Player p=new Player();
+< 		players.add(p);
+< 		p.id=players.size();
+< 		if(true) {
+< 			p.holeRanks[0]=Rank.fromCharacter(argument.charAt(0)).fixAces();
+< 			p.holeSuits[0]=Suit.fromCharacter(argument.charAt(1));
+< 			p.holeRanks[1]=Rank.fromCharacter(argument.charAt(2)).fixAces();
+< 			p.holeSuits[1]=Suit.fromCharacter(argument.charAt(1));
+< 		} else {
+< 			p.holeRanks[0]=Rank.fromCharacter(argument.charAt(0));
+< 			if(p.holeRanks[0]==Rank.ace) p.holeRanks[0]=Rank.aceLow;
+< 			p.holeSuits[0]=Suit.fromCharacter(argument.charAt(1));
+< 			if(!remove(p.holeRanks[0],p.holeSuits[0])) throw new RuntimeException("oops");
+< 			p.holeRanks[1]=Rank.fromCharacter(argument.charAt(2));
+< 			if(p.holeRanks[1]==Rank.ace) p.holeRanks[1]=Rank.aceLow;
+< 			p.holeSuits[1]=Suit.fromCharacter(argument.charAt(3));
+< 			if(!remove(p.holeRanks[1],p.holeSuits[1])) throw new RuntimeException("oops");
+< 		}
+< 	}
+< 	public boolean addPlayer(HoldemHand holdemHand,boolean[][] deck) { // needs
+< 																		// work!!!
+< 																		// - no
+< 																		// suited
+< 																		// etc.
+< 		SpecificHoldemHand h=SpecificHoldemHand.findHandInDeck(holdemHand,deck);
+< 		final Player p=new Player();
+< 		players.add(p);
+< 		p.id=players.size();
+< 		p.holeRanks[0]=holdemHand.r1;
+< 		if(p.holeRanks[0]==Rank.ace) p.holeRanks[0]=Rank.aceLow;
+< 		p.holeSuits[0]=Suit.clubs;
+< 		if(!remove(p.holeRanks[0],p.holeSuits[0])) return false;
+< 		p.holeRanks[1]=holdemHand.r2;
+< 		if(p.holeRanks[1]==Rank.ace) p.holeRanks[1]=Rank.aceLow;
+< 		p.holeSuits[1]=Suit.diamonds;
+< 		if(!remove(p.holeRanks[1],p.holeSuits[1])) return false;
+< 		return true;
+---
+> 		if(fifth) fourth=true;
+> 		number_of_cards=4*(highest_card_in_deck.ordinal()); // check this!
+> 		System.out.println("number_of_cards="+number_of_cards);
+> 		predicted_flops=Cards.c(number_of_cards-2*players.size(),3);
+> 		predicted_fourths=Cards.c(number_of_cards-2*players.size(),4);
+> 		predicted_fifths=Cards.c(number_of_cards-2*players.size(),5);
+> 		for(Player p:players)
+> 			System.out.println("player "+' '+p.holeCards());
+> 		if(players.size()>0) System.out.println(", players="+players.size());
+194d164
+< 			// make static instance
+196d165
+< 				// make static instance
+207d175
+< 						// cache these? treeset? rank + suited
+299d266
+< 						// Ace(low), King, Deuce, Ace(low), Trey
+301,302c268
+< 							junk++;
+< 							System.out.println("b4 lookup: "+Arrays.asList(ranks)+" junk="+junk);
+---
+> 							System.out.println("fifth: "+Arrays.asList(ranks)+" "+fifths);
+304,306c270
+< 						n=(short)OldLookup.lookup(ranks,Suit.areSuited(suits));
+< 						if(n==-1) {
+< 							System.out.println("after lookup: "+Arrays.asList(ranks)+" junk="+junk);
+---
+> 						if(fifths==52) {
+308c272,276
+< 							throw new RuntimeException("lookup failed!");
+---
+> 						}
+> 						n=(short)OldLookup.lookup(ranks,Suit.areSuited(suits));
+> 						if(fifths==52) {
+> 							Card[] cards=OldLookup.inverseLookup(n);
+> 							System.out.println(fifths+" "+Arrays.asList(cards));
+367d334
+< 				// make static instance
+440d406
+< 			// // make static instance
+442d407
+< 				// make static instance
+462c427
+< 											best_flop_hand=total; // 75432
+---
+> 											best_flop_hand=total;
+510,531d474
+< 	void run() {
+< 		if(fifth) fourth=true;
+< 		number_of_cards=4*(highest_card_in_deck.ordinal()); // check
+< 															// this!
+< 		System.out.println("number_of_cards="+number_of_cards);
+< 		predicted_flops=Cards.c(number_of_cards-2*players.size(),3);
+< 		predicted_fourths=Cards.c(number_of_cards-2*players.size(),4);
+< 		predicted_fifths=Cards.c(number_of_cards-2*players.size(),5);
+< 		for(Player p1:players)
+< 			System.out.println("player "+' '+p1.holeCards());
+< 		if(players.size()>0) System.out.println(", players="+players.size());
+< 		flop();
+< 		report();
+< 		for(Player p:players)
+< 			System.out.println(p.holeCards2()+" "+p.fifthInfo());
+< 		if(flops!=predicted_flops) System.out.println("flops!=predicted_flops");
+< 		if(fourth) if(fourths!=predicted_fourths) System.out.println("fourths!=predicted_fourths");
+< 		if(fifth) if(fifths!=predicted_fifths) System.out.println("fifths!=predicted_fifths");
+< 		/*
+< 		 * for(p=0;p<players;p++) { print_hole_cards(p); printf("\n"); for(i=0;i<NAH;i++) printf("%8d %s\n",player[p].type[i],lh2a(i)); }
+< 		 */
+< 	}
+546,550d488
+< 	void print() {
+< 		System.out.println(players.size()+" players.");
+< 		for(Player player:players)
+< 			System.out.println(player);
+< 	}
+552,557c490,499
+< 		final Don don=new Don();
+< 		don.processArguments(args);
+< 		don.fourth=don.fifth=true;
+< 		if(don.players.size()==0) don.addSomePlayers();
+< 		don.print();
+< 		don.run();
+---
+> 		final Donb404182010 don=new Donb404182010();
+> 		don.init(args);
+> 		don.flop();
+> 		don.report();
+> 		if(don.flops!=don.predicted_flops) System.out.println("don.flops!=don.predicted_flops");
+> 		if(don.fourths!=don.predicted_fourths) System.out.println("don.fourths!=don.predicted_fourths");
+> 		if(don.fifths!=don.predicted_fifths) System.out.println("don.fifths!=don.predicted_fifths");
+> 		/*
+> 		 * for(p=0;p<players;p++) { print_hole_cards(p); printf("\n"); for(i=0;i<NAH;i++) printf("%8d %s\n",player[p].type[i],lh2a(i)); }
+> 		 */
+559d500
+< 	int junk,loops;
+562a504
+> 	String output_name;

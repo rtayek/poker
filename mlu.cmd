@@ -1,0 +1,1 @@
+java -cp bin poker.universe.MakeLowUniverse %*

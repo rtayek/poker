@@ -1,0 +1,224 @@
+
+D:\home\ray\workspace.old\poker>java -cp bin;../lib/junit.jar poker.holdem.Don -5 AcAd AhAs 
+15
+5
+number_of_cards=52
+player  acad
+player  ahas
+, players=2
+report
+acad 0 wins,1000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,1000 ties,0 losses 0% 100% 0% (flop)
+acad 164 wins,15762 ties,0 losses 1.03% 98.97% 0% (fourth)
+ahas 0 wins,15762 ties,164 losses 0% 98.97% 1.03% (fourth)
+acad 6754 wins,169906 ties,989 losses 3.8% 95.64% 0.56% (fifth)
+ahas 989 wins,169906 ties,6754 losses 0.56% 95.64% 3.8% (fifth)
+acad 0 wins,241 ties,2 losses 0% 99.18% 0.82% (board)
+ahas 0 wins,241 ties,342 losses 0% 41.34% 58.66% (board)
+1000 flops  ,17296 0.057816837
+15926 fourths  ,194580 0.081848085
+177649 fifths  ,1712304 0.103748515
+report
+acad 0 wins,2000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,2000 ties,0 losses 0% 100% 0% (flop)
+acad 326 wins,30559 ties,0 losses 1.06% 98.94% 0% (fourth)
+ahas 0 wins,30559 ties,326 losses 0% 98.94% 1.06% (fourth)
+acad 13152 wins,324890 ties,1978 losses 3.87% 95.55% 0.58% (fifth)
+ahas 1978 wins,324890 ties,13152 losses 0.58% 95.55% 3.87% (fifth)
+acad 0 wins,482 ties,4 losses 0% 99.18% 0.82% (board)
+ahas 0 wins,482 ties,683 losses 0% 41.37% 58.63% (board)
+2000 flops  ,17296 0.115633674
+30885 fourths  ,194580 0.15872648
+340020 fifths  ,1712304 0.19857456
+report
+acad 0 wins,3000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,3000 ties,0 losses 0% 100% 0% (flop)
+acad 330 wins,44639 ties,161 losses 0.73% 98.91% 0.36% (fourth)
+ahas 161 wins,44639 ties,330 losses 0.36% 98.91% 0.73% (fourth)
+acad 13857 wins,466955 ties,8368 losses 2.83% 95.46% 1.71% (fifth)
+ahas 8368 wins,466955 ties,13857 losses 1.71% 95.46% 2.83% (fifth)
+acad 0 wins,723 ties,345 losses 0% 67.7% 32.3% (board)
+ahas 0 wins,723 ties,686 losses 0% 51.31% 48.69% (board)
+3000 flops  ,17296 0.17345051
+45130 fourths  ,194580 0.23193546
+489180 fifths  ,1712304 0.28568524
+report
+acad 0 wins,4000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,4000 ties,0 losses 0% 100% 0% (flop)
+acad 330 wins,58029 ties,329 losses 0.56% 98.88% 0.56% (fourth)
+ahas 329 wins,58029 ties,330 losses 0.56% 98.88% 0.56% (fourth)
+acad 14518 wins,597022 ties,14511 losses 2.32% 95.36% 2.32% (fifth)
+ahas 14511 wins,597022 ties,14518 losses 2.32% 95.36% 2.32% (fifth)
+acad 0 wins,964 ties,688 losses 0% 58.35% 41.65% (board)
+ahas 0 wins,964 ties,688 losses 0% 58.35% 41.65% (board)
+4000 flops  ,17296 0.23126735
+58688 fourths  ,194580 0.30161372
+626051 fifths  ,1712304 0.36561906
+report
+acad 0 wins,5000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,5000 ties,0 losses 0% 100% 0% (flop)
+acad 450 wins,71360 ties,330 losses 0.62% 98.92% 0.46% (fourth)
+ahas 330 wins,71360 ties,450 losses 0.46% 98.92% 0.62% (fourth)
+acad 19173 wins,728599 ties,15334 losses 2.51% 95.48% 2.01% (fifth)
+ahas 15334 wins,728599 ties,19173 losses 2.01% 95.48% 2.51% (fifth)
+acad 0 wins,1205 ties,690 losses 0% 63.59% 36.41% (board)
+ahas 0 wins,1205 ties,910 losses 0% 56.97% 43.03% (board)
+5000 flops  ,17296 0.2890842
+72140 fourths  ,194580 0.37074724
+763106 fifths  ,1712304 0.44566035
+report
+acad 0 wins,6000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,6000 ties,0 losses 0% 100% 0% (flop)
+acad 570 wins,85219 ties,366 losses 0.66% 98.91% 0.42% (fourth)
+ahas 366 wins,85219 ties,570 losses 0.42% 98.91% 0.66% (fourth)
+acad 23444 wins,862960 ties,17577 losses 2.59% 95.46% 1.94% (fifth)
+ahas 17577 wins,862960 ties,23444 losses 1.94% 95.46% 2.59% (fifth)
+acad 0 wins,1687 ties,788 losses 0% 68.16% 31.84% (board)
+ahas 0 wins,1687 ties,1134 losses 0% 59.8% 40.2% (board)
+6000 flops  ,17296 0.34690103
+86155 fourths  ,194580 0.44277418
+903981 fifths  ,1712304 0.5279325
+report
+acad 0 wins,7000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,7000 ties,0 losses 0% 100% 0% (flop)
+acad 570 wins,98407 ties,514 losses 0.57% 98.91% 0.52% (fourth)
+ahas 514 wins,98407 ties,570 losses 0.52% 98.91% 0.57% (fourth)
+acad 24046 wins,983546 ties,22833 losses 2.33% 95.45% 2.22% (fifth)
+ahas 22833 wins,983546 ties,24046 losses 2.22% 95.45% 2.33% (fifth)
+acad 0 wins,1928 ties,1066 losses 0% 64.4% 35.6% (board)
+ahas 0 wins,1928 ties,1136 losses 0% 62.92% 37.08% (board)
+7000 flops  ,17296 0.40471786
+99491 fourths  ,194580 0.51131153
+1030425 fifths  ,1712304 0.6017769
+report
+acad 0 wins,8000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,8000 ties,0 losses 0% 100% 0% (flop)
+acad 650 wins,110287 ties,570 losses 0.58% 98.91% 0.51% (fourth)
+ahas 570 wins,110287 ties,650 losses 0.51% 98.91% 0.58% (fourth)
+acad 26913 wins,1082044 ties,24526 losses 2.37% 95.46% 2.16% (fifth)
+ahas 24526 wins,1082044 ties,26913 losses 2.16% 95.46% 2.37% (fifth)
+acad 0 wins,2169 ties,1138 losses 0% 65.59% 34.41% (board)
+ahas 0 wins,2169 ties,1273 losses 0% 63.02% 36.98% (board)
+8000 flops  ,17296 0.4625347
+111507 fourths  ,194580 0.57306504
+1133483 fifths  ,1712304 0.66196364
+report
+acad 0 wins,9000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,9000 ties,0 losses 0% 100% 0% (flop)
+acad 738 wins,121804 ties,598 losses 0.6% 98.92% 0.49% (fourth)
+ahas 598 wins,121804 ties,738 losses 0.49% 98.92% 0.6% (fourth)
+acad 29770 wins,1180570 ties,26047 losses 2.41% 95.49% 2.11% (fifth)
+ahas 26047 wins,1180570 ties,29770 losses 2.11% 95.49% 2.41% (fifth)
+acad 0 wins,2621 ties,1206 losses 0% 68.49% 31.51% (board)
+ahas 0 wins,2621 ties,1414 losses 0% 64.96% 35.04% (board)
+9000 flops  ,17296 0.5203515
+123140 fourths  ,194580 0.6328502
+1236387 fifths  ,1712304 0.72206044
+report
+acad 0 wins,10000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,10000 ties,0 losses 0% 100% 0% (flop)
+acad 738 wins,133390 ties,728 losses 0.55% 98.91% 0.54% (fourth)
+ahas 728 wins,133390 ties,738 losses 0.54% 98.91% 0.55% (fourth)
+acad 30160 wins,1272069 ties,30022 losses 2.26% 95.48% 2.25% (fifth)
+ahas 30022 wins,1272069 ties,30160 losses 2.25% 95.48% 2.26% (fifth)
+acad 0 wins,2892 ties,1411 losses 0% 67.21% 32.79% (board)
+ahas 0 wins,2892 ties,1416 losses 0% 67.13% 32.87% (board)
+10000 flops  ,17296 0.5781684
+134856 fourths  ,194580 0.693062
+1332251 fifths  ,1712304 0.77804583
+report
+acad 0 wins,11000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,11000 ties,0 losses 0% 100% 0% (flop)
+acad 830 wins,144270 ties,738 losses 0.57% 98.92% 0.51% (fourth)
+ahas 738 wins,144270 ties,830 losses 0.51% 98.92% 0.57% (fourth)
+acad 33053 wins,1357510 ties,30615 losses 2.33% 95.52% 2.15% (fifth)
+ahas 30615 wins,1357510 ties,33053 losses 2.15% 95.52% 2.33% (fifth)
+acad 0 wins,3374 ties,1420 losses 0% 70.38% 29.62% (board)
+ahas 0 wins,3374 ties,1565 losses 0% 68.31% 31.69% (board)
+11000 flops  ,17296 0.6359852
+145838 fourths  ,194580 0.74950147
+1421178 fifths  ,1712304 0.82997996
+report
+acad 0 wins,12000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,12000 ties,0 losses 0% 100% 0% (flop)
+acad 850 wins,154300 ties,815 losses 0.54% 98.93% 0.52% (fourth)
+ahas 815 wins,154300 ties,850 losses 0.52% 98.93% 0.54% (fourth)
+acad 33713 wins,1429092 ties,33008 losses 2.25% 95.54% 2.21% (fifth)
+ahas 33008 wins,1429092 ties,33713 losses 2.21% 95.54% 2.25% (fifth)
+acad 0 wins,3856 ties,1549 losses 0% 71.34% 28.66% (board)
+ahas 0 wins,3856 ties,1584 losses 0% 70.88% 29.12% (board)
+12000 flops  ,17296 0.69380206
+155965 fourths  ,194580 0.80154693
+1495813 fifths  ,1712304 0.8735674
+report
+acad 0 wins,13000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,13000 ties,0 losses 0% 100% 0% (flop)
+acad 910 wins,163865 ties,850 losses 0.55% 98.94% 0.51% (fourth)
+ahas 850 wins,163865 ties,910 losses 0.51% 98.94% 0.55% (fourth)
+acad 35382 wins,1493097 ties,33994 losses 2.26% 95.56% 2.18% (fifth)
+ahas 33994 wins,1493097 ties,35382 losses 2.18% 95.56% 2.26% (fifth)
+acad 0 wins,4338 ties,1588 losses 0% 73.2% 26.8% (board)
+ahas 0 wins,4338 ties,1673 losses 0% 72.17% 27.83% (board)
+13000 flops  ,17296 0.75161886
+165625 fourths  ,194580 0.8511923
+1562473 fifths  ,1712304 0.9124974
+report
+acad 0 wins,14000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,14000 ties,0 losses 0% 100% 0% (flop)
+acad 920 wins,172235 ties,920 losses 0.53% 98.94% 0.53% (fourth)
+ahas 920 wins,172235 ties,920 losses 0.53% 98.94% 0.53% (fourth)
+acad 35702 wins,1542595 ties,35702 losses 2.21% 95.58% 2.21% (fifth)
+ahas 35702 wins,1542595 ties,35702 losses 2.21% 95.58% 2.21% (fifth)
+acad 0 wins,4820 ties,1682 losses 0% 74.13% 25.87% (board)
+ahas 0 wins,4820 ties,1682 losses 0% 74.13% 25.87% (board)
+14000 flops  ,17296 0.8094357
+174075 fourths  ,194580 0.89461917
+1613999 fifths  ,1712304 0.94258904
+report
+acad 0 wins,15000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,15000 ties,0 losses 0% 100% 0% (flop)
+acad 960 wins,180112 ties,940 losses 0.53% 98.96% 0.52% (fourth)
+ahas 940 wins,180112 ties,960 losses 0.52% 98.96% 0.53% (fourth)
+acad 36636 wins,1587059 ties,36281 losses 2.21% 95.61% 2.19% (fifth)
+ahas 36281 wins,1587059 ties,36636 losses 2.19% 95.61% 2.21% (fifth)
+acad 0 wins,5558 ties,1713 losses 0% 76.44% 23.56% (board)
+ahas 0 wins,5558 ties,1739 losses 0% 76.17% 23.83% (board)
+15000 flops  ,17296 0.8672525
+182012 fourths  ,194580 0.9354096
+1659976 fifths  ,1712304 0.96944
+report
+acad 0 wins,16000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,16000 ties,0 losses 0% 100% 0% (flop)
+acad 980 wins,186966 ties,970 losses 0.52% 98.97% 0.51% (fourth)
+ahas 970 wins,186966 ties,980 losses 0.51% 98.97% 0.52% (fourth)
+acad 37056 wins,1619764 ties,36919 losses 2.19% 95.63% 2.18% (fifth)
+ahas 36919 wins,1619764 ties,37056 losses 2.18% 95.63% 2.19% (fifth)
+acad 0 wins,6631 ties,1763 losses 0% 79% 21% (board)
+ahas 0 wins,6631 ties,1778 losses 0% 78.86% 21.14% (board)
+16000 flops  ,17296 0.9250694
+188916 fourths  ,194580 0.9708912
+1693739 fifths  ,1712304 0.98915786
+report
+acad 0 wins,17000 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,17000 ties,0 losses 0% 100% 0% (flop)
+acad 990 wins,191876 ties,989 losses 0.51% 98.98% 0.51% (fourth)
+ahas 989 wins,191876 ties,990 losses 0.51% 98.98% 0.51% (fourth)
+acad 37210 wins,1636601 ties,37201 losses 2.17% 95.65% 2.17% (fifth)
+ahas 37201 wins,1636601 ties,37210 losses 2.17% 95.65% 2.17% (fifth)
+acad 0 wins,6748 ties,1780 losses 0% 79.13% 20.87% (board)
+ahas 0 wins,6748 ties,1780 losses 0% 79.13% 20.87% (board)
+17000 flops  ,17296 0.9828862
+193855 fourths  ,194580 0.99627405
+1711012 fifths  ,1712304 0.99924546
+report
+acad 0 wins,17296 ties,0 losses 0% 100% 0% (flop)
+ahas 0 wins,17296 ties,0 losses 0% 100% 0% (flop)
+acad 990 wins,192600 ties,990 losses 0.51% 98.98% 0.51% (fourth)
+ahas 990 wins,192600 ties,990 losses 0.51% 98.98% 0.51% (fourth)
+acad 37210 wins,1637884 ties,37210 losses 2.17% 95.65% 2.17% (fifth)
+ahas 37210 wins,1637884 ties,37210 losses 2.17% 95.65% 2.17% (fifth)
+acad 0 wins,6748 ties,1780 losses 0% 79.13% 20.87% (board)
+ahas 0 wins,6748 ties,1780 losses 0% 79.13% 20.87% (board)
+17296 flops  ,17296 1.0
+194580 fourths  ,194580 1.0
+1712304 fifths  ,1712304 1.0

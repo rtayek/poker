@@ -1,0 +1,11 @@
+when making the high universe, we always have the hand of five aces.
+this is a leftover from 5 card draw.
+maybe we should not have this?
+if so, then the lookup calculation will be off by one!
+
+read the data that's > 64k from a file! (for the case of high and low with binary search)
+
+dabinary has 7 bytes for each hand (5 ranks and a hand number in little endian format).
+da binary uses 00000 for the first hand - five aces AAAAA. - seems old and not used.
+the lookup table in Lookup goes from 22222 to AAAAA - reproduce from high universe!
+fix make da binary to output just the hand numbers (or ignore them when reading the file);

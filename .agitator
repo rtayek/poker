@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Agitator><Version>2.0</Version>
+<GUID>52EECCA4F4E5C986A5EF062D96DD0C9D</GUID>
+<AgitarDirectory>agitar</AgitarDirectory>
+<TestGenSourceDir>agitar\test</TestGenSourceDir>
+<JavaArgs>-Xms128m -Xmx512m</JavaArgs>
+<TestGenJavaArgs>-Xmx1024m</TestGenJavaArgs>
+<LibraryPath></LibraryPath>
+<generateWithoutMocks>false</generateWithoutMocks>
+</Agitator>
+

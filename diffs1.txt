@@ -1,0 +1,18 @@
+20c20
+< Dealer: doesn't show hand
+---
+> Dealer: shows [Qc Th]
+24,29c24,29
+< Seat 1: Hero (small blind) mucked
+< Seat 2: Big Blind (big blind) mucked
+< Seat 3: UTG mucked
+< Seat 4: UTGplus1 mucked
+< Seat 5: UTGplus2 mucked
+< Seat 6: Dealer (button) won ($0.25)
+---
+> Seat 1: Hero (small blind) mucked [4s 5s]
+> Seat 2: Big Blind (big blind) mucked [Kd 6h]
+> Seat 3: UTG mucked [6d 8c]
+> Seat 4: UTGplus1 mucked [8h Ts]
+> Seat 5: UTGplus2 mucked [Tc 3c]
+> Seat 6: Dealer (button) showed [Qc Th] and won ($0.25)
