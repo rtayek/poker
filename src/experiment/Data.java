@@ -268,10 +268,10 @@ public class Data {
 		a=new int[13][5];
 		for(int r=0;r<13;r++)
 			for(int k=0;k<=4;k++)
-				a[r][k]=Cards.c(r+4-k,5-k);
+				a[r][k]=(int)Cards.c(r+4-k,5-k);
 		b=new int[13][5];
 		for(int r=0;r<13;r++)
 			for(int k=0;k<=4;k++)
-				b[r][k]=Cards.c(r,5-k);
+				b[r][k]=(int)Cards.c(r,5-k);
 	}
 }

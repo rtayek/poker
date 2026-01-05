@@ -32,8 +32,10 @@ public class LookupTestCase extends TestCase {
 			final String cards=l.get(1);
 			final PokerHand.HighType type=PokerHand.HighType.fromCharacter(l.get(4).charAt(0));
 			final Rank[] ranks=Rank.fromCharacters(cards);
-			if(lines==1)
+			if(lines==1) {
+			    System.out.println(line);
 				System.out.println(type+" "+Arrays.asList(ranks));
+			}
 			int lookedUpHandNumber=OldLookup.lookup(ranks,type==PokerHand.HighType.flush||type==PokerHand.HighType.straightFlush);
 			assertEquals(handNumber,lookedUpHandNumber);
 			assertEquals(type,PokerHand.HighType.type(handNumber));

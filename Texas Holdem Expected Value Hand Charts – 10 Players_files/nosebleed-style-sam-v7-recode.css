@@ -1,0 +1,6311 @@
+/*
+  The original NoseBleed v1.09 skin for phpBB version 2+
+  Created by Mike Lothar (c) 2004
+  mikelothar dot com
+
+  NOTE: These CSS definitions are stored within the main page body so that you can use the phpBB2
+  theme administration centre. When you have finalised your style you could cut the final CSS code
+  and place it in an external file, deleting this section to save bandwidth.
+*/
+
+/* General page style. The scroll bar colours only visible in IE5.5+ */
+body {
+	scrollbar-face-color: #e6d5ac;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #cfbf9a;
+	scrollbar-3dlight-color: #ffffff;
+	scrollbar-arrow-color:  #cb7600;
+	scrollbar-track-color: #f2eede;
+	scrollbar-darkshadow-color: #cfbf9a;
+	behavior:url("csshover3.htc");
+}
+
+
+
+body,table {
+	font-size : 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+}
+
+body.bg {
+	background-color: #e6d5ac;
+}
+
+/* General font families for common tags */
+font,th,td,p { font-family: Verdana, Arial, Helvetica, sans-serif }
+a:link,a:active,a:visited { text-decoration: none; color : #002BB8; }
+a:hover		{ text-decoration: underline; color : #CB7600; }
+hr	{ height: 0px; border: solid #E7D396 0px; border-top-width: 0px;}
+
+/* This is the border line & background colour round the entire page */
+.bodyline	{
+	/* background-color: #E7D396;  */
+	border: 0px #E7D396 solid;
+}
+
+/* This is the outline round the main forum tables */
+.forumline	{
+	/* background-color: #E7D396;  */
+	border: 0px #E7D396 solid;
+}
+
+/* Main table cell colours and backgrounds */
+td.row1	{ background-color: #fbf9f3; border-width: 0px; }
+td.row2	{ background-color: #f2eede; border-width: 0px; }
+td.row3	{ background-color: #cb7600; border-width: 0px; background-image: url("http://www.flopturnriver.com/images/layout/pagebar-bg.png"); }
+td.row4	{ background-color: #FFFFFF; border-width: 0px; }
+td.row5	{ background-color: #E7D396; border-width: 0px; }
+td.row6	{ background-color: #CCA35F; border-width: 0px; }
+td.row7 { background-color: #ede2c5; border-width: 0px; background-image: url("http://www.flopturnriver.com/images/layout/navbar-bg.png"); }
+
+td.bglite	{
+	background-color: #fbf9f3; border-width: 0px; padding: 0px 8px 0px 8px;
+	background-repeat: no-repeat; background-position: 100% 100%
+}
+
+td.matrix1	{ background-color: #fbf9f3; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; }
+td.matrix2	{ background-color: #f2eede; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; }
+td.matrix1-30	{ background-color: #fbf9f3; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; width: 30%; }
+td.matrix2-30	{ background-color: #f2eede; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; width: 30%; }
+td.matrix1-35	{ background-color: #fbf9f3; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; width: 35%; }
+td.matrix2-35	{ background-color: #f2eede; border-width: 0px; padding: 3px 8px 4px 8px; text-align: center; width: 35%; }
+
+/*
+  This is for the table cell above the Topics, Post & Last posts on the index.php page
+  By default this is the fading out gradiated silver background.
+  However, you could replace this with a bitmap specific for each forum
+*/
+td.rowpic {
+	/* background-color: #E7D396; */
+}
+
+/* Header cells - the blue and silver gradient backgrounds */
+
+th	{
+	color: #000000; font-size: 10px; font-weight : bold;
+	/* background-color: #E7D396; */
+	height: 25px;
+}
+
+td.cat,td.catHead,td.catSides,td.catLeft,td.catRight,td.catBottom {
+	/* background-color:#E7D396; */
+	border: #86430E; border-style: solid; height: 28px;
+}
+
+/*
+  Setting additional nice inner borders for the main table cells.
+  The names indicate which sides the border will be on.
+  Don't worry if you don't understand this, just ignore it :-)
+*/
+td.cat {
+   height: 29px;
+   border-width: 0px 0px 0px 0px;
+   background-color:#FFF6D8;
+}
+
+td.catBottom {
+   height: 29px;
+   border-width: 0px 0px 0px 0px;
+   background-color:#D9BA76;
+}
+
+td.catHead {
+   height: 29px;
+   border-width: 0px 0px 0px 0px;
+   /* background-color:#E7D396; */
+}
+
+td.calTop {
+   height: 22px;
+   border-width: 0px 0px 0px 0px;
+   background-color:#D9BA76;
+}
+
+th.thHead,th.thSides,th.thTop,th.thLeft,th.thRight,th.thBottom,th.thCornerL,th.thCornerR {
+	font-weight: bold; color: #CCA35F; border: #CCA35F; border-style: solid; height: 24px;
+}
+td.row3Right,td.spaceRow {
+	/* background-color: #E7D396; */
+	border: #86430E; border-style: solid;
+}
+
+th.thHead,td.catHead { font-size: 10px; border-width: 0px 0px 0px 0px; }
+th.thSides,td.catSides,td.spaceRow	 { border-width: 0px 0px 0px 0px; }
+th.thRight,td.catRight,td.row3Right	 { border-width: 0px 0px 0px 0px; }
+th.thLeft,td.catLeft	  { border-width: 0px 0px 0px 0px; }
+th.thBottom,td.catBottom  { border-width: 0px 0px 0px 0px; }
+th.thTop	 { border-width: 1px 0px 1px 0px; line-height: 125%}
+th.thCornerL { border-width: 1px 0px 1px 0px; line-height: 125%}
+th.thCornerR { border-width: 1px 0px 1px 0px; line-height: 125%}
+
+/* The largest text used in the index page title and toptic title etc. */
+.maintitle	{
+	font-weight: bold; font-size: 22px; font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none; line-height: 110%; color : #000000;
+}
+
+.maintitle2	{
+	font-weight: bold; font-size: 28px; font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none; line-height: 110%; color : #000000;
+}
+
+/* General text */
+.gen { font-size : 11px; line-height: 16px; }
+.gentiny { font-size : 9px; line-height: 13px; }
+.gentinyred { font-size: 9px; line-height: 13px; color: #B60801; }
+.gensmall { font-size : 10px; line-height: 14px; }
+.gensmallbold { font-size : 10px; line-height: 14px; font-weight: bold; }
+.gensmallred { font-size : 10px; line-height: 14px; color : #B60801; }
+.genmed { font-size : 12px; line-height: 19px; }
+.genmedred { font-size : 12px; line-height: 19px; color : #B60801; }
+.genbody { font-size : 13px; line-height: 21px; }
+.genbodyred { font-size : 13px; line-height: 21px; color : #B60801; }
+.genbodyblue { font-size : 13px; line-height: 21px; color : #030058; }
+.genbig { font-size : 14px; line-height: 22px; }
+.genlarge { font-size : 16px; line-height: 24px; }
+.genlarge2 { font-size : 18px; line-height: 18px; }
+.genlargered { font-size : 16px; line-height: 24px; color : #B60801; }
+.gen, .gensmall, .gentiny, .genmed, .genbody, .genbig, .genlarge, .genlarge2 { color : #000000; }
+a.gen, a.gensmall, a.gensmallbold, a.gentiny, a.genmed, a.genbody, a.genbig, a.genlarge, a.genlarge2 { color: #000000; text-decoration: none; }
+a.gen:visited, a.gensmall:visited, a.gensmallbold:visited, a.gentiny:visited, a.genmed:visited, a.genbody:visited, a.genbig:visited, a.genlarge:visited, a.genlarge2:visited { color: #000000; text-decoration: none; }
+a.gen:hover, a.gensmall:hover, a.gensmallbold:hover, a.gentiny:hover, a.genmed:hover, a.genbody:hover, a.genbig:hover, a.genlarge:hover, a.genlarge2:hover { color: #CB7600; text-decoration: underline; }
+a.genmedred, a.genbodyred, a.genlargered, a.gentinyred, a.gensmallred { color: #B60801; text-decoration: none; }
+a.genmedred:visited, a.genbodyred:visited, a.genlargered:visited, a.gentinyred:visited, a.gensmallred:visited { color: #B60801; text-decoration: none; }
+a.genbodyblue { color: #030058; text-decoration: none; }
+a.genbodyblue:visited { color: #030058; text-decoration: none; }
+a.genmedred:hover, a.genbodyred:hover, a.genlargered:hover, a.genbodyblue:hover, a.gentinyred:hover, a.gensmallred:hover { color: #CB7600; text-decoration: underline; }
+
+.btnbar-white { font-size : 14px; line-height: 18px; font-weight: bold; color: #ffffff}
+a.btnbar-white, a.btnbar-white:visited { color: #ffffff; text-decoration: none; }
+a.btnbar-white:hover { color: #ffffff; text-decoration: underline; }
+
+.btnbar-black { font-size : 14px; line-height: 18px; font-weight: bold; color: #000000}
+a.btnbar-black, a.btnbar-black:visited { color: #000000; text-decoration: none; }
+a.btnbar-black:hover { color: #000000; text-decoration: underline; }
+
+.linebreak		{ font-size : 5px; line-height: 5px; }
+.quadbreak		{ font-size : 4px; line-height: 4px; }
+.triplebreak	{ font-size : 3px; line-height: 3px; }
+.tinybreak		{ font-size : 2px; line-height: 2px; }
+.onebreak		{ font-size : 1px; line-height: 1px; }
+.titlered		{ font-weight: bold; font-size : 14px; color : #B60801; }
+.bigtitleblue	{ font-weight: bold; font-size : 16px; color : #030058; }
+
+.bigtitle	{ font-weight: bold; font-size : 16px; color : #000000; }
+
+.bigtitlewhite	{ font-weight: bold; font-size : 16px; color : #ffffff; }
+a.bigtitlewhite:link { color: #ffffff; text-decoration: none; }
+a.bigtitlewhite:visited { color: #ffffff; text-decoration: none; }
+a.bigtitlewhite:hover { color: #ffffff; text-decoration: underline; }
+
+.tinyblue		{ font-size: 9px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #030058;}
+.tinygray		{ font-size: 9px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #7D7D7D;}
+.tinyblack		{ font-size: 9px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; line-height: 12px; }
+.smallgray		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #7D7D7D;}
+.smallgray2		{ font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #7D7D7D; line-height: 17px; }
+.smallgray3		{ font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #7D7D7D; line-height: 20px; }
+
+/* The register, login, search etc links at the top of the page */
+.mainmenu		{ font-weight: bold; font-size : 10px; color : #002BB8; }
+a.mainmenu		{ font-weight: bold; font-size : 10px; text-decoration: none; color : #002BB8; }
+a.mainmenu:visited	{ font-weight: bold; font-size : 10px; text-decoration: none; color : #002BB8; }
+a.mainmenu:hover{ font-weight: bold; font-size : 10px; text-decoration: underline; color : #CB7600; }
+
+.mainmenured		{ font-weight: bold; font-size : 10px; color : #B60801; }
+a.mainmenured		{ font-weight: bold; font-size : 10px; text-decoration: none; color : #B60801; }
+a.mainmenured:visited	{ font-weight: bold; font-size : 10px; text-decoration: none; color : #B60801; }
+a.mainmenured:hover{ font-weight: bold; font-size : 10px; text-decoration: underline; color : #B60801; }
+
+table.btnbar-dl {
+	border-collapse: collapse;
+	background-color: #1ea427; border-width: 2px; border-color: #004106; border-style: solid;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-dl-bg.png");
+	background-position: 0 50%;
+}
+
+td.btnbar-dl {
+	width: 22px; padding-right: 2px;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-dl.png");
+	background-position: 0 50%; background-repeat: no-repeat;
+}
+
+
+table.btnbar-visit {
+	border-collapse: collapse;
+	background-color: #b60801; border-width: 2px; border-color: #460302; border-style: solid;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-visit-bg.png");
+	background-position: 0 50%;
+}
+
+td.btnbar-visit {
+	width: 22px; padding-right: 2px;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-visit.png");
+	background-position: 0 50%; background-repeat: no-repeat;
+}
+
+
+table.btnbar-forum {
+	border-collapse: collapse;
+	background-color: #af4900; border-width: 2px; border-color: #4f2500; border-style: solid;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-forum-bg.png");
+	background-position: 0 50%;
+}
+
+table.btnbar-forum-b {
+	border-collapse: collapse;
+	background-color: #46649e; border-width: 2px; border-color: #2c3d61; border-style: solid;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-blue-bg.png");
+	background-position: 0 50%;
+}
+
+table.btnbar-forum-c {
+	border-collapse: collapse;
+	background-color: #eaa300; border-width: 2px; border-color: #784104; border-style: solid;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-gold-bg.png");
+	background-position: 0 50%;
+}
+
+.sidenavbtn		{ font-weight: bold; font-size: 13px; line-height: 14px; color: #000000; font-variant: small-caps;
+					font-family: Verdana, Arial, Helvetica, sans-serif; }
+a.sidenavbtn		{ font-weight: bold; font-size: 13px; line-height: 14px; text-decoration: none; color: #000000; }
+a.sidenavbtn:visited	{ font-weight: bold; font-size: 13px; line-height: 14px; text-decoration: none; color: #000000; }
+a.sidenavbtn:hover	{ font-weight: bold; font-size: 13px; line-height: 14px; text-decoration: underline; color: #cb7600; }
+
+.navmedred		{ font-weight: bold; font-size : 11px; color : #B60801; }
+a.navmedred		{ font-weight: bold; font-size : 11px; text-decoration: none; color : #B60801; }
+a.navmedred:visited	{ font-weight: bold; font-size : 11px; text-decoration: none; color : #B60801; }
+a.navmedred:hover{ font-weight: bold; font-size : 11px; text-decoration: underline; color : #B60801; }
+
+.navbigred		{ font-weight: bold; font-size : 14px; color : #B60801; }
+a.navbigred		{ font-weight: bold; font-size : 14px; text-decoration: none; color : #B60801; }
+a.navbigred:visited	{ font-weight: bold; font-size : 14px; text-decoration: none; color : #B60801; }
+a.navbigred:hover{ font-weight: bold; font-size : 14px; text-decoration: underline; color : #B60801; }
+
+/* Forum category titles */
+.cattitle		{ font-weight: bold; font-size: 14px ; color : #000000}
+a.cattitle		{ text-decoration: none; color : #000000; }
+a.cattitle:visited		{ text-decoration: none; color : #000000; }
+a.cattitle:hover{ text-decoration: underline; color : #CB7600; }
+
+/* Forum title: Text and link to the forums used in: index.php */
+.forumlink		{ font-weight: bold; font-size: 14px; color : #000000; }
+a.forumlink 	{ text-decoration: none; color : #000000; }
+a.forumlink:visited 	{ text-decoration: none; color : #000000; }
+a.forumlink:hover{ text-decoration: underline; color : #CB7600; }
+
+/* Used for the navigation text, (Page 1,2,3 etc) and the navigation bar when in a forum */
+.nav			{ font-weight: bold; font-size: 11px; color : #002BB8; text-align: left; }
+a.nav			{ font-weight: bold; font-size: 11px; text-decoration: none; color : #002BB8; text-align: left; }
+a.nav:visited			{ font-weight: bold; font-size: 11px; text-decoration: none; color : #002BB8; text-align: left; }
+a.nav:hover		{ font-weight: bold; font-size: 11px; text-decoration: underline; color : #CB7600; text-align: left; }
+
+/* titles for the topics: could specify viewed link colour too */
+.topictitle,h1,h2	{ font-weight: bold; font-size: 11px; color : #000000; }
+a.topictitle:link   { text-decoration: none; color : #86430E; }
+a.topictitle:visited { text-decoration: none; color : #86430E; }
+a.topictitle:hover	{ text-decoration: underline; color : #CB7600; }
+
+/* Name of poster in viewmsg.php and viewtopic.php and other places esprague namelight */
+.name			{ font-size : 11px; color : #000000;}
+
+.namelight			{ font-size : 11px; color : #ffffff;}
+a.namelight 	{ color : #ffffff; }
+a.namelight:visited 	{ color : #ffffff; }
+a.namelight:hover{ color : #ffffff; }
+
+/* Location, number of posts, post date etc */
+.postdetails		{ font-size : 10px; color : #000000; line-height: 7px}
+
+/* The content of the posts (body of text) */
+.postbody { font-size : 12px; line-height: 19px }
+a.postlink:link	{ text-decoration: none; color : #002BB8 }
+a.postlink:visited { text-decoration: none; color : #002BB8; }
+a.postlink:hover { text-decoration: underline; color : #CB7600}
+
+/* Quote & Code blocks */
+.code {
+	font-family: 'QuickType Mono', 'OCR-A II', 'OCR A Extended', 'OCR B MT', Courier, 'Courier New', sans-serif; font-size: 12px; color: #02600a;
+	background-color: #e5eae6; padding: 4px; border: #e5eae6; border-style: solid; border-width: 1px;
+}
+
+.quote {
+	font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #5f5f5f; line-height: 19px;
+	background-color: #f8f4e8; padding: 4px; border: #e6d5ac; border-style: solid; border-width: 1px;
+}
+
+/* Copyright and bottom info */
+.copyright		{ font-size: 9px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #AC6B27; line-height: 12px;}
+a.copyright		{ color: #AC6B27; text-decoration: none;}
+a.copyright:visited		{ color: #AC6B27; text-decoration: none;}
+a.copyright:hover { color: #CB7600; text-decoration: underline;}
+
+/* Form elements */
+
+input, textarea, text, select, border {
+	color : #000000;
+	font: normal 11px Verdana, Arial, Helvetica, sans-serif;
+	border-color : #000000;
+	text-indent : 2px;
+/*	margin 0px; */
+/*	padding 0px; */
+/*	border-width: 0px; */
+/*	border-style: solid; */
+}
+
+.noborder {
+	border-color : white;
+/*	margin 0px; */
+/*	padding 0px; */
+	border-width: 0px;
+	border-style: none;
+}
+
+/* The buttons used for bbCode styling in message post */
+input.button {
+	background-color: #e5cfa0;
+	background-image: url("http://www.flopturnriver.com/images/btn_bg3.gif"); background-position: 0 50%;
+	font-weight: normal;
+	font-size: 11px; color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* The main submit button option */
+input.mainoption {
+	background-color: #02a012;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-dl-bg.png"); background-position: 0 50%;
+	font-weight : bold;
+	font-size: 11px; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* Secondary submit button */
+input.liteoption {
+	background-color: #cf7f00;
+	background-image: url("http://www.flopturnriver.com/icon/btnbar-forum-bg.png"); background-position: 0 50%;
+	font-weight : bold;
+	font-size: 11px; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* This is the line in the posting page which shows the rollover
+  help line. This is actually a text box, but if set to be the same
+  colour as the background no one will know ;)
+*/
+.helpline { background-color: #EEE3C3; border-style: none; }
+
+/* Import the fancy styles for IE only (NS4.x doesn't use the @import function) */
+/* @import url("templates/NoseBleed/formIE.css"); -- misplaced @import, but the file is missing anyway -- alexs */
+
+/* NON-FORUM TEXT */
+.sectitle { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; color: #000; text-decoration: none }
+a.sectitle:link { color: #ffffff; text-decoration: none }
+a.sectitle:visited { color: #ffffff; text-decoration: none }
+a.sectitle:hover { color: #ffffff; text-decoration: underline }
+
+.secevent { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; color: #ffffff; text-decoration: none }
+a.secevent:link { color: #ffffff; text-decoration: none }
+a.secevent:visited { color: #ffffff; text-decoration: none }
+a.secevent:hover { color: #ffffff; text-decoration: underline }
+
+.bodytext { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; line-height: 20px }
+a.bodytext:link { text-decoration: none; color: #002BB8 }
+a.bodytext:visited { text-decoration: none; color: #002BB8 }
+a.bodytext:hover { text-decoration: underline; color: #CB7600 }
+
+.bodytextwhite { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #ffffff; line-height: 20px }
+
+.bodytextbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; color: #000000; line-height: 20px }
+
+.bodytextred { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #B60801; line-height: 20px }
+.bodytextblue { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #030058; line-height: 20px }
+.bodytextredbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; color: #B60801; line-height: 20px }
+.bodytextredbigbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 14px; color: #B60801; line-height: 22px }
+.bodytextredbigbold2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 18px; color: #B60801; line-height: 22px }
+
+a.bodytextred { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #B60801; line-height: 20px }
+a.bodytextblue { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #030058; line-height: 20px }
+a.bodytextredbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; color: #B60801; line-height: 20px }
+a.bodytextredbigbold { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 14px; color: #B60801; line-height: 22px }
+a.bodytextredbigbold2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 18px; color: #B60801; line-height: 22px }
+
+
+.list			{ font-weight: bold; font-size: 11px; line-height: 17px; color : #86430E; text-align: left; }
+a.list			{ font-weight: bold; font-size: 11px; line-height: 17px; text-decoration: none; color : #86430E; text-align: left; }
+a.list:visited			{ font-weight: bold; font-size: 11px; line-height: 17px; text-decoration: none; color : #86430E; text-align: left; }
+a.list:hover		{ font-weight: bold; font-size: 11px; line-height: 17px; text-decoration: underline; color : #CB7600; text-align: left; }
+
+.biglist			{ font-weight: bold; font-size: 14px; line-height: 22px; color : #86430E; text-align: left; }
+a.biglist			{ font-weight: bold; font-size: 14px; line-height: 22px; text-decoration: none; color : #86430E; text-align: left; }
+a.biglist:visited			{ font-weight: bold; font-size: 14px; line-height: 22px; text-decoration: none; color : #86430E; text-align: left; }
+a.biglist:hover		{ font-weight: bold; font-size: 14px; line-height: 22px; text-decoration: underline; color : #CB7600; text-align: left; }
+
+.listblack			{ font-weight: bold; font-size: 11px; line-height: 17px; color : #000000; text-align: left; }
+
+.listred			{ font-weight: bold; font-size: 11px; line-height: 17px; color : #B60801; }
+
+.indent		{ margin-left: 21px; margin-right: 16px; }
+
+.indent2	{ margin: 3px 16px 7px 22px; }
+
+-->
+
+h1 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:inline; margin-right:0;
+}
+h2 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:inline; margin-right:0;
+}
+h3 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:inline; margin-right:0;
+}
+h4 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:block; margin-right:0;
+	border-bottom: 1px solid #AAA;
+}
+h5 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:inline; margin-right:0;
+}
+h6 {
+	margin-bottom: 0;
+	font-weight: bold; font-size: 11px; color : #000000;
+	display:inline; margin-right:0;
+}
+
+
+/* NEW 2007 STYLES START */
+
+td.roomtitle {
+	background-repeat :no-repeat; text-align: left; vertical-align: middle;
+	border-width: 0px; padding: 0px 0px 0px 150px;
+}
+
+table.roomtitle {
+	width: 100%; border-collapse: collapse; border-spacing: 0;
+	background-image: url("http://www.flopturnriver.com/images/layout/navbar-bg.png");
+}
+
+div.roomtitle {
+	background-position: 0% 70%;
+	padding: 7px 8px 7px 10px;
+	background-image: url("http://www.flopturnriver.com/images/layout/navbar-bg.png");
+}
+
+table.normal {
+	width: 100%; border-collapse: collapse; border-spacing: 0;
+}
+
+td.boxtitle {
+	padding: 7px 10px 7px 10px;
+}
+
+td.boxtitle-nw {
+	white-space: nowrap;
+	padding: 7px 10px 7px 10px;
+}
+
+div.boxframe2 {
+	padding: 0px 0px 12px 0px;
+}
+
+div.boxborder {
+	padding: 0px 2px 2px 2px;
+}
+
+div.boxborder2 {
+	padding: 2px 2px 2px 2px;
+}
+
+div.boxframe {
+	padding: 11px 7px 0px 7px;
+}
+
+div.boxtitle {
+	background-repeat :no-repeat; background-position: 5px 50%;
+	padding: 7px 8px 7px 50px;
+}
+
+div.boxtitle2 {
+	padding: 7px 8px 7px 10px;
+	color : #000000;
+}
+
+div.boxtitle2-nw {
+	padding: 7px 8px 7px 10px;
+	white-space: nowrap;
+}
+
+div.revtitle {
+	background-color: #f2eede; padding: 3px 10px 5px 10px; margin: 0px -10px 0px -10px;
+	font-size : 11px; line-height: 16px;
+}
+
+div.revratings {
+	padding: 4px 0px 8px 20px;
+	font-size : 10px; line-height: 14px; font-weight: bold;
+}
+
+div.revbody {
+	padding-bottom: 15px;
+	font-size : 11px; line-height: 16px;
+}
+
+div.boxbody {
+	border-width: 0px 0px 1px 0px; border-style: dotted; border-color: #a0a0a0;
+	padding: 8px 14px 8px 14px;
+}
+
+div.boxbody2 {
+	padding: 7px 10px 7px 10px; background-color: #fbf9f3;
+	background-repeat: no-repeat; background-position: 100% 100%
+}
+
+div.boxbody3 {
+	padding: 7px 10px 7px 10px; background-color: #fbf9f3;
+	background-repeat: no-repeat; background-position: 88% 83%
+}
+
+div.boxbodyblack {
+	padding: 7px 10px 7px 10px; background-color: #000000;
+	background-repeat: no-repeat; background-position: 100% 100%
+}
+
+div.boxbody2-nobg {
+	padding: 7px 10px 7px 10px;
+}
+
+div.boxbody3-nobg {
+	padding: 0px 10px 7px 10px;
+}
+
+td.horiz-title {
+	background-repeat :no-repeat; background-position: 5px 50%;
+	white-space: nowrap;
+	border-style: solid; border-width: 2px;
+	padding: 7px 10px 7px 50px;
+}
+
+td.horiz-frame {
+	border-style: solid; border-width: 2px;
+	padding: 7px 10px 7px 10px; background-color: #fbf9f3;
+}
+
+div.boxbody2-hi {
+	padding: 4px 10px 10px 10px; background-color: #fbf9f3;
+}
+
+div.screenshot {
+	padding: 0px 10px 0px 10px; background-color: #fbf9f3;
+}
+
+div.screenshot-float {
+	padding: 0px 10px 0px 0px; background-color: #fbf9f3;
+	float: left; margin-top: 5px; margin-right: 8px; margin-bottom: 6px
+}
+
+table.screenshot-float {
+	padding: 0px 10px 0px 0px; background-color: #fbf9f3;
+	float: left; margin-top: 5px; margin-right: 8px; margin-bottom: 6px
+}
+
+div.thumbnail {
+	padding: 0; background-color: #fbf9f3;
+}
+
+div.boxbodypromo {
+	border-width: 0px 0px 1px 0px; border-style: dotted; border-color: #a0a0a0;
+	padding: 8px 14px 8px 14px;
+	background-image: url("images/bbg_bonus.png"); background-repeat :no-repeat; background-position: 100% 0%;
+}
+
+div.roombody {
+	padding: 8px 5px 0px 14px;
+}
+
+table.roombody {
+	border-width: 0px 0px 1px 0px; border-style: dotted; border-color: #a0a0a0;
+}
+
+table.newsbody {
+	border-width: 0px 0px 1px 0px; border-style: dotted; border-color: #a0a0a0;
+	padding: 8px 14px 14px 14px;
+}
+
+div.tabbox {
+	width:100%;
+	overflow:hidden;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-radius:0 0 10px 10px;
+
+}
+
+div.boxhead {
+	padding-top: 2px; padding-bottom: 0px; padding-left: 14px; padding-right: 14px;
+}
+
+div.scrollbody {
+	overflow: auto;
+	width:100%;
+	height:425px;
+	background-color:#FFFFFF;
+}
+
+div.scrollbox {
+	padding: 8px 14px 14px 14px;
+	overflow: auto;
+}
+
+div.boxfoot {
+	padding: 10px 14px 5px 14px;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-radius:0 0 10px 10px;
+
+}
+
+div.listrow {
+	padding: 7px 14px 7px 14px;
+	background-color: transparent !important;
+}
+
+div.newsrow {
+	border-width: 0px 0px 1px 0px; border-style: dotted; border-color: #a0a0a0;
+	padding: 10px 14px 15px 14px;
+}
+
+div.pixel {
+	font-size: 8px; line-height: 8px;
+	padding-bottom: 1px; padding-right: 1px;
+}
+
+div.navadbox {
+	padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;
+	text-align: center;
+}
+
+div.navadbox2 {
+	padding: 0px 2px 0px 2px;
+	text-align: center;
+}
+
+div.navspace {
+	padding-top: 6px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;
+	text-align: center;
+}
+
+div.navbox {
+	padding: 1px 2px 1px 2px;
+}
+
+div.navbox2 {
+	padding: 2px;
+}
+
+div.navhead {
+	padding-top: 2px; padding-bottom: 4px; padding-left: 13px; padding-right: 5px;
+	text-indent: -8px; background-image: url("http://www.flopturnriver.com/images/layout/navbar-bg.png");
+}
+
+div.navhead2 {
+	padding-top: 2px; padding-bottom: 4px; padding-left: 13px; padding-right: 5px;
+	text-indent: -8px; background-image: url("http://www.flopturnriver.com/images/layout/navbar-bg.png");
+}
+
+div.navbody {
+	padding-top: 1px; padding-bottom: 3px; padding-left: 13px; padding-right: 5px;
+	text-indent: -8px; background-color: #fbf9f3;
+}
+
+div.navbody2 {
+	padding-top: 1px; padding-bottom: 3px; padding-left: 13px; padding-right: 5px;
+	text-indent: -8px; background-color: #fbf9f3;
+}
+
+div.navbody3 {
+	padding-top: 1px; padding-bottom: 3px; padding-left: 13px; padding-right: 2px;
+	text-indent: -8px; float:right; background-color: #fbf9f3;
+}
+
+div.navbody-right {
+	padding: 0px 0px 3px 8px;
+	font-weight: bold; font-size : 10px; color : #002BB8;
+	text-indent: -8px;
+}
+
+td.navbody {
+	padding-top: 1px; padding-bottom: 3px; padding-left: 13px; padding-right: 5px;
+	text-indent: -8px; background-color: #fbf9f3;
+}
+
+div.navphoto {
+	padding: 0px 5px 4px 5px; background-color: #fbf9f3;
+}
+
+.boxtitle		{ font-weight: bold; font-size: 14px; line-height: 19px; color : #ffffff; }
+a.boxtitle 	{ text-decoration: none; color : #ffffff; }
+a.boxtitle:visited 	{ text-decoration: none; color : #ffffff; }
+a.boxtitle:hover{ text-decoration: underline; color : #ffffff; }
+
+.boxtitle2		{ font-weight: bold; font-size: 14px; line-height: 19px; color : #000000; }
+a.boxtitle2 	{ text-decoration: none; color : #000000; }
+a.boxtitle2:visited 	{ text-decoration: none; color : #000000; }
+a.boxtitle2:hover{ text-decoration: underline; color : #000000; }
+
+.boxtitle2_right		{ font-weight: bold; font-size: 12px; line-height: 19px; color : #000000; float: right;}
+a.boxtitle2_right 	{ text-decoration: none; font-weight: bold;}
+a.boxtitle2_right:visited 	{ text-decoration: none; }
+a.boxtitle2_right:hover{ text-decoration: underline; }
+
+.boxtitlema		{ font-weight: bold; font-size: 14px; line-height: 19px; color : #ffffff; }
+a.boxtitlema 	{ text-decoration: none; color : #ffffff; }
+a.boxtitlema:visited 	{ text-decoration: none; color : #ffffff; }
+a.boxtitlema:hover{ text-decoration: underline; color : #ffffff; }
+
+.boxtitle-red		{ font-weight: bold; font-size: 14px; line-height: 19px; color : #B60801; }
+a.boxtitle-red 	{ text-decoration: none; color : #B60801; }
+a.boxtitle-red:visited 	{ text-decoration: none; color : #B60801; }
+a.boxtitle-red:hover{ text-decoration: underline; color : #B60801; }
+
+.navtitle { font-size: 12px; line-height: 17px; font-weight: bold;}
+a.navtitle { color: #000000; text-decoration: none; }
+a.navtitle:visited { color: #000000; text-decoration: none; }
+a.navtitle:hover { color: #CB7600; text-decoration: underline; }
+
+.navtitle2 { font-size: 12px; line-height: 17px; font-weight: bold;}
+a.navtitle2 { color: #000000; text-decoration: none; }
+a.navtitle2:visited { color: #000000; text-decoration: none; }
+a.navtitle2:hover { color: #CB7600; text-decoration: underline; }
+
+.navlist { font-size: 11px; line-height: 13px;}
+a.navlist { color: #002BB8; text-decoration: none; }
+a.navlist:visited { color: #002BB8; text-decoration: none; }
+a.navlist:hover { color: #CB7600; text-decoration: underline; }
+
+.navsmall { font-size: 10px; line-height: 12px;}
+a.navsmall { color: #002BB8; text-decoration: none; }
+a.navsmall:visited { color: #002BB8; text-decoration: none; }
+a.navsmall:hover { color: #CB7600; text-decoration: underline; }
+
+div.navtopbox {
+	padding-top: 0px; padding-bottom: 7px; padding-left: 4px; padding-right: 4px;
+	text-align: center;
+}
+
+div.navtopbox-2009 {
+	padding: 0px 2px 7px 2px;
+	text-align: center;
+}
+
+.navtop { font-size: 12px; line-height: 14px; font-weight: bold;}
+a.navtop { color: #000000; text-decoration: none; }
+a.navtop:visited { color: #000000; text-decoration: none; }
+a.navtop:hover { color: #CB7600; text-decoration: underline; }
+
+.navtop-2009 { font-size: 11px; line-height: 13px; font-weight: bold;}
+a.navtop-2009 { color: #000000; text-decoration: none; }
+a.navtop-2009:visited { color: #000000; text-decoration: none; }
+a.navtop-2009:hover { color: #CB7600; text-decoration: underline; }
+
+.tabmed { font-size: 11px; line-height: 14px; }
+a.tabmed { color: #000000; text-decoration: none; }
+a.tabmed:visited { color: #000000; text-decoration: none; }
+a.tabmed:hover { color: #CB7600; text-decoration: underline; }
+
+.tabsmall { font-size: 10px; line-height: 10px; }
+a.tabsmall { color: #000000; text-decoration: none; }
+a.tabsmall:visited { color: #000000; text-decoration: none; }
+a.tabsmall:hover { color: #CB7600; text-decoration: underline; }
+
+.revtiny { font-size: 9px; line-height: 9px; }
+a.revtiny { color: #000000; text-decoration: none; }
+a.revtiny:visited { color: #000000; text-decoration: none; }
+a.revtiny:hover { color: #CB7600; text-decoration: underline; }
+
+.revtinyred { font-size: 9px; line-height: 9px; }
+a.revtinyred { color: #B60801; text-decoration: none; }
+a.revtinyred:visited { color: #B60801; text-decoration: none; }
+a.revtinyred:hover { color: #CB7600; text-decoration: underline; }
+
+.revmed { font-size: 12px; line-height: 14px; }
+a.revmed { color: #000000; text-decoration: none; }
+a.revmed:visited { color: #000000; text-decoration: none; }
+a.revmed:hover { color: #CB7600; text-decoration: underline; }
+
+.rev { font-size: 11px; line-height: 14px; }
+a.rev { color: #000000; text-decoration: none; }
+a.rev:visited { color: #000000; text-decoration: none; }
+a.rev:hover { color: #CB7600; text-decoration: underline; }
+
+div.tabhead {
+	padding: 1px 0px 0px 0px;
+}
+
+div.tabcolumns {
+	border-width: 0px 0px 1px 0px; border-style: solid; border-color: #a0a0a0;
+	padding: 0px 14px 3px 45px;
+	height: 13px;
+}
+
+div.tabcolumnsnum {
+	border-width: 0px 0px 1px 0px; border-style: solid; border-color: #a0a0a0;
+	padding: 0px 21px 3px 66px;
+	height: 13px;
+}
+
+div.tabbody {
+	padding: 2px 7px 4px 34px;
+}
+
+.tabmenu_container {
+	border-bottom: 1px solid #9B9B9B;
+    height: 22px;
+    padding-top: 7px;
+}
+
+.tabmenu_container ul {
+    font-size: 10px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: bottom;
+    white-space: nowrap;
+	position:relative;
+	display:block;
+	float:left;
+	left:50%;
+}
+
+.tabmenu_container li {
+	position:relative;
+	display:block;
+	float:left;
+	right:50%;
+	padding:5px 2px;
+	z-index:9999;
+}
+
+.tabmenu_container li a {
+	color: #FFFFFF; text-decoration: none;
+	padding: 5px 9px;
+	background-color: #333333;
+	border:1px solid #9B9B9B;
+	border-radius:10px 10px 0 0;
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-radius:10px 10px 0 0;
+}
+
+.tabmenu_container li a:visited, .tabmenu_container li a:active {
+	text-decoration: none;
+}
+
+.tabmenu_container li a:hover, .tabmenu_container li a.selected {
+	color: #000000; text-decoration: none;
+	background-color: #FFFFFF;
+	border-top:1px solid #9B9B9B;
+	border-left:1px solid #9B9B9B;
+	border-right:1px solid #9B9B9B;
+	border-bottom:1px solid #FFFFFF;
+}
+.tabmenu4 > ul {
+    font-size: 10px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: bottom;
+    white-space: nowrap;
+	position:relative;
+	display:block;
+	float:left;
+	left:50%;
+}
+
+.tabmenu4 > ul > li {
+	position:relative;
+	display:block;
+	float:left;
+	right:50%;
+	padding:5px 2px;
+	z-index:9999;
+}
+
+.tabmenu4 > ul > li a {
+	color: #FFFFFF; text-decoration: none;
+	padding: 5px 9px;
+	background-color: #333333;
+	border:1px solid #9B9B9B;
+	border-radius:10px 10px 0 0;
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-radius:10px 10px 0 0;
+}
+
+.tabmenu4 > ul > li a:visited, .tabmenu4 > ul > li a:active {
+	text-decoration: none;
+}
+
+.tabmenu4 > ul > li a:hover, .tabmenu4 li a.selected {
+	color: #000000; text-decoration: none;
+	background-color: #FFFFFF;
+	border-top:1px solid #9B9B9B;
+	border-left:1px solid #9B9B9B;
+	border-right:1px solid #9B9B9B;
+	border-bottom:1px solid #FFFFFF;
+}
+.tabmenu2 ul {
+	margin: 0;
+	padding: 0;
+	text-align: left; /*set to left, center, or right to align the menu as desired*/
+	font-size: 11px; height: 16px;
+	list-style-type: none; white-space: nowrap;
+}
+
+.tabmenu2 li {
+	display: inline;
+}
+
+.tabmenu2 li a.current {
+	color: #000000; font-weight: bold;
+}
+
+.tabmenu3 ul {
+	margin: 0;
+	padding: 0;
+	text-align: left; /*set to left, center, or right to align the menu as desired*/
+	font-weight: bold; font-size: 14px; line-height: 19px; color : #000000;
+	list-style-type: none; white-space: nowrap;
+}
+
+a.tabmenu3 	{ text-decoration: none; color : #000000; }
+a.tabmenu3:visited 	{ text-decoration: none; color : #000000; }
+a.tabmenu3:hover{ text-decoration: underline; color : #000000; }
+
+.tabmenu3 li {
+	display: inline;
+}
+
+.tabmenu3 li a.current {
+	color: #000000; font-weight: bold;
+}
+
+.hideshow ul {
+	margin: 0;
+	padding: 0;
+	text-align: left; /*set to left, center, or right to align the menu as desired*/
+	font-size: 11px; height: 16px;
+	list-style-type: none; white-space: nowrap;
+}
+
+.hideshow li {
+	display: inline;
+}
+
+.hideshow li a.current {
+	display: none;
+}
+
+ul.list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul.list li {
+	padding: 3px 0px 7px 0px;
+	font-size: 11px; font-weight: normal; line-height: 16px; color: #000000;
+	padding-left: 28px;
+}
+
+li.list-dl {
+	background-image: url("http://www.flopturnriver.com/icon/dl.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-bonus {
+	background-image: url("http://www.flopturnriver.com/icon/bonus.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-review {
+	background-image: url("http://www.flopturnriver.com/icon/review.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-step1 {
+	background-image: url("http://www.flopturnriver.com/icon/step1.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-step2 {
+	background-image: url("http://www.flopturnriver.com/icon/step2.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-step3 {
+	background-image: url("http://www.flopturnriver.com/icon/step3.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-step4 {
+	background-image: url("http://www.flopturnriver.com/icon/step4.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+
+li.list-network {
+	background-image: url("http://www.flopturnriver.com/icon/network.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-money {
+	background-image: url("http://www.flopturnriver.com/icon/money.gif");
+	background-repeat: no-repeat; background-position: -3px 2px;
+}
+
+li.list-nuts {
+	background-image: url("http://www.flopturnriver.com/icon/nuts.gif");
+	background-repeat: no-repeat; background-position: -3px 0px;
+}
+
+li.list-beats {
+	background-image: url("http://www.flopturnriver.com/icon/beats.gif");
+	background-repeat: no-repeat; background-position: -3px 0px;
+}
+
+li.list-us {
+	background-image: url("http://www.flopturnriver.com/icon/us_yes.gif");
+	background-repeat: no-repeat; background-position: -3px 0px;
+}
+
+li.list-uspart {
+	background-image: url("http://www.flopturnriver.com/icon/us_part.gif");
+	background-repeat: no-repeat; background-position: -3px 0px;
+}
+
+li.list-mac {
+	background-image: url("http://www.flopturnriver.com/icon/mac.gif");
+	background-repeat: no-repeat; background-position: -3px 0px;
+}
+
+ul.colist {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+}
+
+ul.colist li {
+	font-size: 12px; font-weight: normal; line-height: 20px; color: #000000;
+	text-indent: -8px;
+	float: left;
+	width: 44%;
+	padding-left: 38px;
+}
+
+ul.colist li a {
+	display: block;
+	text-decoration: none;
+}
+
+ul.colist li a:hover {
+	text-decoration: underline;
+}
+
+li.spain {
+	background-image: url("http://www.flopturnriver.com/images/flags/flag-spain.png");
+	background-repeat: no-repeat; background-position: 0px 4px;
+}
+
+li.france {
+	background-image: url("http://www.flopturnriver.com/images/flags/flag-france.png");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.germany {
+	background-image: url("http://www.flopturnriver.com/images/flags/flag-germany.png");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.italy {
+	background-image: url("http://www.flopturnriver.com/images/flags/flag-italy.png");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.club {
+	background-image: url("http://www.flopturnriver.com/phpBB2/forum/images/smiles/club.gif");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.diamond {
+	background-image: url("http://www.flopturnriver.com/phpBB2/forum/images/smiles/diamond.gif");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.heart {
+	background-image: url("http://www.flopturnriver.com/phpBB2/forum/images/smiles/heart.gif");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+li.spade {
+	background-image: url("http://www.flopturnriver.com/phpBB2/forum/images/smiles/spade.gif");
+	background-repeat: no-repeat; background-position: 0px 4px;
+	padding-left: 30px;
+}
+
+.tabcontent { display: none; }
+
+
+div.linksbody {
+	padding-top: 3px; padding-bottom: 5px; padding-left: 6px; padding-right: 6px;
+}
+
+div.linkshead {
+	padding-top: 3px; padding-bottom: 0px; padding-left: 6px; padding-right: 6px;
+}
+
+div.regbox {
+	text-align: center; padding: 0px 0px 5px 0px;
+}
+
+div.imgbutton { width: 100%; }
+
+div.imgbutton a { width: 100%; height: 100%; display: block; }
+
+
+/* NEW 2007 STYLES END */
+
+.button { font-size: 11px; line-height: 13px; font-weight: bold; background-color: #002BB8; }
+a.button { color: #FFFFFF; text-decoration: none; }
+a.button:visited { color: #FFFFFF; text-decoration: none; }
+a.button:hover { color: #FFFFFF; text-decoration: underline; }
+
+/* showhidediv.js styles */
+#tablist {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+#tabcontentcontainer {
+width: 100%;
+}
+
+/* clean-and-tidy */
+
+td.nsm {width:20px; text-align:right; vertical-align:top;}
+td.lsm {width:32px; text-align:right; vertical-align:top;}
+td.psm {width:100%; text-align:left; vertical-align:top;}
+td.ssm {width:43px; text-align:center; vertical-align:middle;}
+td.ism {width:28px; text-align:center; vertical-align:top;}
+td.fsm {width:62px; text-align:center; vertical-align:top;}
+
+td.lsmo {width:32px; text-align:right; vertical-align:top; padding:0px 5px 0px 1px;}
+td.lsmr {width:32px; text-align:right; vertical-align:top; padding-right:5px;}
+
+td.plt {padding-left:14px;}
+td.prt {padding-right:14px;}
+td.prm {padding-right:4px;}
+td.plb {padding-left:52px;}
+
+td.pl4 {padding-left:4px;}
+
+td.pr3 {padding-right:3px;}
+td.pr4 {padding-right:4px;}
+td.pr5 {padding-right:5px;}
+
+.floatimgleft	{ float: left; margin-top: 5px; margin-right: 8px; margin-bottom: 6px; }
+
+.floatimgright	{ float: right; margin-top: 5px; margin-left: 8px; margin-bottom: 6px; }
+
+img.icon {top: 2px; border-width: 0;}
+img.iconpadr {position: relative; top: 2px; border-width: 0;}
+img.iconsm {position: relative; top: 1px; border-width: 0;}
+img.iconlow {position: relative; top: 5px; border-width: 0;padding-right: 3px;}
+img.iconhi {position: relative; bottom: 2px; border-width: 0;}
+img.hotevent {position: relative; top: 6px; border-width: 0;}
+
+img.arrow-hs {
+	position: relative; bottom: 2px; border-width: 0; margin-right: 4px;
+}
+
+img.screenshot { border-style: solid; border-width: 2px; }
+
+.imgcontainer-IE {
+	position: absolute;
+}
+
+.imgcontainer-IE-float {
+	position: absolute;
+	float: left; margin-top: 5px; margin-right: 8px; margin-bottom: 6px
+}
+
+
+/* modifications by carl for viewroom.php validation */
+
+div.c1 {text-align: center;}
+div.c19 {font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 16px; color: #FF0000; text-align: center}
+div.c18 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; line-height: 20px}
+div.c17 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; line-height: 20px; text-align: center}
+
+.bodog_bets_tbl
+{
+	width:70%;
+	border:1px #cccccc solid;
+}
+
+.bodog_bets_tbl td
+{
+	padding:2px;
+}
+
+.bodog_bets_tbl td.header
+{
+	background-color:#F4D3A2;
+}
+
+.bodog_bets_tbl td.name
+{
+	font-weight:bold;
+	background-color:#E1AA77;
+}
+
+.bodog_bets_tbl td.note
+{
+	font-style:italic;
+	border-bottom:1px #CCCCCC solid;
+	background-color:#FDF0D5;
+}
+
+.bodog_bets_tbl td.odd
+{
+	border-bottom:1px #CCCCCC solid;
+}
+
+div.ad_pip {
+	background:#FBF9F3 none repeat scroll 0 0;
+	color:#999999;
+	line-height:130%;
+	padding:10px;
+	width:240px;
+	float:right;
+}
+td.article_body div.spaceDiv
+{
+	height:10px;
+	background-color:#E6D397;
+}
+td.article_body div.space
+{
+	height:2px;
+	background-color:#E6D397;
+	padding:0;
+	font-size:0px;
+}
+td.article_body div.box
+{
+	padding:12px;
+	background-color:#FBF9F3;
+	line-height:22px;
+}
+td.article_body div.titlebox
+{
+	padding:5px;
+	background-color:#FBF9F3;
+	line-height:22px;
+}
+td.article_body
+{
+	background-color:#FBF9F3;
+	font-size:12px;
+}
+
+
+
+/* START Andras Clear Box */
+
+#toclear tr th, #toclear tr td {
+    font-size: 12px;
+
+    height: 35px;
+    width: 33%;
+    padding: 5px;
+    border-right: 1px solid rgb(248, 205, 0);
+    border-bottom: 1px solid rgb(248, 205, 0);
+    text-align: center;
+}
+#topclear tr th {
+    font-weight: bold;
+}
+#toclear {
+    border-spacing: 0;
+}
+#toclear #big {
+    padding: 12px;
+    text-align: left;
+    font-size: 11px;
+}
+div.boxborder {
+    padding: 0 2px 2px 2px;
+}
+
+/* END Andras Clear Box */
+
+/* Race table on Pokertime pages*/
+table.pokertime_rake_race
+{
+	border-collapse:collapse;
+}
+table.pokertime_rake_race td, table.pokertime_rake_race th
+{
+	padding:2px;
+	border:1px #ccc solid;
+}
+
+/* NEW NAVTOP */
+
+#top-nav {
+	width: 100%;
+	height: 125px;
+	margin-bottom: 5px;
+	background: url(http://www.flopturnriver.com/images/layout/navtop-right.png) right top;
+	position: relative;
+}
+#top-nav #logo {
+	width: 201px;
+	height: 125px;
+/*	float: left;*/
+	background: url(http://www.flopturnriver.com/images/layout/navtop-logo-new.png);
+	position: absolute;
+	left: 0px;
+	z-index: 1;
+}
+#top-nav #logo a {
+	width: 201px;
+	height: 125px;
+	display: block;
+	text-indent: -9999px;
+}
+
+#top-nav #logo-new {
+	width: 201px;
+	height: 125px;
+/*	float: left;*/
+	background: url("http://www.flopturnriver.com/images/layout/navtop-logo-new.png");
+	position: absolute;
+	left: 0px;
+	z-index: 1;
+}
+#top-nav #logo-new a {
+	width: 201px;
+	height: 125px;
+	display: block;
+	text-indent: -9999px;
+}
+#top-nav #middle {
+/*	float: left;*/
+	background: url(http://www.flopturnriver.com/images/layout/navtop-tabs.png);
+	width: 609px;
+	height: 125px;
+	position: relative;
+	margin-left: 201px;
+}
+#top-nav #middle #banner {
+	width: 468px;
+	height: 60px;
+	position: absolute;
+	left: 100px; /* 342px - 201px*/
+	top: 12px;
+}
+
+#top-nav #middle ul {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 7px;
+/*    left: 201px;*/
+    text-align: center;
+    width: 609px;
+}
+#top-nav #middle ul li {
+	list-style: none;
+	float: left;
+	width: 87px;
+}
+
+.codes_box_container {
+	width:100%;
+	height:87px;
+}
+
+.codes_box_left {
+	background: url(http://www.flopturnriver.com/images/codes_box_left.jpg);
+	width:10px;
+	height:87px;
+}
+
+.codes_box_right {
+	background: url(http://www.flopturnriver.com/images/codes_box_right.jpg);
+	width:12px;
+	height:87px;
+	float:right;
+	margin-top:-87px;
+}
+
+.codes_box_center {
+	background: url(http://www.flopturnriver.com/images/codes_box_center.jpg) repeat-x;
+	height:87px;
+	margin-left:10px;
+	margin-top:-87px;
+}
+
+.codes_box_label {
+	width:100%;
+	height:31px;
+	font-size:2em;
+	font-weight:bold;
+	color:#000000;
+	text-align:center;
+	padding-top:4px;
+	width:100%;
+}
+
+.codes_box_text {
+	width:100%;
+	height:44px;
+	color:#FF0000;
+	font-weight:bold;
+	font-size:2.5em;
+	text-align:center;
+	width:100%;
+	padding-top:8px;
+}
+
+.codes_box_text a {
+	color:#FF0000;
+	font-weight:bold;
+}
+
+/* PokerForum banner */
+
+.forum_468x60_banner_left {
+	background:url(images/banner_bg_left.jpg) repeat-x;
+	width:16px;
+	height:115px;
+	position:absolute;
+	float:left;
+}
+
+.forum_468x60_banner_right {
+	background:url(images/banner_bg_right.jpg) repeat-x;
+	float:right;
+	height:115px;
+	margin-top:-112px;
+	width:15px;
+}
+
+.forum_468x60_banner_center {
+	width:100%;
+	height:115px;
+	background:url(images/banner_bg_center.jpg) repeat-x;
+	margin:10px 0;
+}
+
+.forum_468x60_banner_center a {
+	display:block;
+	height:60px;
+	margin:11px auto;
+	width:468px;
+}
+
+.forum_468x60_banner_heading {
+	color:#000000;
+	display:block;
+	font-size:1.4em;
+	font-weight:bold;
+	margin:0 auto;
+	padding-top:7px;
+	width:600px;
+	text-align:center;
+}
+
+/* Sticky bottom banner */
+.stickybanner_bottom {
+	background:#000000;
+	width:100%;
+	position:fixed;
+	bottom:0;
+	text-align:center;
+}
+
+.stickybanner_bottom a, .stickybanner_bottom img {
+	border:none;
+}
+
+/* Home page redesign */
+.page_container {
+	margin:0 auto;
+	width:100%;
+}
+
+.titlebar {
+	background:url("images/titlebar_bg.gif") repeat-x scroll 8px -1px #FFFFFF;
+	height:23px;
+	color:#000000;
+	font-size:14px;
+	font-weight:bold;
+	padding-top:6px;
+	padding-left:20px;
+	border:1px solid #CB7600;
+	-moz-border-radius-topleft:10px;
+	-moz-border-radius-topright:10px;
+	-webkit-border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	border-radius:10px 10px 0 0;
+
+}
+
+.titlebar a {
+	color:#000000 !important;
+}
+
+.content_container {
+	background-color:#FFFFFF;
+	overflow:hidden;
+	border-left:1px solid #CB7600;
+	border-right:1px solid #CB7600;
+	border-bottom:1px solid #CB7600;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-radius:0 0 10px 10px;
+}
+
+.content_container_black {
+	background-color:#000000;
+	overflow:hidden;
+	border-left:1px solid #CB7600;
+	border-right:1px solid #CB7600;
+	border-bottom:1px solid #CB7600;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-radius:0 0 10px 10px;
+}
+
+.content_footer {
+	background-color:#F5DBAA;
+	font-weight:bold;
+	height:21px;
+	padding-left:10px;
+	padding-top:9px;
+	font-size:10px !important;
+	border-bottom: 1px solid #CB7600;
+    border-left: 1px solid #CB7600;
+    border-right: 1px solid #CB7600;
+	-moz-border-radius-bottomleft:10px;
+	-moz-border-radius-bottomright:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	border-radius:0 0 10px 10px;
+
+}
+
+.content_footer a {
+	color:#000000;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.content_footer a:hover {
+	color:#CB7600;
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+.thinbanner {
+	background-color:#000000;
+	display:block;
+	height:31px;
+	margin:0 auto;
+	overflow:hidden;
+	position:absolute;
+	width:100%;
+}
+
+.thinbanner img, .thinbanner a {
+	border:medium none;
+	display:block;
+	margin:0 auto;
+}
+
+.thinbanner a {
+	display:block;
+	height:31px;
+	margin:0 auto;
+	position:absolute;
+	width:100%;
+}
+
+/* FTR Announcements */
+.box_container {
+	margin:0 auto;
+	position:relative;
+	width:99%;
+	padding-top:10px;
+}
+
+.halfbox_container {
+	width:50%;
+	float:left;
+}
+
+.leftbox_container {
+	padding-right:5px;
+}
+
+.rightbox_container {
+	padding-left:5px;
+}
+
+.thinbanner_box_container {
+	height:31px;
+}
+
+.importantannouncements_titlebar {
+}
+
+.importantannouncements_content_container {
+	padding:10px 5px;
+}
+
+.ftrannouncements_titlebar {
+}
+
+.ftrannouncements_content_container {
+	height:46px;
+}
+
+.ftrannouncements_newslist {
+	overflow:hidden;
+	width:100%;
+}
+
+.ftrannouncements_newslist li {
+	background:url("images/news_list_icon.gif") no-repeat scroll 0 5px transparent;
+	display:inline;
+	float:left;
+	margin-right:15px;
+	padding-left:24px;
+}
+
+.ftrannouncements_newstitle a {
+	display:inline-block;
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	text-decoration:none;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.ftrannouncements_newstitle a:hover {
+	color:#CB7600;
+	text-decoration:underline;
+}
+
+.ftrannouncements_newscontent {
+	display:block;
+	font-size:11px;
+	color:#7E7E7E;
+}
+
+.ftrannouncements_newstitle, .pokerforumtopics_newstitle {
+	position:relative;
+}
+
+.pokerforumtopics_newscontent {
+}
+
+.carousel_logo {
+	left: 0;
+	display:inline-block;
+}
+
+.carousel_logo img, .carousel_logo a img {
+	display:inline;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	border:none;
+	position:absolute;
+	margin-left:-17px;
+}
+
+.carousel_logo_ftrannouncements img {
+	margin-top:-6px;
+}
+
+input, textarea { font-family: Arial; font-size: 125%; padding: 7px; }
+label { display: block; }
+
+.infiniteCarousel {
+  position: relative;
+}
+
+.infiniteCarousel .wrapper {
+  width: 315px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+  overflow: auto;
+  height: 105px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteCarousel ul a img {
+  border: 5px solid #000;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius:5px;
+
+}
+
+.infiniteCarousel .wrapper ul {
+  width: 840px; /* single item * n */
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  position: absolute;
+  top: 0;
+}
+
+.infiniteCarousel ul li {
+  display:block;
+  float:left;
+  padding: 10px;
+}
+
+.infiniteCarousel .pokerforumtopics_wrapper ul li, .infiniteCarousel .ftrannouncements_wrapper ul li {
+	text-align:center;
+}
+
+.infiniteCarousel .pokercommunitynews_wrapper ul li {
+}
+
+.infiniteCarousel ul li img {
+    -webkit-transition: border-color 400ms;
+}
+
+.infiniteCarousel ul:hover li img {
+  border-color: #000;
+}
+
+.infiniteCarousel ul:hover li:hover img {
+  border-color: #333;
+}
+
+.infiniteCarousel ul li a img {
+  display:block;
+}
+
+.infiniteCarousel .arrow {
+  display: block;
+  height: 36px;
+  width: 37px;
+  background: url(images/arrow.png) no-repeat 0 0;
+  text-indent: -999px;
+  position: absolute;
+  top: 37px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.infiniteCarousel .forward {
+  background-position: 0 0;
+  right: 0;
+}
+
+.infiniteCarousel .back {
+  background-position: 0 -72px;
+  left: 0;
+}
+
+.infiniteCarousel .forward:hover {
+  background-position: 0 -36px;
+}
+
+.infiniteCarousel .back:hover {
+  background-position: 0 -108px;
+}
+
+
+/* Poker Room Rankings*/
+
+.pokerroomrankings_titlebar {
+}
+
+.pokerroomrankings_content_container {
+	padding:0;
+}
+
+.overallrating_content_footer, .usfriendly_content_footer, .nodeposit_content_footer, .rakeback_content_footer {
+	border-top:1px solid #CB7600 !important;
+	border-bottom:none !important;
+	border-left:none !important;
+	border-right:none !important;
+}
+
+/* Poker Community News Carousel */
+
+
+/* Poker community news pager */
+
+.pokerforumtopicsCarousel .pager_container, .ftrannouncementsCarousel .pager_container {
+
+}
+
+.pager_container {
+	margin: 0 auto;
+	width:105px;
+	height:22px;
+}
+
+.pager {
+	list-style:none outside none;
+	margin:0 auto;
+	overflow:hidden;
+	padding:0;
+	position:relative;
+}
+
+.pager li { float: left; width:20px; padding: 0 !important;}
+.pager .pagenum { background-color: #fff; text-decoration: none; text-align: center; padding:5px 5px 5px 3px;; color:#E46100; font-weight: bold; display: block; }
+.pager .active, .pager .pagenum:hover {
+	background-color:#F5DBAA;
+	color:#E46100;
+	-moz-border-radius-topright:5px;
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-right-radius:5px;
+	-webkit-border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+}
+
+.pokercommunitynewsCarousel .page6, .pokercommunitynewsCarousel .page7, .pokercommunitynewsCarousel .page8, .pokercommunitynewsCarousel .page9, .pokercommunitynewsCarousel .page10  {
+	display:none;
+}
+
+.ftrannouncementsCarousel .pager .pagenum {
+	background-color: #fff;
+	color:#B60801;
+}
+
+.ftrannouncementsCarousel .pager .active, .ftrannouncementsCarousel .pager .pagenum:hover {
+	background-color:#B60801;
+	color:#fff;
+}
+
+.page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9 {
+	padding:5px !important;
+}
+
+/* Exclusive Bonuses */
+
+.exclusivebonuses_titlebar {
+}
+
+.exclusivebonuses_content_container {
+	height:549px;
+	overflow:hidden;
+}
+
+.exclusivebonuses_content_container_v2 {
+	min-width:1165px;
+}
+
+/* Poker Forum Topics */
+
+.pokerforumtopics_titlebar {
+}
+
+.pokerforumtopics_content_container {
+	height:46px;
+}
+
+.pokerforumtopics_newslist {
+	height:56px;
+	overflow:hidden;
+	width:100%;
+}
+
+.pokerforumtopics_newslist li {
+	background:url("images/news_list_icon.gif") no-repeat scroll 0 5px transparent;
+	display:inline;
+	float:left;
+	margin-right:15px;
+	padding-left:24px;
+}
+
+.pokerforumtopics_newstitle a {
+	display:inline-block;
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	text-decoration:none;
+	padding-left:10px;
+	padding-right:10px;
+	min-width:170px;
+}
+
+.pokerforumtopics_newstitle a img {
+	display:inline !important;
+	border:none !important;
+	-moz-border-radius:0 !important;
+	-webkit-border-radius:0 !important;
+	border-radius:0 !important;
+	position:absolute !important;
+}
+
+.pokerforumtopics_newstitle a:hover {
+	color:#CB7600;
+	text-decoration:underline;
+}
+
+.pokerforumtopics_newscontent {
+	display:block;
+	font-size:11px;
+	color:#7E7E7E;
+}
+
+.pokerforumtopics_status {
+	display:inline-block;
+	right:0;
+}
+
+.pokerforumtopics_status img {
+	position:absolute;
+	margin-top:-3px;
+	margin-left:0;
+}
+
+/* Columns */
+.column_container {
+	width:99%;
+	margin:0 auto;
+}
+
+.column_left_container {
+	width:50%;
+	display:inline;
+	float:left;
+	overflow:hidden;
+}
+
+.column_left {
+	padding-right:5px;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+.column_right_container {
+	width:50%;
+	display:inline;
+	float:right;
+	overflow:hidden;
+}
+
+.column_right {
+	padding-left:5px;
+	margin-top:10px;
+	overflow:hidden;
+	position:relative;
+}
+
+/* Poker Community News */
+
+.pokercommunitynews_titlebar {
+}
+
+.pokercommunitynews_content_container {
+}
+
+/* Photo Gallery */
+
+.photogallery_titlebar {
+}
+
+.photogallery_content_container {
+}
+
+.photogallery_text_container {
+	padding:10px;
+}
+
+/* Upcoming Events */
+
+.upcomingevents_titlebar {
+}
+
+.upcomingevents_content_container, .photogallery_content_container, .whatisftr_content_container, .news_content_container {
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+
+.upcomingline0 {
+	background-color: #F5F5F5;
+}
+
+.upcomingline1 {
+	background-color: #FFFFFF;
+}
+
+.upcomingevents_content_footer {
+	background-color:#EDCDAA;
+	border-radius:0 0 10px 10px;
+	-moz-border-radius:0 0 10px 10px;
+	-webkit-border-radius:0 0 10px 10px;
+}
+
+/* Top Poker Networks */
+
+.toppokernetworks_titlebar {
+}
+
+.toppokernetworks_content_container {
+}
+
+/* What is FTR */
+
+.whatisftr_titlebar {
+}
+
+.whatisftr_content_container {
+	padding:0;
+}
+
+.whatisftr_text_container {
+	text-align:justify;
+	padding:13px;
+	height:440px;
+	overflow:auto;
+	font-size:11px;
+	line-height:16px;
+}
+
+.whatisftr_text_container img {
+	float:left;
+	margin-right:13px;
+}
+
+/* Hot Items */
+
+.hotitems_titlebar {
+}
+
+.hotitems_content_container {
+	#padding:13px;
+	border-radius: 0px !important;
+}
+
+.hotitems_text_container {
+	text-align:justify;
+	#padding:13px;
+	#height:474px;
+	overflow:auto;
+	font-size:11px;
+	line-height:16px;
+}
+
+
+
+/* Poker Community News Carousel */
+.infiniteCarousel .pokercommunitynews_wrapper ul li {
+	padding:10px;
+}
+
+/* Exclusive Bonuses */
+
+.exclusivebonuses_list {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	height:512px;
+	overflow:auto;
+}
+
+.exclusivebonuses_list li {
+	border-bottom:1px dotted #AAAAAA;
+	height:24px;
+	padding:6px 0 6px 0;
+}
+
+.exclusivebonuses_header {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.exclusivebonuses_list_container {
+	overflow:auto;
+}
+
+.exclusivebonuses_header li {
+	border-bottom: 1px solid #A1A1A1 !important;
+	height:24px;
+	padding:6px 16px 6px 67px !important;
+}
+
+.exclusivebonuses_column_roomname {
+	color:#7D7D7D;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-top:14px;
+	width:39%;
+}
+
+.exclusivebonuses_column_bonusamount {
+	color:#7D7D7D;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-top:14px;
+	width:13%;
+}
+
+.exclusivebonuses_column_match {
+	color:#7D7D7D;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-top:14px;
+	width:13%;
+}
+
+.exclusivebonuses_column_monthly {
+	color:#7D7D7D;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-top:2px;
+	width:100px;
+}
+
+.exclusivebonuses_logolink {
+	width:67px;
+	height:24px;
+	display:block;
+	float:left;
+}
+
+.exclusivebonuses_top {
+	display:block;
+	height:50%;
+	margin-left:67px;
+}
+
+.exclusivebonuses_bottom {
+	display:block;
+	height:50%;
+	margin-left:67px;
+}
+
+.exclusivebonuses_bottom_left {
+	display:block;
+	float:left;
+	width:66%;
+	min-width:225px;
+}
+.exclusivebonuses_roomname {
+	width:38%;
+}
+
+.exclusivebonuses_roomname, .exclusivebonuses_roomname a {
+	display:block;
+	float:left;
+	font-weight:bold;
+	color:#000000;
+	white-space:nowrap;
+	font-size:11px;
+}
+
+.exclusivebonuses_bonusamount, .exclusivebonuses_bonusamount a {
+	display:block;
+	float:left;
+	width:13%;
+	color:#000000;
+}
+
+.exclusivebonuses_match, .exclusivebonuses_match a {
+	display:block;
+	float:left;
+	width:13%;
+	color:#000000;
+}
+
+.exclusivebonuses_monthly, .exclusivebonuses_monthly a {
+	display:block;
+	float:left;
+	width:36%;
+	color:#000000;
+}
+
+.exclusivebonuses_bonuslabel {
+	margin-right:5px;
+}
+
+.exclusivebonuses_bonuslabel, .exclusivebonuses_bonuslabel a {
+	display:block;
+	float:left;
+	color:#000000;
+	font-size:9px;
+}
+
+.exclusivebonuses_bonuscode, .exclusivebonuses_bonuscode a {
+	display:block;
+	float:left;
+	color:#B70908;
+	font-weight:bold;
+	font-size:9px;
+}
+
+.exclusivebonuses_us {
+	background:url("images/exclusivebonuses/us_flag.gif") no-repeat scroll 0 0 transparent;
+	display:block;
+	float:left;
+	height:7px;
+	margin-top:3px;
+	width:13px;
+}
+
+.exclusivebonuses_bodogpoker {
+	background: url("images/exclusivebonuses/bodog.gif") no-repeat 0 6px transparent;
+}
+
+/* Important Announcement */
+
+
+
+.importantannouncement_description {
+	display:block;
+	font-size:11px;
+	text-align:left;
+	width:100%;
+	margin-top:3px;
+}
+
+.upcomingevents_heading {
+	font-size:18px;
+	font-weight:bold;
+}
+
+.upcomingevents_description {
+}
+
+/* Poker Featured Content */
+
+.pokerfeaturedcontent_box_container {
+	display:block;
+	height:273px;
+	border:1px solid #CB7600;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.pokerfeaturedcontent_tabmenu {
+	display:block;
+}
+
+.pokerfeaturedcontent_tabs {
+}
+
+.pokerfeaturedcontent_tabs_buttons {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+	width:200px;
+}
+
+.pokerfeaturedcontent_tabs_buttons li {
+	border-right:1px solid #E9D8B4;
+	border-bottom:1px solid #E9D8B4;
+	font-size:1.4em;
+	font-weight:bold;
+	height:90px;
+}
+
+.pokerfeaturedcontent_tabs_buttons li.last {
+	border-bottom:none;
+}
+
+.pokerfeaturedcontent_tabs_buttons li a {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg.gif") repeat-x 0 0 transparent;
+	color:#000000 !important;
+	text-decoration:none !important;
+	height:53px;
+	padding:37px 0 0 10px;
+	display:block;
+}
+
+.pokerfeaturedcontent_tabs_buttons li a:hover {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg_hover.gif") repeat-x 0 0 transparent;
+}
+
+.pokerfeaturedcontent_tabs_buttons li a.selected {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg_selected.png") no-repeat 0 0 transparent;
+	width:201px;
+	position:absolute;
+	z-index:9999;
+}
+
+.pokerfeaturedcontent_content {
+	background-color:#FFFFFF;
+	display:block;
+	height:272px;
+	margin-left:200px;
+	margin-top:-272px;
+	border-radius:0 10px 10px 0;
+	-moz-border-radius:0 10px 10px 0;
+	-webkit-border-radius:0 10px 10px 0;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails_container {
+	border-right:1px solid #000000;
+	border-left: 1px solid #DFC999;
+	height:273px;
+	width:380px;
+	float:left;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails li {
+	overflow:hidden;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails img {
+	border:none;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .pokerfeaturedcontent_articleswiththumbnails_text {
+	display: block;
+    overflow: hidden;
+    padding: 8px;
+	font-size:1.2em;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .pokerfeaturedcontent_articleswiththumbnails_excerpt {
+	background-color: #FFFFFF;
+    color: #222222 !important;
+    display: block;
+    font-size: 10px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 5px 8px;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articleone {
+	height: 273px;
+    width: 380px;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articleone a {
+	display:block;
+	width:380px;
+	height:273px;
+	position:relative;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articleone a img {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articleone .pokerfeaturedcontent_articleswiththumbnails_text_container {
+	background-color: #000000;
+    border-spacing: 0;
+    bottom: 0;
+    color: #FFFFFF;
+    display: table;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: absolute;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articleone .pokerfeaturedcontent_articleswiththumbnails_text {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articletwo {
+	border-right:1px solid #000000;
+	width:199px;
+	height:122px;
+	float:left;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articletwo a {
+	display:block;
+	width:199px;
+	height:122px;
+	position:relative;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articletwo a img {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articletwo .pokerfeaturedcontent_articleswiththumbnails_text_container {
+	background-color:#000000;
+	border-spacing:0;
+	bottom:0;
+	color:#FFFFFF;
+	display:table;
+	font-size:1.2em;
+	font-weight:bold;
+	opacity:0.75;
+	overflow:hidden;
+	position:absolute;
+	vertical-align:middle;
+	width:199px;
+	border-spacing:0;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articletwo .pokerfeaturedcontent_articleswiththumbnails_text {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articlethree {
+	width:200px;
+	height:122px;
+	float:left;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articlethree a {
+	display:block;
+	width:200px;
+	height:122px;
+	position:relative;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articlethree a img {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articlethree .pokerfeaturedcontent_articleswiththumbnails_text_container {
+	background-color:#000000;
+	border-spacing:0;
+	bottom:0;
+	color:#FFFFFF;
+	display:table;
+	font-size:1.2em;
+	font-weight:bold;
+	opacity:0.75;
+	overflow:hidden;
+	position:absolute;
+	vertical-align:middle;
+	width:200px;
+	border-spacing:0;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails .articlethree .pokerfeaturedcontent_articleswiththumbnails_text {
+}
+
+.pokerfeaturedcontent_articleswiththumbnails_date {
+	background-color:#000000;
+	color:#FFFFFF !important;
+	font-size:9px;
+	font-weight:bold;
+	height:14px;
+	opacity:0.85;
+	padding:1px 5px;
+	position:absolute;
+	right:0;
+	border-radius:0 0 0 7px;
+	-moz-border-radius:0 0 0 7px;
+	-webkit-border-radius:0 0 0 7px;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails a:hover {
+	text-decoration:none;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails a:hover .pokerfeaturedcontent_articleswiththumbnails_text_container {
+	color:#CB7600;
+	text-decoration:none;
+}
+
+.pokerfeaturedcontent_articleswiththumbnails a:hover .pokerfeaturedcontent_articleswiththumbnails_date {
+	color:#CB7600;
+	text-decoration:none;
+}
+
+.pokerfeaturedcontent_articleslist {
+	height:272px;
+	display:block;
+	padding-left:381px;
+}
+
+.pokerfeaturedcontent_articleslist_title {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+	padding:5px 10px;
+}
+
+.pokerfeaturedcontent_articleslist_title a {
+	color:#000000;
+	text-decoration:none !important;
+}
+
+.pokerfeaturedcontent_articleslist_list {
+	height:248px;
+	list-style-type:none;
+	margin:0;
+	overflow:auto;
+	padding:0;
+}
+
+.pokerfeaturedcontent_articleslist_list li {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+.pokerfeaturedcontent_articleslist_list li a {
+	color:#000000;
+	display:block;
+	padding:8px 10px;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+}
+
+.pokerfeaturedcontent_articleslist_list li a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+}
+
+.pokerfeaturedcontent_date {
+	display:block;
+	font-size:10px;
+	color:#777777;
+	margin-top:1px;
+	font-weight:normal;
+}
+
+.pokerfeaturedcontent_articleslist_list li a:hover .pokerfeaturedcontent_date {
+	color:#FFCA7F;
+}
+
+/* Poker Forum */
+
+.pokerforum_box_container {
+
+}
+
+.pokerforum_titlebar {
+}
+
+.pokerforum_content_container {
+}
+
+.pokerforum_content_container img {
+	border:none;
+}
+
+.pokerforum_content_header {
+	height:31px;
+	padding:10px 10px 0 15px;
+}
+
+.pokerforum_content_body {
+}
+
+.pokerforum_content_header_title {
+	float:left;
+	position:absolute;
+}
+
+.pokerforum_content_header_social {
+	float:right;
+}
+
+.pokerforum_content_header_social a {
+	margin:0 0 0 4px;
+	float:left;
+	text-indent:-9999px;
+	display:block;
+}
+
+.social_forum {
+	width:176px;
+	height:29px;
+	background:url("http://www.flopturnriver.com/images/social_forum.png") no-repeat 0 0 transparent;
+}
+
+.social_facebook {
+	width:141px;
+	height:29px;
+	background:url("http://www.flopturnriver.com/images/social_facebook.png") no-repeat 0 0 transparent;
+}
+
+.social_twitter {
+	width:188px;
+	height:29px;
+	background:url("http://www.flopturnriver.com/images/social_twitter.png") no-repeat 0 0 transparent;
+}
+
+.social_facebook_sm {
+	width:32px;
+	height:32px;
+	position: relative;
+	top: -1px;
+	background:url("http://www.flopturnriver.com/images/facebook-btn.gif") no-repeat 0 0 transparent;
+}
+
+.social_twitter_sm {
+	width:32px;
+	height:32px;
+	position: relative;
+	top: -1px;
+	background:url("http://www.flopturnriver.com/images/twitter-btn-news.gif") no-repeat 0 0 transparent;
+}
+
+.social_google_sm {
+	width:32px;
+	height:32px;
+	position: relative;
+	top: -1px;
+	background:url("https://ssl.gstatic.com/images/icons/gplus-32.png") no-repeat 0 0 transparent;
+}
+
+.pokerforum_content_header_social a:hover {
+	background-position:0 -29px;
+}
+
+.pokerforum_content_body_featured_container {
+	width:50%;
+	float:left;
+}
+
+.pokerforum_content_body_featured {
+	background-color:#FFF2DF;
+	border:1px solid #CB7600;
+	margin:8px 4px 8px 8px;
+}
+
+.pokerforum_content_body_latest_container {
+	width:50%;
+	float:left;
+	height:224px;
+}
+
+.pokerforum_content_body_latest {
+	background-color:#FFF2DF;
+	border:1px solid #CB7600;
+	margin:8px 8px 8px 4px;
+}
+
+.pokerforum_content_body_featured_title {
+	font-size:1.2em;
+	font-weight:bold;
+	margin-bottom:7px;
+	padding:7px 10px 0;
+}
+
+.pokerforum_content_body_featured_list {
+	height:258px;
+	list-style-type:none;
+	margin:0;
+	overflow:auto;
+	padding:0;
+	border-top:1px solid #CCCCCC;
+	position:relative;
+}
+
+.pokerforum_content_body_featured_list li {
+	background-color:#FFFFFF;
+	font-size:1.2em;
+	font-weight:bold;
+	border-bottom:1px solid #CCCCCC;
+}
+
+.pokerforum_content_body_featured_list li a {
+	color:#000000;
+	display:block;
+	padding:4px 8px;
+	position:relative;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+}
+
+.pokerforum_content_body_featured_list li a img {
+	margin:-12px 0 0;
+	position:absolute;
+	top:50%;
+	left:9px;
+}
+
+.pokerforum_content_body_latest_title {
+	font-size:1.2em;
+	font-weight:bold;
+	margin-bottom:7px;
+	padding:7px 10px 0;
+}
+
+.pokerforum_content_body_latest_list {
+	height:258px;
+	list-style-type:none;
+	margin:0;
+	overflow:auto;
+	padding:0;
+	border-top:1px solid #CCCCCC;
+	position:relative;
+}
+
+.pokerforum_content_body_latest_list li {
+	background-color:#FFFFFF;
+	font-size:1.2em;
+	font-weight:bold;
+	border-bottom:1px solid #CCCCCC;
+}
+
+.pokerforum_content_body_latest_list li a {
+	color:#000000;
+	display:block;
+	padding:4px 8px;
+	position:relative;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+}
+
+.pokerforum_content_body_latest_list li a img {
+	margin:-12px 0 0;
+	position:absolute;
+	top:50%;
+	left:9px;
+}
+
+.pokerforum_content_body_featured_list li a:hover {
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.pokerforum_content_body_latest_list li a:hover {
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.pokerforum_status_placeholder {
+	margin-left:53px;
+}
+
+.pokerforum_thread_container {
+	display:block;
+}
+
+.pokerforum_thread_info {
+	color:#777777;
+	display:block;
+	font-size:0.9em;
+	font-weight:normal;
+	margin-top:1px;
+}
+
+.pokerforum_content_body_latest_list li a:hover .pokerforum_thread_info {
+	color:#FFCA7F;
+	text-decoration:none;
+}
+
+.pokerforum_content_body_featured_list li a:hover .pokerforum_thread_info {
+	color:#FFCA7F;
+	text-decoration:none;
+}
+
+/* Important / Local Announcement */
+
+.localannouncement_flag {
+	position:absolute;
+	right:0;
+	z-index:9999;
+	width:70px;
+	height:70px;
+	background:url("http://www.flopturnriver.com/images/localannouncement_flag_us.png") no-repeat 0 0 transparent;
+}
+
+.importantannouncement_titlebar, .localannouncement_titlebar, .bestofferoftheday_titlebar {
+}
+
+.importantannouncement_content_container, .localannouncement_content_container, .bestofferoftheday_content_container {
+	margin:0 auto;
+	font-size:11px;
+}
+
+.importantannouncement_content_text {
+	padding: 10px 5px 5px;
+}
+
+.importantannouncement_image {
+	float:left;
+	margin:0 10px 0 5px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow:1px 1px 5px #555555;
+	-moz-box-shadow:1px 1px 5px #555555;
+	-webkit-box-shadow:1px 1px 5px #555555;
+}
+
+.importantannouncement_content_container img, .localannouncement_content_container img {
+	border:none;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.importantannouncement_title {
+	display:block;
+	font-size:1.5em;
+	font-weight:bold;
+	margin-bottom:5px;
+	text-align:left;
+	width:100%;
+}
+
+.importantannouncement_description {
+}
+
+.importantannouncement_content_text a {
+	color:#B60801;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.importantannouncement_content_text a {
+	color:#B60801;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.importantannouncement_content_text a:hover {
+	text-decoration:underline;
+}
+
+.importantannouncement_signup {
+}
+
+.importantannouncement_signup a {
+	background: url("images/importantannouncement_playnow.gif") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    height: 34px;
+    margin: 0 auto 5px;
+    text-align: center;
+    text-decoration: none;
+    text-indent: -9999px;
+    width: 139px;
+	border-radius:0 0 7px 7px;
+	-moz-border-radius:0 0 7px 7px;
+	-webkit-border-radius:0 0 7px 7px;
+}
+
+.importantannouncement_signup a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+/* Best offer of the day */
+
+.bestofferoftheday_content_container {
+	background-color:#000000;
+}
+
+.bestofferoftheday_content_container a {
+	display:block;
+	width:100%;
+	text-align:center;
+	position:relative;
+	height: 170px;
+}
+
+.bestofferoftheday_content_container a img {
+	border: medium none;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -73px;
+    position: absolute;
+    top: 50%;
+}
+
+/* Upcoming Events - Money-added & Freerolls */
+
+.upcomingevents_list {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	border-top:1px solid #CCCCCC;
+}
+
+.upcomingevents_list li {
+	border-bottom:1px solid #CCCCCC;
+}
+
+.upcomingevents_list li a {
+	color:#000000;
+	display:block;
+	font-size:1.2em;
+	font-weight:bold;
+	padding:4px 8px;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+}
+
+.upcomingevents_list li a:hover {
+	color:#FFFFFF;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+	text-decoration:none;
+}
+
+.upcomingevents_list_date {
+	font-size:0.9em;
+	font-weight:normal;
+	margin-top:1px;
+	color:#777777;
+}
+
+.upcomingevents_list li a:hover .upcomingevents_list_date {
+	color:#FFCA7F;
+}
+
+/* Search box v1 */
+.ftr_search {
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-13px;
+}
+
+.ftr_search_text {
+	border: 2px solid #391807;
+    height: 22px;
+    margin: 0 5px 0 0;
+    padding: 0 3px;
+	float:left;
+}
+
+input.ftr_search_text:focus {
+	background-color:#FDFFC4;
+}
+
+.ftr_search_button {
+	background:url("http://www.flopturnriver.com/images/searchbutton_bg.jpg") repeat-x 0 0 transparent;
+    border: 2px solid #391807;
+    border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.ftr_search_button:hover {
+	background:url("http://www.flopturnriver.com/images/searchbutton_bg_hover.jpg") repeat-x 0 0 transparent;
+}
+
+/* Search box v2 */
+
+.ftr_search_v2 {
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-13px;
+}
+
+.ftr_search_text_v2 {
+	border: 2px solid #391807;
+    border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+    float: left;
+    height: 22px;
+    margin: 0 5px 0 0;
+    padding: 0 26px 0 5px;
+	line-height:13px;
+}
+
+input.ftr_search_text_v2:focus {
+	background-color:#FDFFC4;
+}
+
+.ftr_search_button_v2 {
+	background: url("http://www.flopturnriver.com/images/search_icon.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    text-indent: -9999px;
+    top: 3px;
+    width: 19px;
+}
+
+.ftr_search_button_v2:hover {
+	/*background:url("http://www.flopturnriver.com/images/searchbutton_bg_hover.jpg") repeat-x 0 0 transparent;*/
+}
+
+.bestofferoftheday_banner {
+	display:block;
+	width:100%;
+	height:170px;
+	position:relative;
+	text-align:center;
+}
+
+.bestofferoftheday_banner img {
+	border:none;
+}
+
+.bestofferoftheday_banner_main {
+	border: medium none;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -73px;
+    position: absolute;
+    top: 50%;
+}
+
+.bestofferoftheday_banner_dailybigs {
+
+}
+
+.bestofferoftheday_banner_dailybigs .bestofferoftheday_button_signup {
+	bottom: 10px;
+    height: 55px;
+    left: 50%;
+    margin: 0 0 0 -35px;
+    position: absolute;
+    right: 100px;
+    width: 88px;
+}
+
+.bestofferoftheday_banner_dailybigs .bestofferoftheday_button_moreinfo {
+	bottom: 10px;
+    height: 55px;
+    left: 50%;
+    margin: 0 0 0 60px;
+    position: absolute;
+    right: 10px;
+    width: 88px;
+}
+
+.bestofferoftheday_banner_dailybigs .bestofferoftheday_button_signup img, .bestofferoftheday_banner_dailybigs .bestofferoftheday_button_moreinfo img {
+	margin:0;
+	position:relative;
+	left:0;
+	top:0;
+}
+
+.sectitle_container {
+	background:#fff;
+	border-top: thick solid #cb7600;
+	/*border-bottom: 3px solid #cb7600;*/
+
+	padding:5px; 0; 10px; 0;
+	position:relative;
+	margin-top: -10px;
+	z-index: 9000;
+}
+
+
+/* Best offer CSS - Additions by Bo - Inserted by Sam */
+
+.bx-pager {
+	position:relative;
+}
+.bx-pager a {
+	background: none;
+}
+.pager img {
+	border: none !important;
+}
+.bx-pager img {
+	border: solid #fff 1px !important;
+}
+.pager-active img {
+	border: solid #000 1px !important;
+}
+.ftr-home-slider {
+	width:100%;
+	background: fff;
+	color: 000;
+	height:190px;
+}
+
+.ftr-home-slider-blank {
+	width:100%;
+	background: 000;
+	color: fff;
+	height:190px;
+}
+.ftr-home-slider ul, #ftr-home-slider ul li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.ftr-home-slider li {
+	text-align:center;
+}
+
+.ftr-home-slider-black {
+	width:100%;
+	background: 000;
+	background-color:#000000;
+	color: 000;
+	height:205px;
+}
+
+.ftr-home-slider-black-blank {
+	width:100%;
+	background: 000;
+	color: fff;
+	height:190px;
+}
+.ftr-home-slider-black ul, #ftr-home-slider-black ul li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.ftr-home-slider-black li {
+	text-align:center;
+}
+
+.ftr-home-slider2 {
+	width:100%;
+	background: fff;
+	color: 000;
+	height:220px;
+}
+
+.ftr-home-slider2-blank {
+	width:100%;
+	background: 000;
+	color: fff;
+	height:210px;
+}
+.ftr-home-slider2 ul, #ftr-home-slider2 ul li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.ftr-home-slider2 li {
+	text-align:center;
+}
+
+
+.pre_next .play {
+	display:none;
+}
+.pre_next {
+	position:absolute;
+	bottom:2px;
+	right:2px;
+}
+.pre_next a {
+	display:block;
+	float:left;
+	width:38px;
+	height:39px;
+	margin:0;
+	padding:0;
+}
+.pre_next a.go-prev {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat -80px 0px;
+}
+.pre_next a.stop {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat -40px 0px;
+}
+.pre_next a.go-next {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat top left;
+}
+.pre_next a.go-next:hover {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat 0px -80px;
+}
+.pre_next a.go-prev:hover {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat -80px -80px;
+}
+.pre_next a.play {
+	background:url(http://www.flopturnriver.com/dev/jquery.bxSlider/button-play-pause2.png) no-repeat -40px -80px;
+}
+.ad_con {
+	position:relative;
+	width:300px;
+	margin:0 auto;
+}
+.ad_con .btn1 {
+	display:block;
+	position:absolute;
+	right:100px;
+	bottom:0px;
+}
+.ad_con .btn2 {
+	display:block;
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
+.bestofferoftheday_banner_v2 {
+	display:block;
+	height:145px;
+	text-align:center;
+	position:relative;
+}
+.bestofferoftheday_banner_v2 img {
+	border:none;
+}
+
+.hp-opr-header {
+	border-bottom: 1px solid #A1A1A1;
+	height:20px;
+	margin:0px;
+	margin-top:-9px;
+}
+.hp-opr-header tr th {
+	text-align:left;
+	color:#7D7D7D;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+}
+.hp-opr-list td {
+	border-bottom:1px dotted #AAAAAA;
+	height:24px;
+	padding:8px 0 8px 0;
+}
+.hp-opr-list td a.logo {
+	display:block;
+	width:80px;
+	height:24px;
+}
+.hp-opr-list a.poker-title {
+	display:block;
+	float:left;
+	font-weight:bold;
+	color:#000000;
+	white-space:nowrap;
+	font-size:11px;
+}
+.hp-opr-list .exclusive_bonus_line {
+	clear:both;
+}
+.hp-opr-list .exclusive_bonus_line a {
+	color:#000000;
+	font-size:9px;
+}
+.hp-opr-list .exclusive_bonus_line a.c {
+	color:#B70908;
+	font-weight:bold;
+	font-size:9px;
+}
+.hp-opr-list .us_flag {
+	background:url("images/exclusivebonuses/us_flag.gif") no-repeat scroll 0 0 transparent;
+	display:block;
+	height:7px;
+	margin-top:3px;
+	width:13px;
+}
+
+/* END - Best offer CSS - Additions by Bo - Inserted by Sam */
+
+/* New FTR Boxes */
+.calendar_content_container {
+	padding:5px 0;
+	border-radius:0 0 10px 10px;
+	-moz-border-radius:0 0 10px 10px;
+	-webkit-border-radius:0 0 10px 10px;
+}
+
+.calendar_titlebar {
+	text-align:center;
+}
+
+.calendar_titlebar a {
+	color:#FFFFFF !important;
+}
+
+.calendar_list_container {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.calendar_list_container li {
+	border:1px solid #CB7600;
+	display:inline-block;
+	width: 13.5%;
+	vertical-align:top;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+
+.calender_list_today {
+	border:1px solid #000000 !important;
+}
+
+.calendar_date {
+	color:#000000;
+	background-color:#E3C891;
+	padding:3px 5px;
+	border-bottom:1px solid #CB7600;
+	border-radius:6px 6px 0 0;
+	-moz-border-radius:6px 6px 0 0;
+	-webkit-border-radius:6px 6px 0 0;
+}
+
+.calendar_date_today {
+	color:#E3C891;
+	background-color:#000000;
+	padding:3px 5px;
+	font-weight:bold;
+	border-bottom:1px solid #000000;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+}
+
+.calendar_info {
+	font-weight:bold;
+	color:#000000;
+	padding:3px 5px;
+	min-height: 50px;
+}
+
+.calendar_info a {
+	font-weight:bold;
+	color:#000000;
+	text-decoration:none;
+}
+
+.calendar_info a:hover {
+	color:#CB7600;
+}
+
+.calendar_monthview {
+	color:#000000;
+	text-align:center;
+	display:block;
+	margin: 5px 0 0;
+}
+
+.calendar_monthview a {
+	color:#000000;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.calendar_monthview a:hover {
+	color:#CB7600;
+}
+
+.calendar_event {
+	border-top: 1px dashed #CB7600;
+    margin-top: 4px;
+    padding-top: 4px;
+}
+
+.calendar_noevents {
+	color:#AAAAAA;
+}
+
+.pokerannouncements_content_container {
+	border:1px solid #CB7600;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+/* New poker news box - Additions by Bo */
+
+.column_right .news_box {
+	height:306px;
+	overflow:auto;
+}
+.column_right .news_box .poker-news-list, .column_right .news_box .poker-news-list li {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.column_right .news_box .poker-news-list li {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+	clear:both;
+}
+.column_right .news_box .poker-news-list li a {
+	color:#000000;
+	display:block;
+	padding: 5px 7px;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+}
+.column_right .news_box .poker-news-list li a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+}
+.column_right .news_box .poker-news-list li .date {
+	display:block;
+	font-size:10px;
+	color:#777777;
+	margin-top:1px;
+	font-weight:normal;
+}
+.column_right .news_box .poker-news-list li a:hover .date {
+	color:#FFCA7F;
+}
+.column_right .news_box .poker-news-list li img.icon {
+	float:left;
+	width:40px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+.column_right .news_box .poker-news-list li img.icon2 {
+	float:left;
+	width:150px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+/* New poker news box - Additions by Bo */
+
+.column_left .news_box {
+	height:306px;
+	overflow:auto;
+}
+.column_left .news_box .poker-news-list, .column_left .news_box .poker-news-list li {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.column_left .news_box .poker-news-list li {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+	clear:both;
+}
+.column_left .news_box .poker-news-list li a {
+	color:#000000;
+	display:block;
+	padding: 5px 7px;
+}
+.column_left .news_box .poker-news-list li a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+}
+.column_left .news_box .poker-news-list li .date {
+	display:block;
+	font-size:10px;
+	color:#777777;
+	margin-top:1px;
+	font-weight:normal;
+}
+.column_left .news_box .poker-news-list li a:hover .date {
+	color:#FFCA7F;
+}
+.column_left .news_box .poker-news-list li img.icon {
+	float:left;
+	width:40px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+.column_left .news_box .poker-news-list li img.icon2 {
+	float:left;
+	width:160px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+.poker-news-list .excerpt {
+	font-weight:normal;
+	font-size:11px;
+}
+
+.poker-news-list .casino_excerpt {
+	font-weight:normal;
+	font-size:12px;
+	padding-top: 5px;
+}
+
+/* New Poker News Box - Additions By Jozsef (+modifications in the other objects) */
+
+.title-left{
+	position: absolute;
+	left: 170px;
+	padding: 6px 2px;
+}
+
+.libackgroundclass{
+	color:#FFFFFF;
+	text-decoration:none;
+	background-image: none !important;
+	background-color: #CB7600 !important;
+}
+
+.poker-news-list li:hover a{
+	color: white;
+}
+
+.casino_review_box2{
+	height: auto !important;
+	overflow: auto !important;
+}
+
+.img_a_wrap{
+	float: left !important;
+}
+
+a img{
+	border: none; /* IE FIX */
+	outline: none; /* IE FIX */
+}
+
+/* End of additions other elements are edited directly 20120820*/
+
+
+
+
+/* New poker news box - Additions by Bo */
+
+.column_right .news_box2 {
+	height:960px;
+	overflow:auto;
+}
+.column_right .news_box2 .poker-news-list, .column_right .news_box2 .poker-news-list li {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.column_right .news_box2 .poker-news-list li {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+	clear:both;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent; /* 8_16 */
+	height: 135px; /* 8_16 */
+	position: relative;
+}
+.column_right .news_box2 .poker-news-list li a {
+	color:#000000;
+	display:block;
+	float: left;
+}
+.column_right .news_box2 .poker-news-list li a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+}
+.column_right .news_box2 .poker-news-list li .date {
+	display:block;
+	font-size:10px;
+	color:#777777;
+	margin-top:1px;
+	font-weight:normal;
+}
+.column_right .news_box2 .poker-news-list li a:hover .date {
+	color:#FFCA7F;
+}
+.column_right .news_box2 .poker-news-list li img.icon {
+	float:left;
+	width:40px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+.column_right .news_box2 .poker-news-list li img.icon2 {
+	float:left;
+	width:160px;
+	height:auto;
+	vertical-align:middle;
+	padding: 7px;
+}
+
+/* New poker news box - Additions by Bo */
+
+.column_left .news_box2 {
+	height:960px;
+	overflow:auto;
+}
+.column_left .news_box2 .poker-news-list, .column_left .news_box2 .poker-news-list li {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.column_left .news_box2 .poker-news-list li {
+	border-bottom:1px solid #CCCCCC;
+	font-size:1.2em;
+	font-weight:bold;
+	clear:both;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 transparent;
+	height: 135px;
+	position: relative;
+}
+.column_left .news_box2 .poker-news-list li a {
+	color:#000000;
+	display:block;
+	float: right;
+}
+.column_left .news_box2 .poker-news-list li a:hover {
+	color:#FFFFFF;
+	text-decoration:none;
+	background:url("http://www.flopturnriver.com/images/upcomingevents_list_bg.png") repeat-x 0 0 #CB7600;
+}
+.column_left .news_box2 .poker-news-list li .date {
+	display:block;
+	font-size:10px;
+	color:#777777;
+	margin-top:1px;
+	font-weight:normal;
+}
+.column_left .news_box2 .poker-news-list li a:hover .date {
+	color:#FFCA7F;
+}
+.column_left .news_box2 .poker-news-list li img.icon {
+	float:left;
+	width:40px;
+	height:auto;
+	vertical-align:middle;
+	margin: 5px 8px 5px 7px;
+}
+
+.column_left .news_box2 .poker-news-list li img.icon2 {
+	float:left;
+	width:160px;
+	height:auto;
+	vertical-align:middle;
+	padding: 7px;
+}
+
+.poker-news-list .excerpt {
+	font-weight:normal;
+	font-size:11px;
+}
+
+.poker-news-list .casino_excerpt {
+	font-weight:normal;
+	font-size:12px;
+	line-height: 15px;
+	padding-top: 28px;
+}
+
+/* Modified Poker Announcements/Training box - by Bo? - inserted by Sam */
+
+#pokerfeaturedcontent_tabs_l .buttons {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+	width:200px;
+}
+#pokerfeaturedcontent_tabs_l .buttons li {
+	border-right:1px solid #DBC7A0;
+	border-bottom:1px solid #DBC7A0;
+	font-size:1.4em;
+	font-weight:bold;
+	height:135px;
+}
+#pokerfeaturedcontent_tabs_l .buttons li.last {
+	border-bottom:none;
+}
+#pokerfeaturedcontent_tabs_l .buttons li a {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg_l.gif") repeat-x 0 0 transparent;
+	color:#000000 !important;
+	text-decoration:none !important;
+	height:75px;
+	padding:60px 0 0 10px;
+	display:block;
+	border-radius:10px 0 0 0;
+	-moz-border-radius:10px 0 0 0;
+	-webkit-border-radius:10px 0 0 0;
+}
+#pokerfeaturedcontent_tabs_l .buttons li.last a {
+	border-radius:0 0 0 10px;
+	-moz-border-radius:0 0 0 10px;
+	-webkit-border-radius:0 0 0 10px;
+}
+#pokerfeaturedcontent_tabs_l .buttons li a:hover {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg_hover_l.gif") repeat-x 0 0 transparent;
+}
+#pokerfeaturedcontent_tabs_l .buttons li a.selected {
+	background:url("http://www.flopturnriver.com/images/pokerfeaturedcontent_tab_bg_selected_l.png") no-repeat 0 0 transparent;
+	width:201px;
+	position:absolute;
+	z-index:9999;
+}
+
+.pokerfeaturedcontent_content {
+	margin-left: 199px;
+    margin-top: -271px;
+}
+
+.pokerfeaturedcontent_box_container, .pokerfeaturedcontent_content, .pokerfeaturedcontent_articleswiththumbnails_container, .pokerfeaturedcontent_articleswiththumbnails li,  .pokerfeaturedcontent_articleswiththumbnails li a, .pokerfeaturedcontent_articleslist {
+	height:271px !important;
+}
+
+.pokerfeaturedcontent_articleslist_list {
+    height: 246px;
+}
+
+.importantannouncement_banner_v2 {
+	display: block;
+    height: 145px;
+    position: relative;
+    text-align: center;
+}
+
+.importantannouncement_banner_button_1 {
+	bottom: 8px;
+    display: block;
+    height: 57px;
+    left: 50%;
+    margin-left: -50px;
+    position: absolute;
+    width: 91px;
+}
+
+.importantannouncement_banner_button_2 {
+	bottom: 8px;
+    display: block;
+    height: 57px;
+    left: 50%;
+    margin-left: 50px;
+    position: absolute;
+    width: 91px;
+}
+
+/* Exclusive Bonuses Redesign BLACK */
+
+.exclusivebonuses_v2_list {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	background-color: #000000;
+    height: 183px;
+	overflow: auto;
+}
+
+.exclusivebonuses_v2_list li {
+	width:50%;
+	background:url("http://www.flopturnriver.com/images/exclusivebonuses_list_bg.jpg") repeat-x 0 0 #000000;
+	float:left;
+}
+
+.exclusivebonuses_v2_list_container {
+	border-bottom: 2px solid #E7CCA7;
+    border-right: 2px solid #E7CCA7;
+    height: 35px;
+    position: relative;
+	min-width: 568px;
+}
+
+.exclusivebonuses_v2_list_logo{
+	float: left;
+    margin: 5px 0 0 5px;
+}
+
+.exclusivebonuses_v2_list_logo a {
+}
+
+.exclusivebonuses_v2_list_logo a img {
+	border:none;
+}
+
+.exclusivebonuses_v2_list_bonusdescription {
+	float: left;
+    margin: 0 0 0 10px;
+}
+
+.exclusivebonuses_v2_list_bonusdescription a {
+	color:#FFFFFF;
+	text-decoration:none;
+	font-weight:bold;
+	font-size: 12px;
+    line-height: 35px;
+}
+
+.exclusivebonuses_v2_list_monthlyprivatetournament {
+	border: 1px solid #333333;
+    box-shadow: 0 0 5px #555555;
+    float: right;
+    margin: 3px 5px 0 0;
+    text-align: center;
+}
+
+.exclusivebonuses_v2_list_monthlyprivatetournament a {
+	color:#FFFFFF;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.exclusivebonuses_v2_list_monthlyprivatetournament_title {
+	font-size: 8px;
+    padding: 1px 5px 0;
+}
+
+.exclusivebonuses_v2_list_monthlyprivatetournament_amount {
+	font-size: 11px;
+    padding: 0 5px 1px;
+}
+
+.exclusivebonuses_v2_list_bonuscode {
+	float:right;
+	height:28px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #333333;
+	text-align:center;
+	margin: 3px 3px 0 0;
+	box-shadow:0 0 5px #444444;
+}
+
+.exclusivebonuses_v2_list_bonuscode a {
+	display: block;
+    width: 150px;
+}
+
+.exclusivebonuses_v2_list_bonuscode a:hover {
+	text-decoration:none;
+}
+
+.exclusivebonuses_v2_list_bonuscode_title {
+	background-color: #000000;
+    -moz-border-radius:6px 6px 0 0;
+	-webkit-border-radius:6px 6px 0 0;
+	border-radius:6px 6px 0 0;
+    color: #FFFFFF;
+    font-size: 8px;
+    font-weight: bold;
+    height: 10px;
+    padding: 0 5px;
+}
+
+.exclusivebonuses_v2_list_bonuscode_amount {
+	background-color: #CB0000;
+    -moz-border-radius:0 0 6px 6px;
+	-webkit-border-radius:0 0 6px 6px;
+	border-radius:0 0 6px 6px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 17px;
+    padding: 0 5px;
+}
+
+.exclusivebonuses_v2_list_bonusdescription_emphasis, .exclusivebonuses_v2_list_monthlyprivatetournament_amount_emphasis {
+	color:#ff2222;
+	display:inline;
+}
+
+/* Exclusive Bonuses Redesign WHITE */
+
+.exclusivebonusesw_v2_list {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	background-color: #FFFFFF;
+    height: 183px;
+	overflow: auto;
+}
+
+.exclusivebonusesw_v2_list li {
+	width:50%;
+	background-color:#FFFFFF;
+	float:left;
+}
+
+.exclusivebonusesw_v2_list_container {
+	border-bottom: 2px solid #E7CCA7;
+    border-right: 2px solid #E7CCA7;
+    height: 35px;
+    position: relative;
+}
+
+.exclusivebonusesw_v2_list_logo{
+	float: left;
+    margin: 5px 0 0 5px;
+}
+
+.exclusivebonusesw_v2_list_logo a {
+}
+
+.exclusivebonusesw_v2_list_logo a img {
+	border:none;
+}
+
+.exclusivebonusesw_v2_list_bonusdescription {
+	float: left;
+    margin: 0 0 0 10px;
+}
+
+.exclusivebonusesw_v2_list_bonusdescription a {
+	color:#333333;
+	text-decoration:none;
+	font-weight:bold;
+	font-size: 12px;
+    line-height: 35px;
+}
+
+.exclusivebonusesw_v2_list_monthlyprivatetournament {
+	border: 1px solid #333333;
+    float: right;
+    margin: 3px 5px 0 0;
+    text-align: center;
+}
+
+.exclusivebonusesw_v2_list_monthlyprivatetournament a {
+	color:#333333;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.exclusivebonusesw_v2_list_monthlyprivatetournament_title {
+	font-size: 8px;
+    padding: 1px 5px 0;
+}
+
+.exclusivebonusesw_v2_list_monthlyprivatetournament_amount {
+	font-size: 11px;
+    padding: 0 5px 1px;
+}
+
+.exclusivebonusesw_v2_list_bonuscode {
+	float:right;
+	height:28px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #333333;
+	text-align:center;
+	margin: 3px 3px 0 0;
+}
+
+.exclusivebonusesw_v2_list_bonuscode a {
+	display: block;
+    width: 150px;
+}
+
+.exclusivebonusesw_v2_list_bonuscode a:hover {
+	text-decoration:none;
+}
+
+.exclusivebonusesw_v2_list_bonuscode_title {
+	background-color: #000000;
+    -moz-border-radius:6px 6px 0 0;
+	-webkit-border-radius:6px 6px 0 0;
+	border-radius:6px 6px 0 0;
+    color: #FFFFFF;
+    font-size: 8px;
+    font-weight: bold;
+    height: 10px;
+    padding: 0 5px;
+}
+
+.exclusivebonusesw_v2_list_bonuscode_amount {
+	background-color: #CB0000;
+    -moz-border-radius:0 0 6px 6px;
+	-webkit-border-radius:0 0 6px 6px;
+	border-radius:0 0 6px 6px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    line-height: 17px;
+    padding: 0 5px;
+}
+
+.exclusivebonusesw_v2_list_bonusdescription_emphasis, .exclusivebonusesw_v2_list_monthlyprivatetournament_amount_emphasis {
+	color:#ff2222;
+	display:inline;
+}
+
+/* footer */
+#footer-main {
+	margin: 20px 0 10px 0;
+	background-color: #cb7600; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cb7600', endColorstr='#2e1108'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#cb7600), to(#2e1108)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #cb7600,  #2e1108); /* for firefox 3.6+ */
+	color: #fff;
+	}
+
+#footer-main a {
+	color: #e6d5ac;}
+
+table.footer, table.footer th, table.footer td {
+	margin: auto;
+	}
+
+.footer ul{
+	list-style-type: none;
+	list-style-image: none;
+	}
+
+.footer ul h3 a{
+	color: #fff;}
+
+table.footer .footer-flags li {
+	display: inline;
+	}
+
+.join-forum {
+	background: url(http://www.flopturnriver.com/icon/btnbar-blue-bg.png);
+	padding: 8px 5px;
+	text-align: center;
+	border: 2px solid #2C3D61;
+	width: 150px;
+	margin: auto;}
+
+.join-forum a {
+	color: #fff;}
+
+ul.hp_bottom_rooms ul.hp_bottom_rooms li
+{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+ul.hp_bottom_rooms
+{
+	width:150px;
+	/*float:left;*/
+	margin-left: 0;
+	margin-top: 2px;
+	padding: 10px;
+	background-color: #bb6d00; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bb6d00', endColorstr='#2e1108'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#bb6d00), to(#2e1108)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #bb6d00,  #2e1108); /* for firefox 3.6+ */
+	border: thin solid #a25e00;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+ul.hp_bottom_rooms li
+{
+	/*width:150px;
+	float:left;*/
+	display: list-item;
+}
+
+/*intl flags dropdown*/
+#cssdropdown {
+	float:left;
+	margin:1px 0 0 10px !important;
+	text-align:left;
+	width:auto;
+	z-index:999;
+	line-height:24px;
+}
+#cssdropdown a {
+	display:block;
+	font-weight:normal;
+	z-index:999;
+	height: 20px;
+    width: auto;
+	line-height: 20px;
+	padding: 0 20px 0 30px;
+	position:relative;
+	font-weight:bold;
+}
+#cssdropdown a img {
+	float: left;
+    height: 18px;
+    left: 6px;
+    margin-top: -9px;
+    position: absolute;
+    top: 50%;
+}
+#cssdropdown a.current {
+	border:1px #CEB67D solid;
+	background:url("/images/dropdown-bg.jpg") repeat-x 0 0 #fffaec;
+	color:#000000;
+	text-decoration:none;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	-moz-box-shadow: 0 0 2px #BBB;
+	-webkit-box-shadow: 0 0 2px #BBB;
+	box-shadow: 0 0 2px #BBB;
+}
+
+#cssdropdown a.languagehover {
+	-moz-border-radius:0 0 4px 4px;
+	-webkit-border-radius:0 0 4px 4px;
+	border-radius:0 0 4px 4px;
+	bottom-border:none;
+}
+
+#cssdropdown, #cssdropdown li, #cssdropdown ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#cssdropdown ul {
+	-moz-border-radius: 4px 4px 4px 4px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+    -moz-box-shadow: 0 0 2px #999999;
+	-webkit-box-shadow: 0 0 2px #999999;
+	box-shadow: 0 0 2px #999999;
+	border: 1px solid #E2D2AC;
+	z-index: 999;
+}
+
+li.headlink {
+	width:auto;
+}
+li.headlink ul {
+	display: none;
+	position:absolute;
+	background:#fffaec;
+}
+li.headlink ul a {
+	text-decoration:none;
+	color:#000000;
+	border-bottom: 1px solid #EDD9AD;
+	background-color:#FFFFFF;
+	padding: 0 5px 0 30px !important;
+}
+li.headlink ul a:hover {
+	background:#FFD8A5;
+}
+li.headlink:hover ul {
+	display: block;
+}
+
+.dropdown_arrow {
+	height: auto !important;
+    left: auto !important;
+    margin-top: -4px !important;
+    right: 4px;
+	border:none;
+}
+
+/* NEW NAVTOP */
+
+#new-top-nav {
+	width: 100%;
+	height: 125px;
+	margin-bottom: 5px;
+	background: url(http://www.flopturnriver.com/images/layout/navtop-right.gif) right top;
+	position: relative;
+}
+#new-top-nav #logo {
+	width: 201px;
+	height: 125px;
+/*	float: left;*/
+	background: url(http://www.flopturnriver.com/images/layout/navtop-logo-new.png) no-repeat;
+	position: absolute;
+	left: 0px;
+	z-index: 1;
+}
+#new-top-nav #logo a {
+	width: 201px;
+	height: 125px;
+	display: block;
+	text-indent: -9999px;
+}
+
+#new-top-nav #logo-new {
+	width: 201px;
+	height: 125px;
+/*	float: left;*/
+	background: url("http://www.flopturnriver.com/images/layout/navtop-logo-new.png");
+	position: absolute;
+	left: 0px;
+	z-index: 1;
+}
+#new-top-nav #logo-new a {
+	width: 201px;
+	height: 125px;
+	display: block;
+	text-indent: -9999px;
+}
+
+
+
+/* New top nav */
+
+#new-top-nav #middle {
+/*	float: left;*/
+	background: url(http://www.flopturnriver.com/images/layout/navtop-tabs-newtopnav.png) no-repeat 0 0 transparent;
+	height: 125px;
+	position: relative;
+	margin-left: 200px;
+}
+#new-top-nav #middle #banner {
+	width: 468px;
+	height: 60px;
+	position: absolute;
+	left: 100px; /* 342px - 201px*/
+	top: 12px;
+}
+
+/** /////////////////////////////////////////// N E W  T O P  N A V  1 of 2 **/
+
+ul.new-topnav_menu_new {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+	/*z-index: 147483647*/
+}
+ul.new-topnav_menu_new li {
+	list-style: none;
+	float: left;
+	position:relative;
+	margin-right:3px;
+	/*z-index: 147483500*/
+}
+
+/*ul.new-topnav_menu_new li > a.active_menu {
+background-color: #ffffff;
+}*/
+
+ul.new-topnav_menu_new > li > a {
+	background-color:#dddddd;
+	-moz-border-radius:6px 6px 0 0;
+	-webkit-border-radius:6px 6px 0 0;
+	border-radius:6px 6px 0 0;
+    border-left: 2px solid #CB7600;
+    border-right: 2px solid #CB7600;
+    border-top: 2px solid #CB7600;
+    color: #000000;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 37px;
+    padding: 4px 7px 0;
+    text-align: center;
+    width: 60px;
+
+}
+
+ul.new-topnav_menu_new li:hover > a {
+	/*background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.2, rgb(230,213,172)),
+		color-stop(0.6, rgb(234,189,117)),
+		color-stop(0.8, rgb(240,172,76))
+	);
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(230,213,172) 20%,
+		rgb(234,189,117) 60%,
+		rgb(240,172,76) 80%
+	);*/
+	background: #f4f4f4;
+}
+
+ul.new-topnav_menu_new li a:hover {
+	text-decoration:none;
+	background-color: #f4f4f4;
+}
+
+ul.new-topnav_menu_new li.new-dropdown a {
+	padding: 4px 25px 3px 7px;
+}
+
+.new-dropdown_arrow {
+	position:absolute;
+	right:5px;
+	top:50%;
+	margin-top:-8px;
+	width:17px;
+	height:17px;
+	background:url("http://www.flopturnriver.com/images/layout/topnav-arrow.png") no-repeat 0 0 transparent;
+}
+
+ul.new-topnav_submenu_new{
+	visibility:hidden;
+	position:absolute;
+	z-index:9999;
+	margin:0;
+	padding:0;
+	border-bottom: 2px solid #CB7600;
+    border-left: 2px solid #CB7600;
+    border-right: 2px solid #CB7600;
+	-moz-border-radius:0 6px 6px 6px;
+	-webkit-border-radius:0 6px 6px 6px;
+	border-radius:0 6px 6px 6px;
+	background-color: #f4f4f4;
+}
+
+ul.new-topnav_submenu_new li {
+	margin:0;
+	border-top: thin solid #E6D5AC;
+}
+
+ul.new-topnav_submenu_new li a {
+	background: none !important;
+    border: medium none !important;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto !important;
+    padding: 4px 0 4px 7px !important;
+    text-align: left;
+    width: 190px;
+	color:#0054D3;
+}
+
+ul.new-topnav_submenu_new li a:hover {
+	text-decoration:none;
+	color:#FFFFFF;
+	background:none repeat scroll 0 0 #06F !important;
+
+}
+
+ul.new-topnav_submenu2_new  {
+	visibility:hidden;
+	position:absolute;
+	z-index:9999;
+	margin:0;
+	padding:0;
+	border-bottom: 2px solid #CB7600;
+    border-left: 2px solid #CB7600;
+    border-right: 2px solid #CB7600;
+	-moz-border-radius:0 6px 6px 6px;
+	-webkit-border-radius:0 6px 6px 6px;
+	border-radius:0 6px 6px 6px;
+	background-color:#f4f4f4;
+}
+
+ul.new-topnav_submenu2_new  li {
+	margin:0;
+	border-top: thin solid #E6D5AC;
+}
+
+ul.new-topnav_submenu2_new  > li a {
+	background: none !important;
+    border: medium none !important;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto !important;
+    padding: 4px 0 4px 7px !important;
+    text-align: left;
+    width: 85px;
+	color:#0054D3;
+}
+
+ul.new-topnav_submenu2_new  li a:hover {
+	text-decoration:none;
+	color:#FFFFFF;
+	background:none repeat scroll 0 0 #06F !important;
+}
+
+ul.new-topnav_menu_new li:hover > ul.new-topnav_submenu_new{
+	visibility:visible;
+}
+
+ul.new-topnav_menu_new li:hover > ul.new-topnav_submenu2_new  {
+	visibility:visible;
+}
+
+ul.new-topnav_menu_new li:hover > .new-dropdown_arrow {
+	background-position:0 bottom;
+}
+
+
+li.new-dropdown-extend {
+	/*margin:0;
+	padding:0;
+	border-bottom: 2px solid #CB7600;
+    border-left: 2px solid #CB7600;
+    border-right: 2px solid #CB7600;*/
+	}
+	
+li.new-dropdown-extend2 {
+	/*margin:0;
+	padding:0;
+	border-bottom: 2px solid #CB7600;
+    border-left: 2px solid #CB7600;
+    border-right: 2px solid #CB7600;*/
+	}
+	
+
+ul.new-topnav_menu_new li.new-dropdown-extend a {
+	padding: 4px 33px 0 7px;
+}
+
+ul.new-topnav_menu_new li.new-dropdown-extend2 a {
+	padding: 4px 33px 0 7px;
+	width: 72px;
+}
+
+ul.new-topnav_menu_new li.new-dropdown-extend ul.new-topnav_submenu_new ul.new-topnav_submenu2_new  li {
+	}
+	
+ul.new-topnav_menu_new li.new-dropdown-extend ul.new-topnav_submenu_new li a {
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	background: none !important;
+    border: medium none !important;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto !important;
+    padding: 4px 3px 4px 7px !important;
+    text-align: left;
+	color:#0054D3;
+	/*width: 90px; */}
+
+ul.new-topnav_menu_new ul.new-topnav_submenu2_new  li a {
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	background: none !important;
+    border: medium none !important;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto !important;
+    padding: 4px 3px 4px 7px !important;
+    text-align: left;
+	color:#0054D3;
+	width: 195px; /*padding: 0 3px 0 0;*/}	
+	
+ul.new-topnav_menu_new li.new-dropdown-extend ul.new-topnav_submenu_new li a:hover {
+	text-decoration:none;
+	color:#FFFFFF;
+	background:none repeat scroll 0 0 #06F !important;
+}
+
+ul.new-topnav_menu_new li.new-dropdown-extend2 ul.new-topnav_submenu2_new  li a:hover {
+	text-decoration:none;
+	color:#FFFFFF;
+	background:none repeat scroll 0 0 #06F !important;
+}
+/** **/
+
+
+/* GRID */
+table#vid-grid td
+{border-left: thin solid #eee3c3;
+border-bottom: thin solid #eee3c3;
+padding: 3px;}
+
+table#vid-grid {
+width: 480px;
+font-size: 10px;
+text-align: center;
+border: thin solid #eee3c3;
+}
+
+table#vid-grid td {
+vertical-align: middle;
+}
+
+table#vid-grid .grid-header{
+color: #000;
+font-size: 10px;
+vertical-align: middle;
+text-align: center;
+background: #E6D5AC;}
+
+.grid-row-cl {
+/*background: #e6d5ac;*/}
+
+.play-btn{
+width: 120px;}
+
+#jackpotgrid {
+	padding:10px 0 0;
+}
+
+/* top nav 120x60 */
+#banner-120x60 {
+width: 120px;
+height: 60px;
+position: absolute;
+left: 620px;
+top: 10px;
+}
+
+table#featured-120 {
+	border: 1px solid #cb7600;}
+
+table#featured-120 td {
+	background-color: #cb7600; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cb7600', endColorstr='#2e1108'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#cb7600), to(#2e1108)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #cb7600,  #2e1108); /* for firefox 3.6+ */
+	color: #fff;
+	padding: 1px;
+	margin: 0;}
+
+/* 3 x 2 H O T  C A S I N O */
+
+.hot-casino-grid table {
+/*width: 626px;*/
+margin: 0 auto;
+text-align: center;
+vertical-align: center;
+}
+
+td.casino-name {
+background: #eee3c3;
+text-transform: uppercase;
+}
+
+td.play-btn-border {
+border-top: solid thin #eee3c3;
+border-bottom: solid thin #eee3c3;}
+
+span.jackpot-amt {
+color: green;
+font-weight: bold;}
+
+
+.roompromo_container_hot-casino {
+
+height: 140px;
+
+width: 100px;
+
+border: 2px solid;
+
+border-color: #747474;
+
+}
+
+.roompromo_hot-casino {
+	margin: 0; padding: 0;
+	text-indent: 0;
+	}
+
+.roompromo_hot-casino li {
+
+    float: left;
+
+    height: 140px;
+
+   /*margin-right: 10px;*/
+
+    overflow: hidden;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+
+
+.roompromo_panel {
+
+    height: 140px;
+
+    position: absolute;
+
+    top: 0;
+
+    width: 100px;
+
+
+}
+
+.roompromo_firstpanel {
+
+    height: 140px;
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_romecasino {
+
+	background-image: url(images/3x2-modify/rome-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_cherryred {
+
+	background-image: url(images/3x2-modify/cherry-red.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_silveroak {
+
+	background-image: url(images/3x2-modify/silver-oak.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_planet7 {
+
+	background-image: url(images/3x2-modify/planet7-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_rushmore {
+
+	background-image: url(images/3x2-modify/rushmore-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_bodog {
+
+	background-image: url(images/3x2-modify/bodog-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_bodog {
+
+	background-image: url(images/3x2-modify/bodog-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_888casino {
+
+	background-image: url(images/3x2-modify/888-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_bet365 {
+
+	background-image: url(images/3x2-modify/bet365.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_williamhill {
+
+	background-image: url(images/3x2-modify/william-hill.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_partycasino {
+
+	background-image: url(images/3x2-modify/party-casino.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+.roompromo_secondpanel_ladbrokes {
+
+	background-image: url(images/3x2-modify/ladbrokes.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width:100px;
+
+}
+
+.roompromo_secondpanel_betfair {
+
+	background-image: url(images/3x2-modify/betfair.jpg);
+
+    font-size: .65em;
+
+    height: 140px;
+
+    position: relative;
+
+    width: 100px;
+
+}
+
+/* added 2/12/12 */
+
+roompromo_secondpanel_cherryred_us {
+
+	background-image: url(http://www.flopturnriver.com/images/grid/cherry-red-sm.jpg);
+
+    font-size: .65em;
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+/* Online Casinos on homepage tab - spacing fix */
+
+.onlinecasinos_line {
+	padding:3px;
+}
+
+.null_titlebar {
+	border:1px solid #CB7600;
+	border-bottom: none;
+	height: 10px;
+        -moz-border-radius-topleft:10px;
+        -moz-border-radius-topright:10px;
+        -webkit-border-top-left-radius:10px;
+        -webkit-border-top-right-radius:10px;
+        border-radius:10px 10px 0 0;
+	background: white;
+}
+li.headlink {
+	font-size: 10px;
+}
+
+/* GRIDS FOR 3D SLOTS // ONLINE-CASINO-GAMBLING */
+.roompromo_secondpanel_coolcat {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/cool-cat.jpg);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_betonline {
+
+	background-image: url(http://www.flopturnriver.com/casino/images/featured-bet-online.jpg);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_bovada {
+
+	background-image: url(http://www.flopturnriver.com/casino/images/featured-bovada.jpg);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_888-casino {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-888-casino.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_7sultans {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/7sultans-logo.jpg);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_smartlive {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/smartlive-logo.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_bovadacasino {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-bovada-casino.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_romecasinoS{
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-rome-casinoS.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_william-hill {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-william-hill.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_party-casino {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-party-casino.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.roompromo_secondpanel_bet365 {
+
+	background-image: url(http://online-casino-gambling.flopturnriver.com/images/featured-jackpots/featured-bet365.gif);
+
+    /*font-size: .5em;*/
+
+    height: 73px;
+
+    position: relative;
+
+    width: 111px;
+
+}
+
+.featuredgrid table {
+border: solid thin #eee3c3;
+margin-bottom: 20px;
+width: 444px;
+text-align: center;
+}
+
+.roompromo_container_featured {
+
+height: 73px;
+
+width: 111px;
+
+border: 1px solid #eee3ec;
+
+margin: 0 auto;
+
+}
+
+.roompromo_featured {
+	margin: 0; padding: 0;
+	text-indent: 0;
+	}
+
+
+.roompromo_featured li {
+
+    /*float: left;*/
+
+    height: 73px;
+
+  /*margin-right: 10px;*/
+
+    overflow: hidden;
+
+    position: relative;
+
+    width: 111px;
+
+	padding: 0;
+
+}
+
+
+.roompromo_panel_2 {
+
+    height: 73px;
+
+    position: absolute;
+
+    top: 0;
+
+    width: 111px;
+
+}
+
+.roompromo_firstpanel_2 {
+
+    height: 73px;
+    width: 111px;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+ul.roompromo_featured li a {
+text-decoration: none;
+padding: 0;
+background-color: transparent;
+border: none}
+
+div.screenshot-float-r {
+	padding: 0px 0px 0px 10px; background-color: #fbf9f3;
+	float: right; margin-top: 5px; margin-left: 8px; margin-bottom: 6px
+}
+
+img.fourrrr{
+
+margin:0 0 4px 0;
+
+}
+
+/* START as seen on collage */
+
+.as-seen-on{ width:695px; left:-50%; position:relative; float:right;}
+.as-seen-on ul{width:695px; left:50%; position:relative; margin: 0; padding: 0;}
+.as-seen-on ul h4{color: #79715B; display: block; height: 32px; margin: 0; padding: 6px 0 0 0; width: 85px;}
+.as-seen-on ul li{display: inline; float: left; height: 32px; list-style: none outside none; margin: 0;  padding: 0 0 0 15px;}
+.as-seen-on hr {background: url("images/media_hr.png") repeat scroll 0 0 transparent; display: block; height: 2px; width: 695px; clear:both;}
+
+/* END as seen on collage */
+
+/* flags 24px */
+
+.flags-nav2{
+	background-color: #FBF9F3;
+	height: 100%;
+	border-bottom: 1px solid #CCC;
+	display: block;
+	clear: both;
+	padding: 5px 0px;
+}
+
+.flags-nav2 img{
+	float: left;
+	padding: 0px 4px;
+}
+
+.flags-nav2 p{
+	float: right;
+	margin: 0px;
+	padding-right: 4px;
+}
+
+.clear{
+	clear: both;
+}
+
+/* casino lp exclusive box start */
+
+.exclusive_image_first { margin-left: 20px }
+.exclusive_image { margin: 0px 20px 0px 0px; }
+.exclusivebonuses_titlebar { text-align: center; position: relative }
+.exclusivebonuses_titlebar img { position: absolute; bottom: 4px }
+
+/* casino lp exclusive box end */
+
+/* Stars Sub Nav Start */
+
+#siteheadmenu{
+	width: 100%;
+	height: 30px;
+	background: url('http://www.flopturnriver.com/images/menu-bg.png') repeat-x;
+	margin-bottom: 10px;
+}
+
+#siteheadmenu ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+#siteheadmenu ul li{
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	padding-top: 8px;
+	position: relative;
+}
+
+#siteheadmenu ul li a{
+	color: black;
+	padding: 8px 13px 9px 13px;
+	text-decoration: none;
+	border-right: 1px solid #eee0c1;
+}
+
+#siteheadmenu ul li a.dropdown:after{
+	content: '';
+	background: url('http://www.flopturnriver.com/images/arrow_bg.png') no-repeat;
+	position: absolute;
+	height: 4px;
+	width: 8px;
+	top: 14px;
+	right: 2px;
+	background-position: -8px 0px;
+}
+
+#siteheadmenu ul li a:hover{
+	background-color: white;
+}
+
+#siteheadmenu ul li a.dropdown:hover:after{
+	background-position: 0px 0px;
+}
+
+#siteheadmenu ul li:hover .sub-menu{
+	display: block;
+}
+
+#siteheadmenu .sub-menu{
+	position: absolute;
+	z-index: 55555;
+	background: white;
+	display: block;
+	margin-top: 8px;
+	border-bottom: 1px solid #efe2c5;
+	border-left: 1px solid #efe2c5;
+	margin-left: -1px;
+	display: none;
+}
+
+#siteheadmenu .sub-menu li,#siteheadmenu .sub-menu li a{
+	display: block;
+	white-space: nowrap;
+}
+
+#siteheadmenu .sub-menu li{
+	padding-top: 0px;
+	width: 100%;
+}
+
+#siteheadmenu .sub-menu li a:hover{
+	background-color: #efe2c5 !important;
+}
+
+#siteheadmenu ul li:hover a{
+	background-color: white !important;
+}
+
+.navigationspan{
+	font-size: 16px;
+	font-weight: bold;
+	padding: 8px 5px;
+	display: block;
+}
+
+
+@-moz-document url-prefix() {
+    #siteheadmenu ul li{
+		padding-top: 7px;
+	}
+
+	#siteheadmenu ul li a{
+		padding: 7px 13px 8px 13px;
+	}
+}
+
+/* Stars Sub Nav End */
+
+/* New FTR Events & News HP Box Start */
+
+
+.clickfordetails{
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6335_redesigning_hp_newsbox/img/clickfordetails.png') no-repeat;
+	width: 106px;
+	height: 18px;
+	position: absolute;
+	bottom: 0px;
+	right: -3px;
+	color: white;
+	padding: 3px 0px 0px 3px;
+}
+
+.clickfordetailsus{
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6335_redesigning_hp_newsbox/img/clickfordetailsus.png') no-repeat;
+	width: 98px;
+	height: 30px;
+	position: absolute;
+	bottom: -12px;
+	right: -3px;
+	color: white;
+	padding: 11px 0px 0px 0px;
+	text-align: center;
+}
+
+/* New FTR Events & News HP Box End */
+
+
+/* New casino lp updates Start */
+
+.poker-news-list2{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+.poker-news-list2 li{
+	width: 406px;
+	height: 120px;
+	display: block;
+	position: relative;
+	background: url('http://www.flopturnriver.com/casino/images/li-bg.jpg') repeat-x;
+	overflow: hidden;
+	transition: background 0.4s;
+	-moz-transition: background 0.4s;
+	-webkit-transition: background 0.4s;
+	-o-transition: background 0.4s;
+}
+
+.poker-news-list2 li:hover{
+	background: #E69A31;
+}
+
+.poker-news-list2 li a img{
+	padding: 35px;
+	height: 50px;
+	width: 80px;
+	float: left;
+}
+
+.poker-news-list2 a{
+	transition: color 0.25s;
+	-moz-transition: color 0.25s;
+	-webkit-transition: color 0.25s;
+	-o-transition: color 0.25s;
+}
+
+
+.poker-news-list2 a:hover{
+	color: white !important;
+	text-decoration: none;
+}
+
+.casino-details{
+	float: left;
+	width: 255px;
+	padding-top: 8px;
+	overflow: hidden;
+}
+
+.poker-news-list-header{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: 700;
+	font-size: 24px;
+	color: #000000 !important;
+}
+
+.casino_excerpt{
+	font-family: Arial, sans-serif;
+	font-size:	12px;
+	color:	#111111;
+	line-height: 18px;
+	padding-top: 7px;
+}
+
+/* New casino lp updates End */
+
+/* social buttons Start */
+
+.ftr_search_review {
+	/*position:relative;
+	left:783px;
+	right:466px;
+	top:50%;*/
+	float: right;
+	margin-top:-2px;
+	margin-right:-527px;
+}
+
+.ftr_search_review_button_v2 {
+	background: url("http://www.flopturnriver.com/images/search_icon.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    position: relative;
+    right: 29px;
+    text-indent: -9999px;
+    top: 3px;
+    width: 19px;
+}
+
+#social-review {
+	float: right;
+	margin-top:2px;
+}
+
+#social-review2 {
+	float: right;
+	margin-top:1px;
+	margin-right:192px;
+}
+
+.social-hp {
+	position:absolute;
+	right:0;
+	top:50%;
+	margin-top:-10px;
+}
+
+/* social buttons End */
+
+/* Search box v2 Start */
+
+.sectitle_container_review {
+	/*background: url("http://www.flopturnriver.com/images/layout/pagebar-bg.png") repeat-x scroll 0 bottom #CB7600;*/
+	padding:10px;
+	position:relative;
+}
+
+
+
+.ftr_search_review_v2 {
+	border: 2px solid #391807;
+    border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+    float: left;
+    height: 22px;
+    margin: 0 5px 0 0;
+    padding: 0 26px 0 5px;
+	line-height:13px;
+}
+
+input.ftr_search_review_text_v2:focus {
+	background-color:#FDFFC4;
+}
+
+
+
+
+.ftr_search_v2 {
+	position:absolute;
+	right:10px;
+	top:50%;
+	margin-top:-13px;
+}
+
+.ftr_search_text_v2 {
+	border: 2px solid #391807;
+    border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	-webkit-border-radius: 6px 6px 6px 6px;
+    float: left;
+    height: 22px;
+    margin: 0 5px 0 0;
+    padding: 0 26px 0 5px;
+	line-height:13px;
+}
+
+input.ftr_search_text_v2:focus {
+	background-color:#FDFFC4;
+}
+
+.ftr_search_button_v2 {
+	background: url("http://www.flopturnriver.com/images/search_icon.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    text-indent: -9999px;
+    top: 3px;
+    width: 19px;
+}
+
+.ftr_search_button_v2:hover {
+	/*background:url("http://www.flopturnriver.com/images/searchbutton_bg_hover.jpg") repeat-x 0 0 transparent;*/
+}
+
+/* Search box v2 End */
+
+/* Spoiler Start */
+
+span.spoiler {
+	color: transparent;
+	border-bottom: 1px dotted #B0B0B0;
+}
+span.spoiler:hover {
+	color: inherit;
+}
+
+div.spoilerbox {
+	margin: 5px 20px 20px 20px;
+}
+div.spoilerbox > span {
+	margin: 0px 0px 2px 0px;
+	font-weight: bold;
+}
+div.spoilerbox > div {
+	margin: 0px;
+	padding: 6px;
+	border: 1px inset;
+	font-weight: inherit;
+}
+div.spoilerbox > div > div {
+	visibility: hidden;
+}
+
+/* Spoiler End */
+
+/* US Friendly #1 Room Start */
+
+#usfirstroom-wrap{
+	width: 820px;
+	height: 243px;
+	display: block;
+	overflow: hidden;
+	background: white;
+	border: 1px solid #939393;
+	font-family: 'PT Sans', Verdana, sans-serif !important;
+	box-shadow: inset 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+#usfirstroom-wrap a:hover{
+	text-decoration: none;
+}
+
+#usfirstroom-content{
+	height: 205px;
+	width: 100%;
+	color: black;
+	-webkit-transition: background 0.3s;
+	-moz-transition: background 0.3s;
+	-o-transition: background 0.3s;
+	transition: background 0.3s;
+	overflow: hidden;
+}
+
+#usfirstroom-content:hover{
+	background: #fde893;
+}
+
+#usfirstroom-wrap2{
+	width: 820px;
+	height: 273px;
+	display: block;
+	overflow: hidden;
+	background: white;
+	border: 1px solid #939393;
+	font-family: 'PT Sans', Verdana, sans-serif !important;
+	box-shadow: inset 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+#usfirstroom-wrap2 a:hover{
+	text-decoration: none;
+}
+
+#usfirstroom-content2{
+	height: 235px;
+	width: 100%;
+	color: black;
+	-webkit-transition: background 0.3s;
+	-moz-transition: background 0.3s;
+	-o-transition: background 0.3s;
+	transition: background 0.3s;
+	overflow: hidden;
+}
+
+#usfirstroom-content2:hover{
+	background: #fde893;
+}
+
+#usfirstroom-number{
+	width: 84px;
+	display: block;
+	height: 100%;
+	float: left;
+}
+
+#usfirstroom-number p{
+	padding: 0px;
+	margin: 0px 25px 0px 27px;
+	font-size: 24px;
+	line-height: 190px;
+}
+
+#usfirstroom-content-second-col{
+	width: 155px;
+	height: 100%;
+	display: block;
+	float: left;
+	text-align: center;
+	margin-top: 15px;
+}
+
+#second-col-bottom{
+	margin-top: 22px;
+}
+
+#second-col-bottom a{
+	padding: 4px 5px;
+	font-size: 11px;
+	white-space: nowrap;
+	margin: 5px 0px 0px 0px;
+	width: 115px;
+}
+
+#usfirstroom-content-third-col{
+	margin-left: 65px;
+	width: 240px;
+	height: 100%;
+	float: left;
+}
+
+#usfirstroom-title{
+	margin: 12px 0px 6px 0px;
+	text-align: left;
+}
+
+#usfirstroom-title a{
+	font-size: 24px;
+	color: black;
+}
+
+#usfirstroom-reviews-left{
+	float: left;
+	margin-left: 1px;
+	text-align: center;
+}
+
+#usfirstroom-reviews-left a{
+	display: block;
+	#font-size: 10px;
+	#color: black;
+	#font-weight: bold;
+}
+
+#usfirstroom-reviews-right{
+	float: left;
+	margin-left: 10px;
+}
+
+#usfirstroom-reviews-right a{
+	font-weight: bold;
+	color: black;
+}
+
+#usfirstroom-content-third-col ul{
+	clear: left;
+	list-style: none;
+	margin-left: 0px;
+	padding: 0px;
+}
+
+#usfirstroom-content-third-col ul li{
+	font-size: 13px;
+	position: relative;
+	padding-left: 22px;
+	text-align: left;
+}
+
+#usfirstroom-content-third-col ul li:before{
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 2px;
+	width: 17px;
+	height: 14px;
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6409_us_poker_%231_room/images/tick.png') no-repeat;
+}
+
+#download-types{
+	margin: 3px auto;
+}
+
+#download-types img{
+	display: inline-block;
+}
+
+#usfirstroom-content-fourth-col{
+	width: 265px;
+	margin-left: 8px;
+	display: block;
+	float: left;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#usfirstroom-content-fourth-col p{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#usfirstroom-content-fourth-col2{
+	width: 265px;
+	margin-left: 8px;
+	display: block;
+	float: left;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#usfirstroom-content-fourth-col2 p{
+	margin: 3px;
+	padding: 3px;
+	float: center;
+	#text-align: center;
+}
+
+#fourth-col-deposit-options{
+	margin: 20px 0px 0px 36px;
+}
+
+#fourth-col-deposit-options img{
+	float: center;
+	position: relative;
+	top: -7px;
+	margin-left: 5px;
+	margin-top: 3px;
+	border: 1px solid #000000;
+}
+
+#fourth-col-screenshots{
+	margin-top: 6px;
+}
+
+#usfirstroom-bottom{
+	height: 38px;
+	width: 100%;
+	color: white;
+	border-top: 1px solid #43b53d;
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6409_us_poker_%231_room/images/bottom-bg.png') repeat-x;
+	display: block;
+}
+
+#usfirstroom-bottom p{
+	margin: 0px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 36px;
+	text-shadow: 0px 1px 1px rgba(0,0,0,0.75);
+	letter-spacing: -1px;
+}
+
+#usfirstroom-bottom span{
+	display: inline-block;
+}
+
+#usfirstroom-bottom-left{
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6409_us_poker_%231_room/images/right-arrow.png') no-repeat;
+	width: 33px;
+	height: 21px;
+	position: relative;
+	top: 3px;
+}
+
+#usfirstroom-bottom-right{
+	background: url('http://www.flopturnriver.com/design-team/jozsef/6409_us_poker_%231_room/images/left-arrow.png') no-repeat;
+	width: 33px;
+	height: 21px;
+	position: relative;
+	top: 3px;
+}
+
+/* US Friendly #1 Room End */
+
+
+/* START NEW MODERN BUTTONS */
+	/* Large Green Button */
+a.btn_download_lg {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#FFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	padding:17px 25px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #416b1e;
+}
+a.btn_download_lg:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}
+a.btn_download_lg:active {
+	position:relative;
+	top:1px;
+}
+
+	/* Small Red Button */
+a.btn_visit_sm {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cc0d0a), color-stop(1, #e60303) );
+	background:-moz-linear-gradient( center top, #cc0d0a 5%, #e60303 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc0d0a', endColorstr='#e60303');
+	background-color:#cc0d0a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #570701;
+}
+a.btn_visit_sm:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e60303), color-stop(1, #cc0d0a) );
+	background:-moz-linear-gradient( center top, #e60303 5%, #cc0d0a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e60303', endColorstr='#cc0d0a');
+	background-color:#e60303;
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+a.btn_visit_sm:active {
+	position:relative;
+	top:1px;
+}
+
+	/* Small Green Button */
+a.btn_download_sm {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #416b1e;
+}
+a.btn_download_sm:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+	color: #fff !important;
+	text-decoration: underline !important;
+}
+a.btn_download_sm:active {
+	position:relative;
+	top:1px;
+}
+
+	/* Small Brown Button */
+a.btn_brown_sm {
+	-moz-box-shadow:inset 0px 1px 0px 0px #b38741;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #b38741;
+	box-shadow:inset 0px 1px 0px 0px #b38741;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cf9838), color-stop(1, #8f5f00) );
+	background:-moz-linear-gradient( center top, #cf9838 5%, #8f5f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cf9838', endColorstr='#8f5f00');
+	background-color:#cf9838;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #8a6526;
+	display:inline-block;
+	color:#ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #cd8a15;
+}
+a.btn_brown_sm:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8f5f00), color-stop(1, #cf9838) );
+	background:-moz-linear-gradient( center top, #8f5f00 5%, #cf9838 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f5f00', endColorstr='#cf9838');
+	background-color:#8f5f00;
+}
+a.btn_brown_sm:active {
+	position:relative;
+	top:1px;
+}
+
+	/* Small Yellow Button */
+a.btn_yellow_sm {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fed897;
+	box-shadow:inset 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #cd8a15;
+}
+a.btn_yellow_sm:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}
+a.btn_yellow_sm:active {
+	position:relative;
+	top:1px;
+}
+
+/* END NEW MODERN BUTTONS */
+
+/* START SIDE BANNER */
+
+	#side-banner-outer{
+		position: absolute;
+		height: 0;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+	}
+
+	#side-banner-inner{
+		width: 1000px;
+		display: block;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	#side-banner-holder{
+		position: absolute;
+		top: 125px;
+		left: -155px;
+		display: block;
+	}
+
+	#side-banner2-inner{
+		width: 1000px;
+		display: block;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	#side-banner2-holder{
+		position: absolute;
+		top: 350px;
+		left: -150px;
+		display: block;
+	}
+
+	#side-banner-holder p{
+		text-align: right;
+		margin: 5px 7px;
+		color: #B60801;
+		cursor: pointer;
+		padding: 2px;
+		background: rgb(255, 255, 255);
+		position: absolute;
+		right: 5px;
+		top: 8px;
+	}
+
+	#side-banner-erase{
+		left: -667px;
+		font-weight: bold;
+		cursor: pointer;
+		position: absolute;
+	}
+
+	#right-side-banner-outer{
+		position: absolute;
+		height: 0;
+		width: 100%;
+		top: 0;
+		right: 0;
+		z-index: 9999;
+	}
+
+	#right-side-banner-inner{
+		width: 1000px;
+		display: block;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	#right-side-banner-holder{
+		position: absolute;
+		top: 125px;
+		right: -155px;
+		display: block;
+	}
+
+	#right-side-banner-holder p{
+		text-align: right;
+		margin: 5px 7px;
+		color: #B60801;
+		cursor: pointer;
+		padding: 2px;
+		background: rgb(255, 255, 255);
+		position: absolute;
+		right: 5px;
+		top: 8px;
+	}
+
+/* END SIDE BANNER */
+
+ @-moz-document url-prefix() {
+
+	.sectitle_container{
+	height: 18px;
+	clear: both;
+	}
+
+	.sectitle_container #social-review2{
+	margin-top: -1px !important;
+	}
+
+	.sectitle_container .ftr_search_review{
+	margin-top: -4px !important
+	}
+
+	.sectitle{
+	float: left !important;
+	margin-top: 0px !important;
+	}
+
+	.ftr_search_text_v2{
+	padding: 0 2px 0 5px !important;
+	}
+
+	.row3 .sectitle{
+	margin-top: 2px;
+	}
+
+	.row3 .ftr_search_review{
+	margin-top: -4px;
+	}
+
+}
+
+
+
+/* ADDITIONS after new css */
+
+.new-poker-news-list{
+    width: 466px;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.new-poker-news-list{
+    list-style-type: none;
+}
+
+.new-poker-news-list li{
+    border-bottom: 1px solid #ccc;
+    width: 466px;
+    position: relative;
+    overflow: hidden;
+    background: url('http://www.flopturnriver.com/design-team/jozsef/6335_redesigning_hp_newsbox/img/bg.png') repeat-x;
+}
+
+.new-poker-news-list li a{
+    text-decoration: none;
+}
+
+.new-poker-news-list li:hover{
+    background: #CB7600;
+}
+
+.new-poker-news-list li img{
+    float: left;
+    width: 40px;
+    height: auto;
+    margin: 5px 8px 5px 7px;
+    padding: 0px;
+}
+
+.new-poker-news-list li .list-items-text{
+    color: black;
+    float: none;
+    letter-spacing: 0px;
+    font-size: 11px;
+    padding: 5px 7px;
+}
+
+.new-poker-news-list li p{
+    color: black;
+    margin: 0px;
+    padding-bottom: 3px;
+    line-height: 13px;
+}
+
+.new-poker-news-list li:hover p{
+    color: white;
+}
+
+.new-poker-news-list li span p{
+    font-size: 12px;
+    padding: 0px 0px 3px 0px;
+    font-weight: bold;
+}
+
+
+/* top room for the hp, T6765, Suzara */
+.scrollbody div.scrollbody {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.scrollbody .tableNew {
+	/*margin-left: 15px*/
+	text-align: left;
+}
+
+.scrollbody .us_tNfix {
+	margin-top: 20px
+}
+
+
+.scrollbody .tableNew th {
+	font-size: 11px;}
+
+.scrollbody .emptyCell{
+	width: 100px;
+}
+
+.scrollbody .adjustCell{
+	width: 246px;
+}
+
+.scrollbody .roomBlock {
+	border-top: thin solid #cccccc;
+	width: 100%;
+	font-size: 11px;
+}
+
+.scrollbody .roomBlock_us{
+	border-top: thin solid #cccccc;
+	width: 100%;
+	font-size: 11px;
+	padding: 15px 0;
+}
+
+
+.scrollbody .roomIco{
+	width: 95px
+}
+
+.scrollbody .roomBlock tr {
+	height: 21px;
+}
+
+.scrollbody .roomBonus {
+	font-size: 12px
+}
+
+.scrollbody .roomBonusCode {
+	font-size: 12px;
+	color: red;
+}
+
+.scrollbody .roomTag {
+	background-color: #f0f0f0;
+}
+
+.scrollbody .redTxt{
+	color: red;
+}
+
+.scrollbody .aredTxt a:link{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.scrollbody td.aredTxt, td.roomBonus {
+	width: 240px;
+}
+
+.scrollbody .topRoom {
+	border-bottom: thin solid #cccccc;
+}
+
+.scrollbody .topRoom:hover {
+	background-color: #fff150;
+}
+
+.scrollbody .topRed {
+	text-decoration: underline;
+	font-weight: bold;
+	border: thin solid red
+}
+
+
+.scrollbody .topRoomBlock  ul{
+	list-style-type: none;
+	margin: 0; padding: 0
+}
+
+.scrollbody .roomIcoTop{
+	width: 15%;
+}
+
+.scrollbody .topRoom td.roomIco ul {
+	list-style-type: none;
+	text-indent: 0; margin: 0; padding: 0
+}
+
+.scrollbody .payOption {
+	display: block;
+}
+
+.scrollbody .payOption ul {
+	list-style-type: none;
+	text-indent: 0; margin: 0; padding: 0
+}
+.scrollbody .payOption ul li:first-child {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 2px
+}
+
+.scrollbody .payOption ul li {
+	display: inline-block;
+}
+
+.scrollbody .topCenter {
+	text-align: center
+}
+
+/** /////////////////////////////////////////// N E W  T O P  N A V **/
+.top_nav_highlighted {
+	-moz-border-radius:0 6px 0 0;
+	-webkit-border-radius:0 6px 0 0;
+	border-radius:0 6px 0 0;
+}
+
+.new-topnav_submenu_new li:first-child  {
+	border-radius:0 6px 0 0;
+
+}
+
+.new-topnav_menu_new > li:first-child  ul.new-topnav_submenu_new li  a{
+width:160px;
+}
+
+.new-topnav_menu_new > li:nth-child(5n)  ul.new-topnav_submenu_new li a{
+width: 120px;
+}
+
+.new-topnav_menu_new > li:nth-child(6n)  ul.new-topnav_submenu_new li a{
+width: 135px;
+}
+
+.new-topnav_menu_new > li:last-child  ul.new-topnav_submenu_new li a{
+width:135px;
+}
+
+/*new topnav and breadcrumb*/
+			.activeTab {
+			z-index: 147483647;}
+			.tabLocator{
+			z-index: 147483647;
+			}
+			ul.new-topnav_menu_new li a.locator{			
+			background-color: #fff;
+			}
+			ul.new-topnav_menu_new li a.locator:hover{			
+			background-color: #f4f4f4;
+			}
+</style>

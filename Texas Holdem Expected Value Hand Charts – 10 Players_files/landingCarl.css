@@ -1,0 +1,1836 @@
+@charset="utf-8";
+
+#breadcrumbs {
+background-color: #cb7600;
+border-width: 0px;
+background-image: url("http://www.flopturnriver.com/images/layout/pagebar-bg.png");
+padding: 8px;
+height: 24px;
+overflow: hidden;
+}
+
+#crubname {
+float: left;
+}
+
+#crumbsearch {
+float: right;
+margin-top: -15px
+}
+
+#content-container {
+background-color: #ffffff;
+margin: 0px;
+width: 930px;
+padding: 10px 30px 30px 30px;
+margin-top: -10px;
+}
+
+#content-slider {
+background-color: #fbf9f3;
+height: 215px;
+width: 930px;
+position:relative;
+}
+
+.slider-thumb, .author-thumb, .slider-text, .author-text, .scat-text, .category-thumb, .category-text, .news-thumb, .news-text  {
+float: left;
+}
+
+.slider-thumb{
+width: 230px;
+height: 165px;
+margin: 15px 0 15px 40px;
+}
+
+.slider-thumb img {
+width: 271px;
+height: 194px;
+}
+
+.slider-thumb span.overlay {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 194px;
+position: absolute;
+top: 81px;
+width: 271px;
+}
+
+.slider-thumb span.overlay-slider {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 194px;
+position: absolute;
+top: 15px;
+width: 271px;
+}
+
+.author-thumb{
+width: 230px;
+height: 165px;
+margin: 15px 0 15px 40px;
+}
+
+.author-thumb img {
+width: 271px;
+height: 194px;
+}
+
+.author-thumb span.overlay {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 194px;
+position: relative;
+top: -194px;
+width: 271px;
+}
+
+.author-thumb span.overlay-slider {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 194px;
+position: absolute;
+top: 15px;
+width: 271px;
+}
+
+.slider-text {
+width: 560px;
+margin: 15px 40px 15px 50px;
+overflow: hidden;
+}
+
+.author-text {
+width: 560px;
+margin: 15px 0px 15px 60px;
+overflow: hidden;
+}
+
+.author-text p {
+font-size: 12px;
+margin-top: 10px;
+text-align: justify;
+text-justify: distribute;
+}
+
+.scat-text {
+margin: 10px;
+overflow: hidden;
+}
+
+.scat-text p {
+font-size: 12px;
+margin-top: 10px;
+text-align: justify;
+line-height: 20px;
+}
+
+.scat-text h4 {
+	color: #000;
+	font-weight: bold;
+	font-size: 14px;
+	display: block;
+	border-bottom: 1px solid #aaa;
+}
+
+.scat-text h5 {
+	color: #000;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.scat-text h6 {
+	color: #000;	
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.author-social {
+	float: right;
+	margin-right: 30px;
+}
+
+.author-social img {
+	position: relative;
+}
+
+ul.slider-titlebar, ul.category-titlebar, ul.news-titlebar {
+list-style-type: none;
+padding-left: 10px;
+}
+
+li.slider-title, li.category-title, li.news-title {
+color: #7e4404;
+font-family: 'Roboto', sans-serif;
+font-weight: 900;
+font-size: 18px
+}
+
+li.slider-meta:before, li.category-meta:before, li.news-meta:before {
+content:url('http://www.flopturnriver.com/design-team/suzara/7118_landing_page/code/images/meta.png');
+padding-right: 5px
+}
+
+li.slider-meta a, li.category-title a {
+color: #c1744e;
+font-weight: bold;
+text-decoration: none
+}
+
+li.slider-meta a:hover, li.category-title a:hover{
+color: #a33d0b;
+}
+
+li.slider-desc {
+font-size: 12px;
+margin-top: 10px;
+text-align: justify;
+text-justify: distribute;
+}
+
+#author-bio {
+  width: 926px;
+  height:265px;
+  border-bottom: 1px solid #ebe9e3;
+}
+
+#scat-intro {
+  width: 926px;
+  height:100%;
+  background-color: #fbf9f3;
+  border-bottom: 1px solid #ebe9e3;
+}
+
+#banner-slide {
+  width: 850px;
+  height:185px;
+}
+
+.section-container {
+margin: 30px 0;
+}
+
+.header-bar{
+background: #7e4404;
+padding: 10px;
+border-radius: 5px 5px 0 0;
+}
+
+@-moz-document url-prefix() { 
+  .header-bar{
+     margin: 20px 0px 0px 0px;
+  }
+}
+
+.header-bar h3 {
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 18px
+}
+
+.footer-bar h3 {
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 18px
+}
+
+#category-container{
+}
+
+.category-block {
+width: 305px;
+float: left;
+margin: 15px 0 10px 4px;
+}
+
+.category-thumb {
+width: 92px;
+height: 66px;
+}
+
+.category-thumb img{
+width: 100%
+}
+
+.category-thumb span.overlay {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 66px;
+position: relative;
+top: -66px;
+width: 92px;
+}
+
+.category-text {
+width: 209px;
+overflow: none;
+}
+
+
+ul.category-info{
+list-style-type: none;
+padding-left: 10px;
+margin: 0;
+padding: 0 0 0 5px
+}
+
+ul.category-info li{
+}
+
+li.category-title {
+font-size: 12px
+}
+
+li.category-desc  {
+font-size: 10px;
+padding-top: 5px
+}
+
+li.news-desc  {
+font-size: 11px;
+text-align: justify;
+padding-top: 5px
+}
+
+li.news-desc-feed  {
+font-size: 10px;
+text-align: justify;
+}
+
+#latest-news{
+width: 598px;
+margin-right: 30px;
+float: left;
+}
+
+#recent-feed {
+background: #fbf9f3;
+/*height: 380px;
+overflow-y:scroll;
+overflow-x:hidden;*/
+padding: 10px
+}
+
+.news-thumb{
+width: 115px;
+height: 83px;
+padding: 12px 0
+}
+
+.news-thumb span.overlay {
+background: url(http://www.flopturnriver.com/images/overlay.png) no-repeat;
+display: block;
+height: 82px;
+position: relative;
+top: -83px;
+width: 115px;
+}
+
+.news-meta a{
+color: #c1744e;
+font-weight: bold
+}
+
+.news-item{
+border-bottom: 1px solid #ebe9e3;
+padding-bottom: 5px
+}
+
+.news-thumb img {
+width: 100%;
+height: 82px;
+}
+
+.news-text{
+width: 440px;
+}
+
+li.news-title{
+font-size: 16px;
+height: 40px;
+overflow: hidden;
+}
+
+li.news-title .20px{
+	height: 20px;
+}
+
+li.news-title a, li.slider-title a{
+color: #7e4404;
+font-weight: bold;
+}
+
+li.news-title a:hover, li.slider-title a:hover {
+color: #c1744e;
+}
+
+li.news-meta:before {
+content:url('http://www.flopturnriver.com/design-team/suzara/7118_landing_page/code/images/meta.png');
+padding-right: 5px
+}
+
+.read-more a{
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 12px;
+background: #7e4404;
+padding: 5px;
+float: right
+}
+
+.read-more a:hover{
+text-decoration: none;
+background: #492803;
+}
+
+#about-form{
+background: #fbf9f3;
+width: 260px;
+padding: 15px 20px;
+overflow: hidden
+}
+
+#about-form h3 {
+color: #7e4404;
+font-size: 18px;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+text-align: center;
+}
+
+.about-head {
+padding-bottom: 5px;
+border-bottom: 2px solid #7e4404;
+
+}
+
+#about-form p {
+text-align: justify;
+font-size: 12px
+}
+
+#search-form{
+background: #fbf9f3;
+width: 260px;
+padding: 15px 20px;
+height: 300px;
+overflow: hidden
+}
+
+#search-form h3 {
+color: #7e4404;
+font-size: 18px;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+}
+
+.search-head {
+padding-bottom: 5px;
+border-bottom: 2px solid #7e4404
+}
+
+#search-form p {
+text-align: justify;
+font-size: 12px
+}
+
+#search-form  select{
+width: 250px;
+font-size: 12px;
+padding: 5px;
+margin-left: 2px;
+color: #000000;
+border: thin solid #d4d4d4
+}
+
+#search-form  option{
+color: #000000;
+}
+
+.searchbar{
+display: inline-block;
+border: thin solid #d4d4d4;
+color: #000000;
+}
+
+.submit-btn{
+width: 35px;
+text-indent:-10000px;
+background: #7e4404 url('http://www.flopturnriver.com/design-team/suzara/7118_landing_page/code/images/search-icon.jpg') center no-repeat;
+display: inline-block; 
+border: none;
+cursor: pointer}
+
+/* Basic jQuery Slider essential styles */
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding-top:5px;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0;}
+ol.bjqs-markers{list-style: none; padding: 0; margin: 0; width:100%;}
+ol.bjqs-markers.h-centered{text-align: center;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+/**/
+ul.bjqs-controls.v-centered li.bjqs-prev a{
+	display:block;
+	background: #fbf9f3 url('http://www.flopturnriver.com/images/prev.png') no-repeat;
+	width: 40px;
+	height: 205px;
+	position: absolute;
+	top: 0;
+}
+
+ul.bjqs-controls.v-centered li.bjqs-next a{
+	display:block;
+	background: #fbf9f3 url('http://www.flopturnriver.com/images/next.png') no-repeat;
+	width: 40px;
+	height: 205px;
+	position: absolute;
+	top: 0;
+}
+
+ol.bjqs-markers{
+margin: 10px;
+}
+
+ol.bjqs-markers li a {
+margin-right: 5px;
+color: transparent;
+width: 8px; height: 8px;
+background-color: #d9d7d2
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	background: #999;
+}
+
+/* Category Listing */
+#latest-listing{
+width: 930px;
+margin-top: 30px
+}
+#listing-feed{
+}
+.listing-block {
+	position: relative;
+	height: 440px;
+width: 276px;
+float: left;
+margin: 0;
+padding: 15px 15px 0 15px;
+border-bottom: 1px solid #E6E6E6;
+border-right: 1px solid #E6E6E6;
+}
+.listing-block:nth-child(3n+0){
+border-right: none
+}
+.listing-header-bar {
+border-radius: 5px;
+text-align: center}
+.listing-thumb {
+float: none;
+margin: 0 auto;
+text-align: center;
+width: 100%;
+height: auto
+}
+.read-more-listing{
+position: absolute;
+right: 0;
+bottom: 0;
+}
+.page-count{
+list-style-type: none;
+margin-top: 25px;
+margin-right: 5px;
+text-align: right;
+}
+.page-count li{
+display: inline-block;
+}
+.page-count li a{
+display: inline-block;
+margin-left: 2px;
+padding: 5px;
+/*width: 8px; height: 8px;*/
+min-width: 16px;
+text-align: center;
+background-color: #d9d7d2;
+color: #fff; font-size: 12px;
+text-decoration: none}
+.page-count li a:hover, .page-count li a.active {
+background-color: #7e4404;
+}
+
+/** OTHER ROOMS STYLE **/
+#other-top-rooms-container{
+margin: 20px 0
+}
+
+.other-rooms-header{
+color: #7e4404;
+font-family: 'Roboto', sans-serif;
+font-weight: normal;
+font-size: 24px;
+background: #fff1c4 url('http://www.flopturnriver.com/images/top-rooms-bg.png') repeat-x top left;
+background-size: contain;
+border-top: 4px solid #985204;
+border-bottom: 4px solid #985204;
+padding: 5px 0
+}
+
+.other-rooms-header > div, .other-rooms-row > div{
+display: inline-block;
+vertical-align: middle;
+text-align: center;
+}
+
+.other-rooms-row {
+border-top: thin solid #d0d0d0;
+}
+
+.other-rooms-row:last-child{
+border-bottom: 4px solid #985204;
+}
+
+.other-rooms-row > div{
+padding: 15px 0
+}
+
+.other-rooms-fcolumn{width: 5%;}
+.other-rooms-scolumn{width: 22%;}
+.other-rooms-tcolumn{width: 15%;}
+.other-rooms-focolumn{width: 15%;}
+.other-rooms-ficolumn{width: 28%;}
+
+.other-rooms-fcolumn, .topRooms-ranking p {
+	color: #e3d0ba;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+.topRooms-ranking p { margin-top: -10px; }
+.topRooms-ss{width: 247px; height: 170px}
+.topRooms-ss img {width: 100%; height: 100%}
+.topRooms-deposit-options ul li{padding: 3px 0}
+
+.other-rooms-scolumn img{width: 60%; height: auto}
+.other-rooms-tcolumn ul {list-style-type: none; padding: 0}
+.other-rooms-ficolumn ul {list-style-type: none; padding: 0;}
+.other-rooms-ficolumn ul li {display: inline-block; vertical-align: middle}
+div.other-rooms-sxcolumn > a {display: inline-block;}
+
+.other-rooms-bonus{font-size: 18px; font-weight: bold; color: #383737}
+.other-rooms-bonuscode{font-size: 18px; font-weight: bold; color: #c80202}
+.other-room-download{
+background: url(http://www.flopturnriver.com/images/mini-dl.png) transparent top left no-repeat;
+width:46px; height: 45px;
+display: block; margin: 0 auto}
+.other-room-download:hover{
+background: url(http://www.flopturnriver.com/images/mini-dl.png) transparent bottom left no-repeat;}
+
+/* START WIKI NAV */
+
+#pokerroom_box_wrap,#pokerroom_box,#pokerroom_box ul,#pokerroom_box_wrap ul,#pokerroom_box_wrap div{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#pokerroom_box_wrap{
+	padding: 15px 0px;
+	margin-bottom: 20px;
+	border: 1px solid #d7d7d7;
+	background-color: #F9F9F9;
+	width: 50%;
+	#float: right;
+}
+
+#pokerroom_box_wrap h5{
+	padding: 5px 0px 15px 20px;
+	margin: 0px;
+	display: block;
+	font-size: 14px;
+	color: #333333;
+	float: left;
+}
+
+#pokerroom_box,#pokerroom_box ul{
+	list-style-type: none;
+}
+
+
+#pokerroom_box li{
+	font-size: 12px;	
+	line-height: 20px;
+	white-space: nowrap;
+}
+
+/* new */
+
+#pokerroom_box_wrap2,#pokerroom_box,#pokerroom_box ul{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#pokerroom_box_wrap2{
+	padding: 15px 0px;
+	border: 1px solid #d7d7d7;
+	background-color: #F9F9F9;
+	width: 49%;
+}
+
+#pokerroom_box_wrap2 h4{
+	padding: 5px 0px 15px 20px;
+	margin: 0px;
+	display: block;
+	font-size: 14px;
+	color: #333333;
+	float: left;
+}
+
+#pokerroom_box,#pokerroom_box,#hide ul{
+	list-style-type: none;
+}
+
+#pokerroom_box li{
+	font-size: 12px;	
+	line-height: 20px;
+	white-space: nowrap;
+}
+
+li.indent {
+  padding: 0px 0px 0px 5px;
+}
+
+/* new */
+
+#togglespan{
+	color: blue;
+	cursor: pointer;
+	margin: 0px;
+	float: left;
+	padding: 10px 0px 0px 10px;
+}
+
+#togglespan:hover{
+	text-decoration: underline;
+}
+
+/* dropdown additions */
+
+.plus{
+	cursor: pointer;
+	color: blue;
+}
+
+.plus:hover{
+	text-decoration: none;
+}
+
+.pokerroom_box_dropdown{
+	display: none;
+}
+
+/* mozilla fix */
+
+@-moz-document url-prefix(){
+	#pokerroom_box,#pokerroom_box ul{
+		padding-left: 40px;
+	}
+}
+
+
+#pokerroom_box_wrap ul{
+	float: left;
+	#width: 35%;
+	min-width: 145px;
+	padding-left: 50px;
+	list-style-type: none;
+}
+
+#marketing_bonus{
+	float: left;
+	width: 57%;
+}
+
+.marketing_box p{	
+	font-size: 12px;
+	font-weight: bold;
+	margin: 15px 0px;
+}
+
+.marketing_box span{
+	color: #B60801;
+}
+
+.visitroom{
+	padding-top: 20px;
+}
+
+.visitroom a{	
+	line-height: 22px;
+	color: #B60801;
+	text-decoration: underline;
+}
+
+.downloadroom a{
+	line-height: 22px;
+	color: #1F6E25;
+	text-decoration: underline;
+}
+
+.contentslist { font-size: 12px; line-height: 18px;}
+a.contentslist { color: #002BB8; text-decoration: none; }
+a.contentslist:visited { color: #002BB8; text-decoration: none; }
+a.contentslist:hover { color: #CB7600; text-decoration: underline; }
+
+/* END WIKI NAV */
+
+/* Start New Table */
+
+.wpTabmenu{
+margin: 50px 0;
+text-align: left;
+}
+
+.wpTabmenu > ul {
+    font-size: 10px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: bottom;
+    white-space: nowrap;
+	position:relative;
+	display:block;
+	left:50%;
+}
+
+.wpTabmenu > ul > li {
+	display:block;
+	float:left;
+	right:50%;
+	z-index:9999;
+	position:relative;
+}
+
+.wpTabmenu > ul > li a {
+	background-color: #e8e8e8; text-decoration: none;
+	color: #7e4404;
+	font-family: 'Roboto', sans-serif; font-size: 18px;
+	display: block;
+	padding: 15px 9px;
+}
+
+.wpTabmenu > ul > li a:visited, .wpTabmenu > ul > li a:active {
+	text-decoration: none;
+}
+
+.wpTabmenu > ul > li a:hover, .wpTabmenu li a.selected {
+	color: #fff; text-decoration: none;
+	background-color: #7e4404
+}
+
+.wpTabcontainer{}
+
+.wpTabheader, .wpTabfooter{
+width: inherit;
+height: 40px;
+background: none;background-color: #7e4404;
+}
+
+.wpTabfooter{
+font-family: 'Roboto', sans-serif; font-size: 18px;
+text-align: center;
+padding: 15px 0 0;
+}
+
+.wpTabfooter a{
+color: #fff;
+}
+
+.wpTabfooter a:hover{
+color: #fef2c3;
+}
+
+.wpTabfooter a:before {
+content: url('http://www.flopturnriver.com/images/green-arrow.png');
+margin: 0 10px 0 15px;
+vertical-align: middle;
+}
+
+.wpTabbody{
+background: #f4f4f4
+}
+
+.wpToprank, .wpTopcol1, .wpTopcol2, .wpListcol{
+float: left;
+}
+
+.wpToprank{
+padding: 0 10px;
+position: relative;
+margin-top: -30px;
+}
+
+.wpTopcol1, .wpTopcol2 {margin: 10px 20px}
+
+.wpTopcol1 > div , .wpTopcol2 > div{
+margin: 10px 0
+}
+
+.wpLogo{
+background: #e2e2e2;
+padding: 6px;
+border: 1px solid #d7d7d7;margin-bottom: 10px;
+}
+
+.wpQuicklinks p{
+display: inline-block;
+vertical-align: middle;
+margin: 0 2px}
+
+.wpQuicklinks a{
+display: block;
+margin-bottom: 5px
+}
+
+.wpDownloadbtn a {
+width: 160px;
+height: 43px;
+display: block;
+background: url('http://www.flopturnriver.com/images/wp-btn-dl.png') no-repeat top left
+}
+
+.wpDownloadbtn a:hover {
+background: url('http://www.flopturnriver.com/images/wp-btn-dl.png') no-repeat bottom left}
+
+.wpVisitbtn a {
+width: 160px;
+height: 43px;
+display: block;
+background: url('http://www.flopturnriver.com/images/wp-btn-visit.png') no-repeat top left
+}
+
+.wpVisitbtn a:hover {
+background: url('http://www.flopturnriver.com/images/wp-btn-visit.png') no-repeat bottom left}
+
+.wpTabcontainer h3{
+font-family: 'Roboto', sans-serif; font-size: 28px;
+color: #73450a; line-height: 36px;
+}
+
+.wpRating ul, .wpCompatibility ul, .wpDepositoptions ul{
+list-style-type: none;
+padding: 0;margin: 5px 0;
+}
+
+.wpRating ul li, .wpCompatibility ul li, .wpDepositoptions ul li{
+display: inline-block;
+/*padding: 0 2px;*/ vertical-align: middle
+}
+
+.wpTitlecontainer > div {float: left}
+.wpRoomName{width: 205px; overflow: hidden;}
+.wpRoomName h3 a{font-family: 'Roboto', sans-serif; font-size: 22px;
+color: #73450a; line-height: 36px;}
+.wpTitlecontainer div:last-child{width: 145px; text-align: right}
+
+.wpDetailbox ul{
+list-style-image: url('http://www.flopturnriver.com/design-team/jozsef/6409_us_poker_%231_room/images/tick.png');
+margin-left: 25px;
+}
+
+.wpDepositoptions{
+padding: 10px;
+background-color: #e2e2e2;
+border: 1px solid #d7d7d7
+}
+
+.wpListrow1{padding: 5px 0 10px 0; margin: 20px 0; border-top: 2px solid #7e4404;border-bottom: 2px solid #7e4404}
+.wpListrow{padding: 5px 0 10px 0; margin: 20px 0; border-bottom: 2px solid #7e4404}
+.wpListcol {margin: 10px 8px;}
+
+.wpListranking{font-family: 'Roboto', sans-serif!important; font-size: 28px!important;
+color: #cb7600!important; line-height: 36px!important; font-weight: bold!important;}
+.wpListcomp{padding: 13px 0 5px 0; text-align: center}
+.wpListinrow{width: 390px; padding: 2px 5px; margin-bottom: 5px;}.wpListinrow:nth-child(odd){background-color: #f4f4f4;}
+.wpListinrownew{width: 299px; padding: 2px 5px; margin-bottom: 5px;}.wpListinrownew:nth-child(odd){background-color: #f4f4f4;}
+.wpListbcode {text-transform: uppercase; font-weight: bold; color: #fff; padding: 2px 5px; background-color: #b60801}
+
+/* End New Table */
+
+
+/** start three column list**/
+
+.wpTabbody {
+padding-bottom: 20px;}
+
+.wpTabheader{
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-size: 18px;
+color: #fff;
+padding-top: 15px
+}
+
+.wpTabheader img{
+vertical-align: middle;
+margin-left: 5px;
+}
+
+.tcTopCol2 {
+width: 350px;
+}
+.wpTopcol3{
+float: left;
+margin: 10px;
+}
+
+.wpTopss{
+width: 200px;
+text-align: center;
+margin-bottom: 28px;
+}
+
+.wpDepositoptions ul li {
+display: block;
+float: left
+}
+.wpCashBonus ul{list-style-type: none; padding: 0; margin: 0}
+.wpCashBonus ul li {display: inline-block}
+
+.wpBonusTerms{
+width: 700px;
+margin: 0 auto;
+border: thin dotted #d7d7d7;
+padding: 10px;
+background-color: #f8f8f8;}
+
+a.morelink {
+	text-decoration:none;
+	outline: none;
+}
+.morecontent span {
+	display: none;
+}
+.wpListCol3{width: 288px}
+
+.wpListCol3new{width: 180px}
+
+.wpListCol3newS{width: 164px}
+.wpListCol3newS p{text-align: left;}
+
+.wpListCol3 .wpDepositoptions{margin-bottom: 10px;}
+
+.wpQList{float:left; margin-right:40px;}
+.wpQListnew{margin-left:10px;}
+
+.wpBonusTermsList{width: 900px}
+
+/** end three column list**//** styling for top 20 list **/
+.wpListrow-t20{padding: 10px 0;}
+
+.wpListrow-t20:nth-child(odd){background-color: #f4f4f4}
+
+.wpListContainer-t20-header{border-top: 4px solid #7e4404; border-bottom: 4px solid #7e4404; color: #7e4404; font-family: 'Roboto', sans-serif; font-size: 18px; margin-top: 30px; padding: 2px 0; background-color: #f4f4f4}
+
+.wpListContainer-t20-header > div, .wpListrow-t20 > div {display: inline-block; text-align: center; margin: 0;padding: 5px 10px;vertical-align: middle;}
+
+.wpListcol-t20{width: 2%}
+
+.wpListcol-t20-col1{width: 15%}
+
+.wpListcol-t20-col2{width: 20%}
+
+.wpListcol-t20-col3{width: 15%}
+
+.wpListcol-t20-col4{width: 12%}
+
+.wpListcol-t20-col5{width: 19.66%}
+
+.wpListranking-t20{font-family: 'Roboto', sans-serif; font-size: 28px; color: #cb7600;font-weight: bold; margin: 0; padding: 0}
+
+.wpLogo-t20{width: 113px; height: 49px;margin: 0 auto}
+
+.wpLogo-t20 img {width: 100%; height: 100%}
+
+.wpList-t20-link{font-size: 10px}
+
+.wpListcol-t20-col5 ul{list-style-type:none; padding: 0}
+
+.wpListcol-t20-col5 ul li{display: inline-block}
+
+.other-room-visit{background: url(http://www.flopturnriver.com/images/mini-visit.png) transparent top left no-repeat;width:46px; height: 45px;display: block; margin: 0 auto}
+
+.other-room-visit:hover{background: url(http://www.flopturnriver.com/images/mini-visit.png) transparent bottom left no-repeat;}
+
+.other-room-review{background: url(http://www.flopturnriver.com/images/mini-review.png) transparent top left no-repeat;width:46px; height: 45px;display: block; margin: 0 auto}
+
+.other-room-review:hover{background: url(http://www.flopturnriver.com/images/mini-review.png) transparent bottom left no-repeat;} 
+
+/** end t20**/
+
+/** new review button **/
+.wpReviewbtn a {
+
+width: 160px;
+
+height: 43px;
+
+display: block;
+
+background: url('http://www.flopturnriver.com/images/wp-btn-review.png') no-repeat top left
+
+}
+
+.wpReviewbtn a:hover {
+
+background: url('http://www.flopturnriver.com/images/wp-btn-review.png') no-repeat bottom left}
+
+/** PAY TABLES FOR VIDEO POKER **/
+
+.paytable .tablegridnav {
+	margin: 0px;
+}
+
+.paytable .tablegridnav table {
+	margin: 0px auto;
+	border-spacing:1px;
+	background-color:#eee3c3;
+	background-image:none;
+	border: 0px solid;
+	width: 615px;
+}
+
+.paytable .grid th{
+	color:black;
+	background-color:white;
+	padding:.2em;
+}
+.paytable .grid tr th em {
+	color: #008000;
+	font-style: normal;
+}
+
+.paytable .grid tr td {
+	background-color:#FFFFFF;
+	border-width:0px;
+	text-align:center;
+}
+.paytable .grid tr.H td {
+	font-weight: bold;
+	background-color:#e7D396;
+	border-width:0px;
+}
+.paytable .grid tr td.h {
+}
+.paytable .grid tr td.g {
+	color: #008000;
+}
+.paytable .grid tr td.b {
+	font-weight: bold;
+	color: #008000;
+}
+
+ .paytable .grid tr td a{
+ 
+	color:#1D2946;
+	background-color:white;
+	padding:.2em;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.paytable .grid tr td a:hover {
+	color:red;
+	text-decoration:none;
+}
+
+/** END VP PAY TABLES **/
+
+/** Poker Networks Table **/
+
+#networkwrapper {width: inherit; margin: 20px 0}
+
+.networkcontainer * {margin: 0; padding: 0;}
+
+.networkcontainer h3 {color: #000}
+
+.networkcontainer{
+width: 100%;
+font-family : Verdana, sans-serif;
+font-size: 11px}
+
+.networkcontainer h2{
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+line-height: 36px;
+}
+
+.networkblock {width: inherit}
+
+.networkheader{
+background-color: #7e4404;
+color: #fff;
+border-radius: 6px 6px 0px 0px;
+padding: 5px;
+text-align: center
+}
+
+.networkheader h2{color: #fff; font-size: 16px}
+
+.networkbody{
+background-color: #f2f2f2;
+padding: 10px
+}
+
+.networkrank, .networkinfo, .networktimeline {
+margin: 0 5px;
+float: left;
+box-sizing: border-box;
+}
+
+.networkrank{
+width: 3%;
+color: #7c4404;
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+font-size: 36px;
+text-align: center;
+}
+
+.networkinfo{
+width: 20%
+}
+
+.networktimeline{
+width: 73%
+}
+
+.networktimeline h2 {color: #000; font-size: 16px}
+
+.networkinfo > div {
+margin-bottom: 10px
+}
+
+.pnlogo{
+text-align: center
+}
+
+.pnlogo a {display: block}
+
+.pnlogo img{
+max-width: 160px;
+width: 100%;
+height: auto;
+padding: 5px;
+background-color: #e2e2e2;
+border: thin solid #d7d7d7
+}
+
+.networkus{
+text-align: center
+}
+
+.networkstats{
+text-align: center;
+background-color: #f7f1e4;
+border: 1px solid #e7d396
+}
+
+.networkstats > div {
+line-height: 20px
+}
+
+.networkstats > div > div:nth-child(odd) {
+font-weight: bold;
+background-color: #e7d396;
+}
+
+.networktrends >div{
+display: inline-block;
+vertical-align: middle;
+width: 31.33%;
+padding-bottom: 5px
+}
+
+.networktrends >div:nth-child(2n){
+border-left: 1px solid #fff;
+border-right: 1px solid #fff;
+}
+
+.pntperc>div {
+display: inline-block;
+vertical-align: middle;
+}
+
+.pntrendinc {color: green}
+.pntrenddec {color: red}
+
+.pnplayercount {font-weight: 400}
+
+.pntimelinecontainer { width: 100%; margin: 20px 0}
+
+.pntimelinecontainer  ul {
+text-align: right;
+font-family: 'Roboto', sans-serif;}
+
+.pntabs li, .pnrtabs li {
+list-style:none;
+display:inline;
+}
+
+.pntabs a, .pnrtabs a {
+padding:5px 10px;
+display:inline-block;
+background: none;
+color:#000;
+text-decoration:none;
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+font-size: 18px
+}
+
+.pntabs a.pnactive, .pnrtabs a.pnractive {
+background:#e7d396;
+}
+
+#pntab1, #pntab2, #pntab3, #pntab4, #pnrtab1, #pnrtab2, #pnrtab3, #pnrtab4{
+border-top: 3px solid #e7d396;
+padding-top: 20px
+}
+
+.pntabs a:hover, .pnrtabs a:hover{background-color: #f7f1e4}
+
+.pngraphcontainer * {
+padding: 5px 0
+}
+
+.pngraphhead {
+text-align: center;
+background-color: #f7f1e4
+}
+
+.pngraphhead h2{
+color: #000;
+font-size: 16px
+}
+
+.pngraphcol{
+display: inline-block;
+vertical-align: top;
+text-align: center;
+width: 49%;
+}		
+
+.networkdet .wpBonusTerms{
+width: 60%;
+margin: 20px auto;
+padding: 20px
+}
+
+.pnroomcol {
+float: left
+}
+
+.pntoproomheader{
+background-color: #e7d396;
+border-radius: 6px;
+}
+
+.pnroomcol{
+display:inline-block;
+width: 20%;
+text-align: center;
+padding: 10px 0;
+font-family: 'Roboto', sans-serif;
+font-size: 16px;
+}
+
+.pntoproomcontent .pnroomcol{
+margin-top: 50px
+}
+
+.pntoproomcontent .pnroomcol:first-child{
+margin-top: 0px
+}
+
+.pntoproomcontent .pnroomcol:last-child{
+margin-top: 30px
+}
+
+.pnroomcol .wpListbcode{
+padding: 5px
+}
+
+.pnroomcol .wpQuicklinks{
+text-align: left;
+font-size: 12px
+}
+
+.pnroomtimelinecontainer {
+border: thin solid #e7d396;
+}
+
+.pnroomtimelineheader{
+background-color: #e7d396;
+padding: 10px;
+}
+
+.pnroomtimelineheader > p {
+display: inline-block;
+vertical-align: middle
+}
+
+.pnroomtimelineheader > p:first-child{margin-right: 85%}
+
+.pnroomtimelinebtn{
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;	
+	border-top: 5px solid #7e4404;
+	cursor: pointer;
+}
+
+.btncollapsed{
+	border-bottom: 5px solid #7e4404;
+	border-top: none
+}
+
+.pnroomtimeline{
+display: none
+}
+
+.pnroomtimeline .pntimelinecontainer{
+width: 80%;
+margin: 10px auto
+}
+
+/* Reviews */
+
+.borderAdded{
+	border-right: 4px solid #cb7600;
+	border-bottom: 4px solid #cb7600;
+}
+
+.review_banner{
+	max-width: 100%;
+	margin-top: -30px;
+	margin-bottom: 20px;
+}
+
+.review_banner img{
+	max-width: 791px;
+}
+
+.networkThumbs {
+	margin-left: 25px;
+}
+
+.networkThumbs img{
+	float: left;
+	padding-right: 10px;
+	margin-bottom: 10px;
+}
+
+.networkThumbs img:hover{
+	width: 140px;
+	height: 100px;
+	margin-bottom: 4px;
+}
+
+.topMessage{
+	width: 100%;
+	margin-top: -29px;
+	margin-bottom: 20px;		
+}
+
+.topMessage td.left{
+	width: 30%;
+	background-color: #000000; 
+	vertical-align: middle;
+	border-color: #000;
+	background-image: url(http://www.flopturnriver.com/icon/caution.png);	
+	background-repeat: no-repeat;	
+	background-position: 5px 50%;
+	white-space: nowrap;
+	border-style: solid;
+	border-width: 2px;
+	padding: 7px 10px 7px 50px;
+}
+
+.topMessage td.left p{		
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;		
+}
+
+.topMessage td.right{
+	width: 70%;	
+	border-color: #000;	
+	border-style: solid;
+	border-width: 2px;
+	padding: 7px 10px 7px 10px;
+}
+
+.topMessage td.right p{
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;		
+}
+
+.topMessageLeft{
+	position:relative;
+	width: 30%;
+	float: left;
+	background-color: #000;
+	border: 2px solid #000;
+	padding: 5px;
+	min-height: 100px;
+	/*background: url('http://www.flopturnriver.com/images/tbg_alert.gif') left top no-repeat;*/
+}
+
+.topMessageLeft img{
+	position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.topMessageLeft p{
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 50px;
+	padding-top: 25px;   
+}
+
+.topMessageRight{
+	width: 66%;
+	float: left;
+	border: 2px solid #000;
+	padding: 5px;
+	min-height: 100px;
+}
+
+.topMessageRight p{
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* Screen shot slider */
+
+.ss_slider{
+	/*margin-bottom: 220px;*/
+}
+
+.bx-wrapper .bx-pager {
+	bottom: -210px;					   
+}
+
+#bx-pager a {
+	border: solid #ccc 1px;
+	display: inline-block;
+	margin: 0 5px;
+	padding: 3px;
+}
+
+#bx-pager a:hover,
+#bx-pager a.active {
+	border: solid #5280DD 1px;
+}
+
+.bx-wrapper {
+	margin-bottom: 120px;
+}
+
+ul.bxslider li.topMargin{
+	margin-top: -10px;
+}
+
+#bx-pager { 
+	margin-top: -40px;
+	text-align: center; 
+}
+
+/* Review Sidebars */
+
+#sidebarCasino{
+	float: right; 
+	width: 175px;
+	/*border-left: 2px solid #cb7600;*/
+}
+
+.widget-boxCasino {
+	border-top: 3px solid #cb7600;
+	background-color: #FFF;
+	margin-top: 10px;
+	padding: 10px 5px;
+	margin-bottom: 0px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+#sidebarCasino .widget-box h4 {
+	color: #fff;
+	background: #cb7600;
+	padding: 5px;
+	font-size: 12px;
+	font-family: 'Verdana', Arial, sans-serif;
+	display: block;
+	margin: 0px;
+}
+
+#sidebar .featured h2 {
+	background: #da1b22;	
+}
+
+.no-margin-top{
+	margin-top: 0px;
+	padding-left: 5px;
+	padding-right: 1px;
+}
+
+.no-left-padding{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.some-text{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: -30px;
+}
+
+.some-text p{
+	font-size: 11px;
+	text-align: justify;
+}	
+
+ul.casino-menu {
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+ul.black-links a {
+	color: #000;
+}
+
+
+#sidebarCasino .widget-box ul li{
+	border-bottom: none;
+	/*min-height: 38px;*/
+	overflow: visible;
+	border-bottom: 1px solid #ccc;
+	margin-top: -5px;
+}
+
+#sidebarCasino .widget-box ul li.no-indent{
+	padding-left: 0px;
+}
+
+#sidebarCasino .widget-box ul li.first{
+	/*margin-top: 20px;*/
+}
+
+#sidebarCasino .widget-box ul li.last{
+	border-bottom: none;
+	margin-bottom: -30px;
+}
+
+/* Hack for last list item. */
+#sidebarCasino .widget-box ul a:last-child li{
+	border-bottom: 1px solid transparent;
+	margin-bottom: -30px;
+}
+
+#sidebarCasino .widget-box ul li.top{
+	border-top: 1px solid #ccc;
+}
+
+#sidebarCasino .widget-box ul li.margin-bottom{
+	margin-bottom: 5px;
+}
+
+#sidebarCasino .widget-box ul li.deposit-icons{
+	padding-left: 8px;
+	padding-right: 2px;
+	float: left;
+	border-bottom: none;
+	margin-top: 2px;
+}
+
+#sidebarCasino .widget-box ul li.deposit-options{
+	padding-left: 8px;
+	padding-right: 2px;
+	float: left;
+	border-bottom: none;
+	margin: 2px 0;
+}
+
+ul.casino-menu li {		
+	padding-left: 33px;
+}
+
+ul.casino-menu li:hover {		
+	background-color: #fff6db;
+}
+
+ul.casino-menu li.mainLogo {		
+	margin-left: -38px;
+	margin-top: -20px !important;
+}
+
+span.gameHead {		
+	color: #226699;
+	font-weight: bold;
+}
+
+span.redCode{
+	color: #d90000;
+}
+
+ul.casino-menu li a {		
+	color: #002BB8;
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+li.bonus{background: url('http://www.flopturnriver.com/icon/money.gif') left top no-repeat;}
+li.download{background: url('http://www.flopturnriver.com/icon/dl.gif') left top no-repeat;}
+li.network{background: url('http://www.flopturnriver.com/icon/network.gif') left top no-repeat;}
+li.software{background: url('http://www.flopturnriver.com/icon/software.gif') left top no-repeat;}
+li.review{background: url('http://www.flopturnriver.com/icon/review.gif') left top no-repeat;}
+li.windows{background: url('http://www.flopturnriver.com/icon/win.png') left top no-repeat;}
+li.mac{background: url('http://www.flopturnriver.com/icon/desktopapple.gif') left top no-repeat;}
+li.ios{background: url('http://www.flopturnriver.com/icon/mobileapple.gif') left top no-repeat;}
+li.android{background: url('http://www.flopturnriver.com/icon/desktopandroid.gif') left top no-repeat;}
+li.usyes{background: url('http://www.flopturnriver.com/icon/us_yes.gif') left top no-repeat;}
+li.uspartial{background: url('http://www.flopturnriver.com/icon/us_part.gif') left top no-repeat;}
+li.usno{background: url('http://www.flopturnriver.com/icon/us_no.gif') left top no-repeat;}
+li.nuts{background: url('http://www.flopturnriver.com/icon/nuts.gif') left top no-repeat;}
+li.beats{background: url('http://www.flopturnriver.com/icon/beats.gif') left top no-repeat;}
+li.blackjack{background: url('http://www.flopturnriver.com/icon/blackjack.gif') left top no-repeat;}
+li.bonuscodes{background: url('http://www.flopturnriver.com/icon/bonuscodes.gif') left top no-repeat;}
+li.craps{background: url('http://www.flopturnriver.com/icon/craps.gif') left top no-repeat;}
+li.livedealer{background: url('http://www.flopturnriver.com/icon/livedealer.gif') left top no-repeat;}
+li.nodeposit{background: url('http://www.flopturnriver.com/icon/nodepositbonus.gif') left top no-repeat;}
+li.roulette{background: url('http://www.flopturnriver.com/icon/roulette.gif') left top no-repeat;}
+li.slots{background: url('http://www.flopturnriver.com/icon/slots.gif') left top no-repeat;}
+li.videopoker{background: url('http://www.flopturnriver.com/icon/videopoker.gif') left top no-repeat;}
+li.casino{background: url('http://www.flopturnriver.com/icon/casino.gif') left top no-repeat;}
+li.casinoarticles{background: url('http://www.flopturnriver.com/icon/casinoarticles.gif') left top no-repeat;}
+li.casinoreviews{background: url('http://www.flopturnriver.com/icon/casinoreviews.gif') left top no-repeat;}
+li.deposit{background: url('http://www.flopturnriver.com/icon/deposit.gif') left top no-repeat;}
+li.handconverter{background: url('http://www.flopturnriver.com/icon/handconverter.gif') left top no-repeat;}
+li.ofc{background: url('http://www.flopturnriver.com/icon/ofc.gif') left top no-repeat;}
+li.poker{background: url('http://www.flopturnriver.com/icon/poker.gif') left top no-repeat;}
+li.pokerforum{background: url('http://www.flopturnriver.com/icon/pokerforum.gif') left top no-repeat;}
+li.pokernews{background: url('http://www.flopturnriver.com/icon/pokernews.gif') left top no-repeat;}
+li.pokerstrategy{background: url('http://www.flopturnriver.com/icon/pokerstrategy.gif') left top no-repeat;}
+li.sports{background: url('http://www.flopturnriver.com/icon/sports.gif') left top no-repeat;}
+li.withdrawal{background: url('http://www.flopturnriver.com/icon/withdrawal.gif') left top no-repeat;}
+li.currency{background: url('http://www.flopturnriver.com/icon/currency.gif') left top no-repeat;}
+li.particles{background: url('http://www.flopturnriver.com/icon/articles.gif') left top no-repeat;}
+li.pbonus{background: url('http://www.flopturnriver.com/icon/pbonus.gif') left top no-repeat;}
+li.pbonuscodes{background: url('http://www.flopturnriver.com/icon/bonuscode.gif') left top no-repeat;}
+li.pdeposit{background: url('http://www.flopturnriver.com/icon/depositmethods.gif') left top no-repeat;}
+li.pdownloads{background: url('http://www.flopturnriver.com/icon/downloads.gif') left top no-repeat;}
+li.pnetworks{background: url('http://www.flopturnriver.com/icon/pnetwork.gif') left top no-repeat;}
+li.pnodeposit{background: url('http://www.flopturnriver.com/icon/nodepositbonus.gif') left top no-repeat;}
+li.rakeback{background: url('http://www.flopturnriver.com/icon/rakeback.gif') left top no-repeat;}
+li.previews{background: url('http://www.flopturnriver.com/icon/preview.gif') left top no-repeat;}
+li.uspoker{background: url('http://www.flopturnriver.com/icon/usfriendly.gif') left top no-repeat;}
+li.usstates{background: url('http://www.flopturnriver.com/icon/usstates.gif') left top no-repeat;}
+li.pvip{background: url('http://www.flopturnriver.com/icon/vip.gif') left top no-repeat;}
+
+#sidebarCasino .widget-box ul li p{
+	font-size: 11px;	
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+}
+
+.grid-bottom{
+	border-bottom: 1px solid #ccc
+}
+
+table.grid-poker{
+	width: 100%;
+	font-size: 12px;	
+	border-spacing: 1px;
+	background-color: #eee3c3;
+	border: 0px solid;
+	margin-top: 5px;
+					
+}
+
+table.grid-poker tr{						
+	/*border: 1px solid #e7D396;*/
+}
+
+table.grid-poker tr td{						
+	text-align: center;
+	background-color: #fff;
+	border-width: 0px;
+}
+
+table.grid-poker tr td.bold{						
+	font-weight: bold;
+}
+
+table.grid-poker tr.H td{
+	font-weight: bold;
+	background-color: #e7D396;
+	border-width: 0px;
+
+}
+
+.nosidebar {
+	width: 98% !important;
+}
+.pokerhands-right p, .pokerhands-right img {
+	text-align: center;
+}
+
+/* Spoiler Start */
+
+span.spoiler {
+	color: transparent;
+	border-bottom: 1px dotted #B0B0B0;
+}
+span.spoiler:hover {
+	color: inherit;
+}
+
+div.spoilerbox {
+	margin: 5px 20px 20px 20px;
+}
+div.spoilerbox > span {
+	margin: 0px 0px 2px 0px;
+	font-weight: bold;
+}
+div.spoilerbox > div {
+	margin: 0px;
+	padding: 6px;
+	border: 1px inset;
+	font-weight: inherit;
+}
+div.spoilerbox > div > div {
+	visibility: hidden;
+}
+
+/* Spoiler End */

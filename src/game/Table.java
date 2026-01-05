@@ -1,7 +1,11 @@
 package game;
 public class Table {
-	Table(Games games,Ante ante,Limits limits,int seats) {
-		this.games=games;
+	Table(Game.Type game,Ante ante,Game.Limits limits,int seats) {
+		// does he need to know the game?
+		// probably not
+		// so maybe the game knows the ante and limits?
+		// maybe game always has a table?
+		this.game=game;
 		this.ante=ante;
 		this.limits=limits;
 		this.seats=seats;
@@ -48,11 +52,11 @@ public class Table {
 		}
 	}
 	public static void main(String[] args) {
-		new Table(Games.holdem,new Ante(Blinds.oneTwo,0),Limits.noLimit,10).run();
+		new Table(Game.Type.holdem,new Ante(Blinds.oneTwo,0),Game.Limits.noLimit,10).run();
 	}
-	final Games games;
+	final Game.Type game;
 	final Ante ante;
-	final Limits limits;
+	final Game.Limits limits;
 	final int seats;
 	int dealer; // position of the dealer?
 	final Player[] players;

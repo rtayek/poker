@@ -165,20 +165,8 @@ public class Utilities {
 	}
 	public static List<String> toStrings(final BufferedReader r) {
 		final List<String> l=new LinkedList<String>();
-		String line=null;
 		try {
-			for(line=r.readLine();(line=r.readLine())!=null;)
-				l.add(line);
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		}
-		return l;
-	}
-	public static List<String> toStrings2(final BufferedReader r) {
-		final List<String> l=new LinkedList<String>();
-		String line=null;
-		try {
-			for(line=r.readLine();line!=null;line=r.readLine())
+			for(String line=r.readLine();line!=null;line=r.readLine())
 				l.add(line);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
@@ -196,17 +184,6 @@ public class Utilities {
 		try {
 			r=new BufferedReader(new FileReader(file));
 			final List<String> l=toStrings(r);
-			r.close();
-			return l;
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	public static List<String> getFileAsListOfStrings2(final File file) {
-		BufferedReader r=null;
-		try {
-			r=new BufferedReader(new FileReader(file));
-			final List<String> l=toStrings2(r);
 			r.close();
 			return l;
 		} catch(IOException e) {

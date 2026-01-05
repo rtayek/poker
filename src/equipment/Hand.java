@@ -1,5 +1,4 @@
 package equipment;
-import java.util.Arrays;
 public class Hand extends Cards {
 	public Hand(Card[] cards) {
 		super(cards);
@@ -21,9 +20,6 @@ public class Hand extends Cards {
 	}
 	public Suit[] suits() {
 		return super.suits();
-	}
-	public boolean isSuited() {
-		return areSuited();
 	}
 	public boolean isNatural() {
 		return true/* wtf? */;

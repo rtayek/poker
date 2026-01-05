@@ -70,6 +70,7 @@ public enum HoldemHand {
 		this.r2=r2;
 		if (r1.ordinal()<r2.ordinal()) throw new RuntimeException("oops");
 		this.type=type;
+		if(value==Double.NaN) System.out.println(value);
 		this.value=value==Double.NaN?(ordinal()+1):value;
 	}
 	HoldemHand(Rank r1,Rank r2,Type type) {
@@ -107,7 +108,7 @@ public enum HoldemHand {
 		return HoldemHand.valueOf(t);
 	}
 	public static HoldemHand from(Rank r1,Rank r2,Type type) {
-		if (r1.ordinal()<r2.ordinal()) throw new RuntimeException("oops");
+		if (r1.ordinal()<r2.ordinal()) throw new RuntimeException("first rank should be largest!");
 		for(HoldemHand holdemHand:values())
 			if (holdemHand.type==type&&holdemHand.r1==r1&&holdemHand.r2==r2) return holdemHand;
 		System.out.println(r1+" "+r2+" "+type);
@@ -129,7 +130,7 @@ public enum HoldemHand {
 	}
 	public static enum Type { // or calculate from name?
 		pair,suited,offsuit;
-		int frequency() {
+		public int frequency() {
 			switch (this) {
 				case pair:
 					return pairFrequency;
@@ -143,6 +144,7 @@ public enum HoldemHand {
 		}
 	}
 	static class Range { // i.e. 22+ or AT+
+		// seems like this is never used.
 		Range(HoldemHand holdemHand) {
 			this.type=holdemHand.type;
 			ArrayList<Rank> ranks=new ArrayList<>(2);
@@ -162,13 +164,14 @@ public enum HoldemHand {
 				case pair:
 					for(Rank rank:Rank.values())
 						if (rank.ordinal()>=ranks.get(0).ordinal()) hands.add(from(rank,rank,type));
+						else System.out.println("skipping pair: "+rank);
 					break;
 				case suited:
 				case offsuit:
 					Rank highCard=ranks.get(0);
 					for(Rank rank:Rank.values())
 						if (ranks.get(1).ordinal()<=rank.ordinal()&&rank.ordinal()<highCard.ordinal()) hands.add(from(highCard,rank,type));
-					// return suitedFrequency;
+						else System.out.println("skipping non pair: "+rank);
 					break;
 				default:
 					throw new RuntimeException("oops");
@@ -231,21 +234,32 @@ public enum HoldemHand {
 		System.out.println("pairs "+pairs);
 		System.out.println("suited "+suited);
 		System.out.println("unsuited "+unsuited);
+		int frequency=0;
+		for(HoldemHand holdemHand:HoldemHand.values()) {
+		    frequency+=holdemHand.type.frequency();
+		    System.out.println(holdemHand+" "+frequency+" "+(frequency/(double)universe));
+		}
+		double p77OrBetter=.11764705882352941,p13Folds=Math.pow(1-p77OrBetter,13);
+		System.out.println("probability of "+sevenSeven+" or better: "+p77OrBetter);
+		for(int i=1;i<=26;i++) {
+		    System.out.println(i+" "+Math.pow(1-p77OrBetter,i));
+		}
+		System.out.println("probablity of 13 folds: "+p13Folds);
 	}
 	public static void main(String[] args) {
 		printFrequencies();
 	}
 	public final Rank r1,r2;
-	Double value; // for sort order
-	Double probability; // of getting this hand or better
-	final Type type;
+	public Double value; // for sort order
+	public Double probability; // of getting this hand or better
+	public final Type type;
 	static int ranks;
-	static final int pairs=Cards.c(13,1),suited=Cards.c(13,2),unsuited=Cards.c(13,2);
-	static final int pairFrequency=Cards.c(4,2);
-	static final int suitedFrequency=Cards.c(4,1);
-	static final int offsuitFrequency=Cards.c(2,1)*Cards.c(4,2); // ???
+	static final int pairs=(int)Cards.c(13,1),suited=(int)Cards.c(13,2),unsuited=(int)Cards.c(13,2);
+	static final int pairFrequency=(int)Cards.c(4,2);
+	static final int suitedFrequency=(int)Cards.c(4,1);
+	static final int offsuitFrequency=(int)(Cards.c(2,1)*Cards.c(4,2)); // ???
 	static final int pairHands=pairs*pairFrequency;
 	static final int suitedHands=suited*suitedFrequency;
 	static final int offsuitHands=unsuited*offsuitFrequency;
-	static final int universe=Cards.c(52,2);
+	static final int universe=(int)Cards.c(52,2);
 }

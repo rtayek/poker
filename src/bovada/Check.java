@@ -1,11 +1,5 @@
 package bovada;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,6 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.tayek.utilities.Utilities;
 class Directories {
 	static final File originalBovadaDirectory=new File("C:/Bovada/Hand History/10626201");
 	static final File userDirectory=new File("C:/Users/ray");
@@ -72,39 +67,11 @@ public class Check {
 		this.originalDirectory=original;
 		this.convertedDirectory=converted;
 	}
-	public static ArrayList<String> toStrings(File file) {
-		ArrayList<String> strings=new ArrayList<String>();
-		try {
-			final BufferedReader r=new BufferedReader(new FileReader(file));
-			String line=null;
-			try {
-				for(line=r.readLine();(line=r.readLine())!=null;)
-					strings.add(line);
-				r.close();
-			} catch(IOException e) {
-				throw new RuntimeException(e);
-			}
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-		return strings;
-	}
 	public static String cat(final List<String> data) {
 		final StringBuffer sb=new StringBuffer();
 		for(String string:data)
 			sb.append(string).append('\n');
 		return sb.toString();
-	}
-	public static void toFile(final String s,final File file) {
-		try {
-			Writer out=new FileWriter(file);
-			out.write(s);
-			out.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		}
 	}
 	static int count(final String regex,final String string) {
 		Pattern p=Pattern.compile(regex);
@@ -131,10 +98,10 @@ public class Check {
 		File dir=new File("data");
 		File file1=new File(dir,handNumber+".1.txt");
 		File file2=new File(dir,handNumber+".2.txt");
-		toFile(cat(handInMap),file1);
-		toFile(cat(hand),file2);
+		Utilities.toFile(cat(handInMap),file1);
+		Utilities.toFile(cat(hand),file2);
 	}
-	static List<String> endOfHand(ArrayList<String> strings,int startIndex,int i,Long handNumber,Map<Long,Hand> hands) {
+	static List<String> endOfHand(List<String> strings,int startIndex,int i,Long handNumber,Map<Long,Hand> hands) {
 		List<String> lines=new ArrayList<>();
 		int endIndex;
 		if(startIndex!=-1) {
@@ -144,7 +111,7 @@ public class Check {
 		}
 		return lines;
 	}
-	private Long handNumber(String target,char delimiter,ArrayList<String> strings,int i) {
+	private Long handNumber(String target,char delimiter,List<String> strings,int i) {
 		Long handNumber;
 		String part=strings.get(i).substring(target.length());
 		int index=part.indexOf(delimiter);
@@ -174,7 +141,7 @@ public class Check {
 	}
 	List<Long> processFile(File file,String target,char delimiter,Map<Long,Hand> hands) {
 		ArrayList<Long> duplicates=new ArrayList<>();
-		ArrayList<String> strings=toStrings(file);
+		List<String> strings=Utilities.getFileAsListOfStrings(file);
 		int startIndex=-1;
 		Long handNumber=-1l,oldHandNumber=-1l;
 		for(int i=0;i<strings.size();i++)

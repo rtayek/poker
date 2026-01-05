@@ -14,7 +14,7 @@ public class Csv {
 	public static void main(String[] args) throws Exception {
 		// System.out.println(System.getProperty("user.dir"));
 		File file=new File("ReportExport.csv");
-		List<String> strings=getFileAsListOfStrings2(file);
+		List<String> strings=getFileAsListOfStrings(file);
 		int i=0;
 		int[] indices=new int[] {0,2,4,7,8,9};
 		int n=strings.get(0).split(",").length;

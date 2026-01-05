@@ -59,15 +59,15 @@ public abstract class Cards {
 		return card;
 	}
 	static Card[] toArray(final Card card1,final Card card2,final Card card3,final Card card4,final Card card5,final Card card6,final Card card7) {
-		final Card card[]=new Card[7];
-		card[0]=card1;
-		card[1]=card2;
-		card[2]=card3;
-		card[3]=card4;
-		card[4]=card5;
-		card[6]=card6;
-		card[7]=card7;
-		return card;
+		final Card cards[]=new Card[7];
+		cards[0]=card1;
+		cards[1]=card2;
+		cards[2]=card3;
+		cards[3]=card4;
+		cards[4]=card5;
+		cards[6]=card6;
+		cards[7]=card7;
+		return cards;
 	}
 	public static Suit[] suits(final Card[] card) {
 		final int n=card.length;
@@ -108,7 +108,7 @@ public abstract class Cards {
 			p=p*i;
 		return (p);
 	}
-	public static final int c(final int n,final int r) { // binomial coefficient
+	public static final long c(final int n,final int r) { // binomial coefficient
 		long i,p;
 		if(r<0||n<0||r>n)
 			p=0;
@@ -121,7 +121,7 @@ public abstract class Cards {
 				p=p*i;
 			p=p/f(r);
 		}
-		return (int)p;
+		return (int)p; // why do we cast?
 	}
 	public static final double bernoulli(int x,int n,double p) {
 		//System.out.println(x+" "+n+" "+p+" "+c(x,n)+" "+pow(p,x)+" "+pow(1-p,n-x));

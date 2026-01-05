@@ -2,7 +2,7 @@ package poker.holdem;
 import java.util.*;
 import java.io.IOException;
 import java.text.*;
-import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
+//import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import equipment.*;
 import lookup.OldLookup;
 import poker.*;

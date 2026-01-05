@@ -5,10 +5,10 @@ public class HoldemOdds {
 		return unfavorable/favorable;
 	}
 	private static double odds(int remaining,int outs,int unfavorable) {
-		int none=Cards.c(unfavorable,2);
-		int one=Cards.c(unfavorable,1)*Cards.c(outs,1);
-		int both=Cards.c(outs,2);
-		int total=Cards.c(remaining,2);
+		int none=(int)Cards.c(unfavorable,2);
+		int one=(int)(Cards.c(unfavorable,1)*Cards.c(outs,1));
+		int both=(int)Cards.c(outs,2);
+		int total=(int)Cards.c(remaining,2);
 		if(none+one+both!=total) throw new RuntimeException("oops");
 		double odds=none/(double)(one+both);
 		double p=(one+both)/(double)total;

@@ -12,7 +12,7 @@ public class Deck extends Cards {
 	public Deck(int standards,int jokers) {
 		this(create(standards,jokers));
 	}
-	Deck(Card[] cards) {
+	public /* for kuhn */ Deck(Card[] cards) {
 		super(cards);
 	}
 	public final int stubLength() {
@@ -38,9 +38,11 @@ public class Deck extends Cards {
 		draw(cards);
 		return cards;
 	}
+	/*
 	public Card[] cards() {
 		return super.cards();
 	}
+	*/
 	public static Card[] create(int standards,int jokers) {
 		int n=0;
 		Card cards[]=new Card[standards*52+jokers];

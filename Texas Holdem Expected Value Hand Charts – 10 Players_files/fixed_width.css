@@ -1,0 +1,17 @@
+.dropshadow{
+	overflow:hidden;
+	display:block;
+	/* height:100%; */
+	min-width: 1000px;
+	max-width: 1000px;
+	/* max-width:1155px; */
+	margin: 0 auto;
+	-moz-box-shadow: 0 5px 6px 4px #814b00;
+	-webkit-box-shadow:0 5px 6px 4px #814b00;
+	box-shadow: 0 5px 6px 4px #814b00;
+	background: #E6D397;
+}
+
+#whitebg{
+		background: url('http://www.flopturnriver.com/images/pattern_white.jpg') repeat;
+	}

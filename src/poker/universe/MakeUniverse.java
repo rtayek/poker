@@ -3,7 +3,7 @@ import static poker.Constants.*;
 import java.io.*;
 import equipment.Rank;
 abstract public class MakeUniverse
-    {
+    { // this may break if we permute ranks
 	public static final int aceLow=Rank.aceLow.ordinal();
 	public static final int duece=Rank.deuce.ordinal();
 	public static final int trey=Rank.trey.ordinal();

@@ -1,25 +1,11 @@
 package bovada;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
+import com.tayek.utilities.Utilities;
 public class Hack {
-	static List<String> toStrings(final BufferedReader r) {
-		final List<String> l=new LinkedList<String>();
-		String line=null;
-		try {
-			for(line=r.readLine();(line=r.readLine())!=null;)
-				l.add(line);
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		}
-		return l;
-	}
 	public static void main(String[] args) throws Exception {
 		File file=new File("pt4importstatus.txt");
-		List<String> strings=toStrings(new BufferedReader(new FileReader(file)));
+		List<String> strings=Utilities.getFileAsListOfStrings(file);
 		System.out.println(strings.size());
 		for(String string:strings) {
 			System.out.println(string);

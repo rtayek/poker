@@ -1,28 +1,12 @@
 package bovada;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import com.tayek.utilities.Utilities;
 public class FindDuplicateFiles {
-	public static void fromFile(final StringBuffer stringBuffer,final File file) {
-		try {
-			Reader r=new FileReader(file);
-			int c=0;
-			while ((c=r.read())!=-1)
-				stringBuffer.append((char)c);
-			r.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
-		} catch(IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
 	static boolean areEqual(File file1,File file2) {
 		StringBuffer sb1=new StringBuffer();
-		fromFile(sb1,file1);
+		Utilities.fromFile(sb1,file1);
 		StringBuffer sb2=new StringBuffer();
-		fromFile(sb1,file2);
+		Utilities.fromFile(sb2,file2);
 		return sb1.toString().equals(sb2.toString());
 	}
 	void look(File dir) {

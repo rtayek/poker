@@ -1,12 +1,13 @@
 package gui.old;
-import sun.audio.*;
 import poker.*;
 import poker.machine.*;
 import poker.machine.original.*;
 
 import java.awt.*;
 import java.io.*;
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import equipment.*;
 class RepaintThread extends Thread {
 	RepaintThread(Canvas canvas) {
@@ -14,12 +15,29 @@ class RepaintThread extends Thread {
 	}
 	public void run() {
 		while(true) {
-			suspend();
+			synchronized(lock) {
+				while(!repaintRequested) {
+					try {
+						lock.wait();
+					} catch(InterruptedException e) {
+						return;
+					}
+				}
+				repaintRequested=false;
+			}
 			canvas.repaint();
 			Toolkit.getDefaultToolkit().sync();
 		}
 	}
+	void requestRepaint() {
+		synchronized(lock) {
+			repaintRequested=true;
+			lock.notifyAll();
+		}
+	}
 	private final Canvas canvas;
+	private final Object lock=new Object();
+	private boolean repaintRequested=false;
 }
 public class Frame1 extends Frame implements View {
 	public void repaint() {
@@ -45,8 +63,7 @@ public class Frame1 extends Frame implements View {
 				for(int i=0;i<5;i++)
 					if(cards[i]!=cardCanvas[i].getCard()) {
 						cardCanvas[i].setCard(cards[i]);
-						repaintThread[i].resume();
-						;
+						repaintThread[i].requestRepaint();
 					}
 			}
 			if(state.payoff()>0) s+=" payoff "+state.payoff();
@@ -55,8 +72,7 @@ public class Frame1 extends Frame implements View {
 				for(int i=0;i<5;i++) {
 					System.err.println("foo");
 					cardCanvas[i].setCard(null);
-					repaintThread[i].resume();
-					;
+					repaintThread[i].requestRepaint();
 				}
 		} else if(state.subState()==state.inAHand) {
 			s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber())+" ";
@@ -66,8 +82,7 @@ public class Frame1 extends Frame implements View {
 			for(int i=0;i<5;i++)
 				if(cards[i]!=cardCanvas[i].getCard()) {
 					cardCanvas[i].setCard(cards[i]);
-					repaintThread[i].resume();
-					;
+					repaintThread[i].requestRepaint();
 				}
 		} else {
 			System.err.println("illegal state in upsate()");
@@ -304,8 +319,7 @@ public class Frame1 extends Frame implements View {
 		System.out.println("from about: "+Thread.currentThread());
 		for(int i=0;i<5;i++) {
 			println("call repaint "+i);
-			repaintThread[i].resume();
-			;
+			repaintThread[i].requestRepaint();
 		}
 		// }}
 	}
@@ -321,12 +335,17 @@ public class Frame1 extends Frame implements View {
 		openFileDialog1.show();
 		// }}
 	}
-	public void play(String filename) {
-		AudioPlayer ap=AudioPlayer.player;
-		try {
-			AudioStream as=new AudioStream(new FileInputStream(filename));
-			ap.start(as);
-		} catch(IOException e) {}
+	public void playSound(String path) {
+		File file=new File(path);
+	    try {
+	        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+	        Clip clip = AudioSystem.getClip();
+	        clip.open(audioInputStream);
+	        clip.start();
+	    } catch(Exception ex) {
+	        System.out.println("Error with playing sound.");
+	        ex.printStackTrace();
+	    }
 	}
 	class SymMouse extends java.awt.event.MouseAdapter {
 		public void mouseClicked(java.awt.event.MouseEvent event) {
@@ -342,10 +361,10 @@ public class Frame1 extends Frame implements View {
 				}
 			if(c!=0) {
 				System.err.println("got a "+c);
-				play("resources/0.au");
+				playSound("resources/0.au");
 				controller.processEvent(pokerMachine,c);
 				//play("d:/usr/ray/java/poker/audio/0.au");
-			} else play("resources/beep.au");
+			} else playSound("resources/beep.au");
 
 		}
 	}

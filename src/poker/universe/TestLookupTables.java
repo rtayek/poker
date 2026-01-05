@@ -1,6 +1,7 @@
 package poker.universe;
 import java.io.*;
 import java.util.*;
+import com.tayek.utilities.Utilities;
 import equipment.Rank;
 import lookup.OldLookup;
 import poker.*;
@@ -62,10 +63,10 @@ public class TestLookupTables {
 			System.out.println(other[i]);
 	}
 	private static void toFile(final RanksAndHandNumber[] rahn,final File file) throws Exception {
-		BufferedWriter w=new BufferedWriter(new FileWriter(file));
+		StringBuilder sb=new StringBuilder();
 		for(RanksAndHandNumber r:rahn)
-			w.write(r.toString()+'\n');
-		w.close();
+			sb.append(r).append('\n');
+		Utilities.toFile(sb.toString(),file);
 	}
 	private static void sort(final RanksAndHandNumber[] rahn) {
 		for(int i=0;i<rahn.length-1;i++)

@@ -9,5 +9,6 @@ public class Ante {
 		// TODO Auto-generated method stub
 	}
 	final double value;
-	final Blinds blinds;
+	final Blinds blinds; // what is this doing here?
+	// it's here because blinds are part of the ante
 }

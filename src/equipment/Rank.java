@@ -3,6 +3,7 @@ import java.util.EnumSet;
 public enum Rank {
 	jokerRank('*',"Joker"),aceLow('a',"Ace(low)"),deuce('2',"Deuce"),trey('3',"Trey"),four('4',"Four"),five('5',"Five"),six('6',"Six"),seven('7',"Seven"),eight(
 			'8',"Eight"),nine('9',"Nine"),ten('T',"Ten"),jack('J',"Jack"),queen('Q',"Queen"),king('K',"King"),ace('A',"Ace");
+		// permute the order of these guys and see if anything breaks 
 	Rank(final Character c,final String s) {
 		this.c=c;
 		this.s=s;

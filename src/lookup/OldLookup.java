@@ -69,7 +69,7 @@ public final class OldLookup {
 	public static int lookup(Hand hand) {
 		Rank[] ranks=hand.ranks(); // makes a copy!
 		toCanonicalForm(ranks);
-		final boolean isSuited=hand.isSuited();
+		final boolean isSuited=hand.areSuited();
 		return lookup(ranks,isSuited);
 	}
 	public static int lookup(Card[] cards) {
@@ -208,14 +208,14 @@ public final class OldLookup {
 	{
 		int i;
 		for(i=0;i<13;i++) {
-			a0[i]=Cards.c(i+4,5);
-			a1[i]=Cards.c(i+3,4);
-			a2[i]=Cards.c(i+2,3);
-			a3[i]=Cards.c(i+1,2);
-			b0[i]=Cards.c(i,5);
-			b1[i]=Cards.c(i,4);
-			b2[i]=Cards.c(i,3);
-			b3[i]=Cards.c(i,2);
+			a0[i]=(int)Cards.c(i+4,5);
+			a1[i]=(int)Cards.c(i+3,4);
+			a2[i]=(int)Cards.c(i+2,3);
+			a3[i]=(int)Cards.c(i+1,2);
+			b0[i]=(int)Cards.c(i,5);
+			b1[i]=(int)Cards.c(i,4);
+			b2[i]=(int)Cards.c(i,3);
+			b3[i]=(int)Cards.c(i,2);
 		}
 	}
 	public static int a(int i,int j) {
@@ -230,11 +230,11 @@ public final class OldLookup {
 		a=new int[13][5];
 		for(int r=0;r<13;r++)
 			for(int k=0;k<=4;k++)
-				a[r][k]=Cards.c(r+4-k,5-k);
+				a[r][k]=(int)Cards.c(r+4-k,5-k);
 		b=new int[13][5];
 		for(int r=0;r<13;r++)
 			for(int k=0;k<=4;k++)
-				b[r][k]=Cards.c(r,5-k);
+				b[r][k]=(int)Cards.c(r,5-k);
 		if (oldCCode) {
 			initialize_lookup(); // old c code
 			System.out.println("old c code a");
