@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.*;
 import equipment.*;
 import lookup.OldLookup;
+import poker.HighUniverse;
 public class LookupTestCase extends TestCase {
 	public static void main(String[] args) {
 		junit.textui.TestRunner.run(LookupTestCase.class);
@@ -21,27 +22,18 @@ public class LookupTestCase extends TestCase {
 	}
 	public void testHighUniverseFile() throws Exception {
 		final File f=new File("highuniverse.txt"); /* make with -d -w */
-		final BufferedReader reader=new BufferedReader(new FileReader(f));
 		int lines=0;
-		for(String line=reader.readLine();line!=null;line=reader.readLine(),lines++) {
-			final List<String> l=new LinkedList<String>();
-			for(StringTokenizer st=new StringTokenizer(line," ");st.hasMoreTokens();)
-				l.add(st.nextToken());
-			assert l.size()==10; /* 1 AAAAA 0 1 5 14 14 14 14 14 */
-			final int handNumber=Integer.parseInt(l.get(0));
-			final String cards=l.get(1);
-			final PokerHand.HighType type=PokerHand.HighType.fromCharacter(l.get(4).charAt(0));
-			final Rank[] ranks=Rank.fromCharacters(cards);
+		for(HighUniverse.Entry entry:HighUniverse.read(f)) {
 			if(lines==1) {
-			    System.out.println(line);
-				System.out.println(type+" "+Arrays.asList(ranks));
+				System.out.println(entry.line);
+				System.out.println(entry.type+" "+Arrays.asList(entry.ranks));
 			}
-			int lookedUpHandNumber=OldLookup.lookup(ranks,type==PokerHand.HighType.flush||type==PokerHand.HighType.straightFlush);
-			assertEquals(handNumber,lookedUpHandNumber);
-			assertEquals(type,PokerHand.HighType.type(handNumber));
+			int lookedUpHandNumber=OldLookup.lookup(entry.ranks,entry.type==PokerHand.HighType.flush||entry.type==PokerHand.HighType.straightFlush);
+			assertEquals(entry.handNumber,lookedUpHandNumber);
+			assertEquals(entry.type,PokerHand.HighType.type(entry.handNumber));
+			lines++;
 		}
 		assertEquals(totalHighHands,lines);
-		reader.close();
 	}
 	public void testVerify() {
 		assertTrue(OldLookup.verify());

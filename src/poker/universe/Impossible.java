@@ -4,7 +4,6 @@ import java.util.*;
 import equipment.*;
 import lookup.OldLookup;
 import poker.*;
-import poker.universe.TestLookupTables.RanksAndHandNumber;
 public class Impossible { // http://suffe.cool/poker/7462.html
     public static void main(String[] args) throws NumberFormatException,IOException {
         final File f=new File("seven.txt");

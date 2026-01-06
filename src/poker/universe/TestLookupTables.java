@@ -1,10 +1,11 @@
 package poker.universe;
-import java.io.*;
-import java.util.*;
+import java.io.File;
 import com.tayek.utilities.Utilities;
 import equipment.Rank;
 import lookup.OldLookup;
-import poker.*;
+import poker.Constants;
+import poker.HighUniverse;
+import poker.PokerHand;
 // this is new code - attempting to make dabinary and the data in lookup from the high universe
 public class TestLookupTables {
 	static class RanksAndHandNumber {
@@ -21,27 +22,18 @@ public class TestLookupTables {
 		final int key;
 	}
 	public static void main(String[] argument) throws Exception {
-		// duplicated code from LookupTestCase to read file :(
 		final File f=new File("highuniverse.txt"); /* make with -d -w */
-		final BufferedReader reader=new BufferedReader(new FileReader(f));
-		int lines=0;
 		final RanksAndHandNumber[] flush=new RanksAndHandNumber[Constants.flushes],other=new RanksAndHandNumber[Constants.nonFlushes];
 		int flushes=0,others=0;
-		for(String line=reader.readLine();line!=null;line=reader.readLine(),lines++) {
-			final List<String> l=new LinkedList<String>();
-			for(StringTokenizer st=new StringTokenizer(line," ");st.hasMoreTokens();)
-				l.add(st.nextToken());
-			assert l.size()==10; /* 1 AAAAA 0 1 5 14 14 14 14 14 */
-			final short handNumber=Short.parseShort(l.get(0));
-			final String cards=l.get(1);
-			final PokerHand.HighType type=PokerHand.HighType.fromCharacter(l.get(4).charAt(0));
-			final Rank[] rank=Rank.fromCharacters(cards);
+		for(HighUniverse.Entry entry:HighUniverse.read(f)) {
+			final short handNumber=(short)entry.handNumber;
+			final PokerHand.HighType type=entry.type;
+			final Rank[] rank=entry.ranks;
 			OldLookup.toCanonicalForm(rank);
 			int n=OldLookup.toNumber(rank);
 			final RanksAndHandNumber rahn=new RanksAndHandNumber(rank,handNumber,n);
 			if(type==PokerHand.HighType.flush||type==PokerHand.HighType.straightFlush) flush[flushes++]=rahn;
 			else other[others++]=rahn;
-			//if(lines<100) System.out.println(line+' '+n);
 		}
 		assert flushes==Constants.flushes;
 		assert others==Constants.nonFlushes;
@@ -52,7 +44,6 @@ public class TestLookupTables {
 		//System.out.println(Arrays.asList(flush));
 		//System.out.println(13*13*13*13*13);
 		// ollections.so
-		reader.close();
 		for(int i=0;i<Constants.nonFlushes;i++)
 			assert other[i].handNumber==OldLookup.other(i);
 		for(int i=0;i<Constants.flushes;i++)
