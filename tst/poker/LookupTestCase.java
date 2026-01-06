@@ -25,12 +25,12 @@ public class LookupTestCase extends TestCase {
 		int lines=0;
 		for(HighUniverse.Entry entry:HighUniverse.read(f)) {
 			if(lines==1) {
-				System.out.println(entry.line);
-				System.out.println(entry.type+" "+Arrays.asList(entry.ranks));
+				System.out.println(entry.line());
+				System.out.println(entry.type()+" "+Arrays.asList(entry.ranks()));
 			}
-			int lookedUpHandNumber=OldLookup.lookup(entry.ranks,entry.type==PokerHand.HighType.flush||entry.type==PokerHand.HighType.straightFlush);
-			assertEquals(entry.handNumber,lookedUpHandNumber);
-			assertEquals(entry.type,PokerHand.HighType.type(entry.handNumber));
+			int lookedUpHandNumber=OldLookup.lookup(entry.ranks(),entry.type()==PokerHand.HighType.flush||entry.type()==PokerHand.HighType.straightFlush);
+			assertEquals(entry.handNumber(),lookedUpHandNumber);
+			assertEquals(entry.type(),PokerHand.HighType.type(entry.handNumber()));
 			lines++;
 		}
 		assertEquals(totalHighHands,lines);

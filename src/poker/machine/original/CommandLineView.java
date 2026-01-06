@@ -4,7 +4,7 @@ import equipment.*;
 import poker.*;
 import poker.machine.*;
 public class CommandLineView implements View {
-	@Override public void update(PokerMachine.State state) {
+	@Override public void update(State state) {
 		this.state=state;
 		String s="";
 		if(state.pokerHand()==null||state.subState()==state.betMade)
@@ -132,7 +132,7 @@ public class CommandLineView implements View {
 	private boolean playMore;
 	private PokerMachine pokerMachine;
 	private final Controller controller=new Controller();
-	private PokerMachine.State state;
+	private State state;
 	static int n=2;
 	private static final String prompt="b - bet, d - deal, [1-5] - toggle, r - draw";
 	boolean automatic=false;

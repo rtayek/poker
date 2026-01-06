@@ -8,27 +8,19 @@ import poker.HighUniverse;
 import poker.PokerHand;
 // this is new code - attempting to make dabinary and the data in lookup from the high universe
 public class TestLookupTables {
-	static class RanksAndHandNumber {
-		RanksAndHandNumber(final Rank[] rank,final short handNumber,final int key) {
-			this.rank=rank;
-			this.handNumber=handNumber;
-			this.key=key;
-		}
-		public String toString() {
+	static record RanksAndHandNumber(Rank[] rank,short handNumber,int key) {
+		@Override public String toString() {
 			return Rank.toString(rank)+' '+handNumber+' '+key;
 		}
-		final Rank[] rank;
-		final short handNumber;
-		final int key;
 	}
 	public static void main(String[] argument) throws Exception {
 		final File f=new File("highuniverse.txt"); /* make with -d -w */
 		final RanksAndHandNumber[] flush=new RanksAndHandNumber[Constants.flushes],other=new RanksAndHandNumber[Constants.nonFlushes];
 		int flushes=0,others=0;
 		for(HighUniverse.Entry entry:HighUniverse.read(f)) {
-			final short handNumber=(short)entry.handNumber;
-			final PokerHand.HighType type=entry.type;
-			final Rank[] rank=entry.ranks;
+			final short handNumber=(short)entry.handNumber();
+			final PokerHand.HighType type=entry.type();
+			final Rank[] rank=entry.ranks();
 			OldLookup.toCanonicalForm(rank);
 			int n=OldLookup.toNumber(rank);
 			final RanksAndHandNumber rahn=new RanksAndHandNumber(rank,handNumber,n);
@@ -45,9 +37,9 @@ public class TestLookupTables {
 		//System.out.println(13*13*13*13*13);
 		// ollections.so
 		for(int i=0;i<Constants.nonFlushes;i++)
-			assert other[i].handNumber==OldLookup.other(i);
+			assert other[i].handNumber()==OldLookup.other(i);
 		for(int i=0;i<Constants.flushes;i++)
-			assert flush[i].handNumber==OldLookup.flush(i);
+			assert flush[i].handNumber()==OldLookup.flush(i);
 		for(int i=0;i<7;i++)
 			System.out.println(other[i]);
 		for(int i=other.length-7;i<other.length;i++)
@@ -62,7 +54,7 @@ public class TestLookupTables {
 	private static void sort(final RanksAndHandNumber[] rahn) {
 		for(int i=0;i<rahn.length-1;i++)
 			for(int j=i+1;j<rahn.length;j++)
-				if(rahn[i].key>rahn[j].key) {
+				if(rahn[i].key()>rahn[j].key()) {
 					final RanksAndHandNumber temp=rahn[i];
 					rahn[i]=rahn[j];
 					rahn[j]=temp;

@@ -7,18 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import equipment.Rank;
 public final class HighUniverse {
-	public static final class Entry {
-		public Entry(int handNumber,PokerHand.HighType type,Rank[] ranks,String line) {
-			this.handNumber=handNumber;
-			this.type=type;
-			this.ranks=ranks;
-			this.line=line;
-		}
-		public final int handNumber;
-		public final PokerHand.HighType type;
-		public final Rank[] ranks;
-		public final String line;
-	}
+	public record Entry(int handNumber,PokerHand.HighType type,Rank[] ranks,String line) {}
 	public static List<Entry> read(File file) throws IOException {
 		final List<Entry> entries=new ArrayList<Entry>();
 		try (BufferedReader reader=new BufferedReader(new FileReader(file))) {

@@ -19,7 +19,7 @@ public class JFrame1 extends JFrame implements View {
 		super(title,gc);
 		init();
 	}
-	@Override public void update(PokerMachine.State state) {}
+	@Override public void update(State state) {}
 	private void init() {}
 	private static void createAndShowGUI() {
 		JFrame1 frame=new JFrame1("Video Poker");

@@ -50,8 +50,8 @@ public class Frame1 extends Frame implements View {
 		System.out.println(s);
 	}
 	/*
-	 * public void update(PokerMachine.State state) { this.state=state; String s=""; if(state.pokerHand()==null||state.subState()==state.betMade) s+="XXXXX"; else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber()); s=s+lineSeparator; if(!(state.pokerHand()==null||state.subState()==state.betMade)) { for(int i=0;i<5;i++) s+=" "+(state.holds[i]?'H':'T'); s=s+lineSeparator; } if(state.subState()==state.afterDraw&&state.payoff()>0) s+="payoff "+state.payoff()+lineSeparator; s+=("hand "+state.hands()+", "+state.coins()+ " Coins, "+state.credits()+" credits"); if(!automatic||state.hands()%250==0) println(s); this.state=state; }
-	 */public void update(final PokerMachine.State state) {
+	 * public void update(State state) { this.state=state; String s=""; if(state.pokerHand()==null||state.subState()==state.betMade) s+="XXXXX"; else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber()); s=s+lineSeparator; if(!(state.pokerHand()==null||state.subState()==state.betMade)) { for(int i=0;i<5;i++) s+=" "+(state.holds[i]?'H':'T'); s=s+lineSeparator; } if(state.subState()==state.afterDraw&&state.payoff()>0) s+="payoff "+state.payoff()+lineSeparator; s+=("hand "+state.hands()+", "+state.coins()+ " Coins, "+state.credits()+" credits"); if(!automatic||state.hands()%250==0) println(s); this.state=state; }
+	 */public void update(final State state) {
 		String s="";
 		if(state.subState()==state.afterDraw) {
 			if(state.pokerHand()!=null) {
