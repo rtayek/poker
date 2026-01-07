@@ -16,25 +16,22 @@ public class MakeHighUniverseTestCase extends TestCase {
 	}
 	public void testMainWithNoArguments() {
 		MakeHighUniverse.main(new String[0]);
-		assertEquals(naturalFiveCardCombinations,MakeHighUniverse.t52);
-		assertEquals(allFiveCardCombinationsWithOneJoker,naturalFiveCardCombinations+MakeHighUniverse.tj);
-		assertEquals(MakeHighUniverse.N,MakeHighUniverse.n);
+		assertTotals();
 
 	}
 	public void testMainSummary() {
 		MakeHighUniverse.main(new String[] {"-s"});
-		assertEquals(naturalFiveCardCombinations,MakeHighUniverse.t52);
-		assertEquals(allFiveCardCombinationsWithOneJoker,naturalFiveCardCombinations+MakeHighUniverse.tj);
-		assertEquals(MakeHighUniverse.N,MakeHighUniverse.n);
+		assertTotals();
 	}
 	public void testMainDetail() {
 		MakeHighUniverse.main(new String[] {"-d"});
-		assertEquals(naturalFiveCardCombinations,MakeHighUniverse.t52);
-		assertEquals(allFiveCardCombinationsWithOneJoker,naturalFiveCardCombinations+MakeHighUniverse.tj);
-		assertEquals(MakeHighUniverse.N,MakeHighUniverse.n);
+		assertTotals();
 	}
 	public void testMainWild() {
 		MakeHighUniverse.main(new String[] {"-w"});
+		assertTotals();
+	}
+	private void assertTotals() {
 		assertEquals(naturalFiveCardCombinations,MakeHighUniverse.t52);
 		assertEquals(allFiveCardCombinationsWithOneJoker,naturalFiveCardCombinations+MakeHighUniverse.tj);
 		assertEquals(MakeHighUniverse.N,MakeHighUniverse.n);

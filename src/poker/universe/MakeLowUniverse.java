@@ -165,32 +165,20 @@ public class MakeLowUniverse extends MakeUniverse {
                     put();
                 }
     }
-    static void usage() {
-        System.err.println("MakeLowUniverse -[wds]");
-        System.err.println("-d - details");
-        System.err.println("-s - summary");
-        System.err.println("-w - wild");
+    @Override protected String commandName() {
+        return "MakeLowUniverse";
     }
-    static void option(String option) {
-        switch (option) {
-            case "d" -> details=true;
-            case "s" -> summary=true;
-            case "w" -> wild=true;
-            default -> {
-                usage();
-                System.exit(1);
-            }
-        }
+    @Override protected void setDetails(boolean value) {
+        details=value;
     }
-    static void argument(String argument) {
-        usage();
-        System.exit(1);
+    @Override protected void setSummary(boolean value) {
+        summary=value;
+    }
+    @Override protected void setWild(boolean value) {
+        wild=value;
     }
     public static void main(String[] arg) {
-        for(String argValue:arg) {
-            if(argValue.startsWith("-")) option(argValue.substring(1));
-            else argument(argValue);
-        }
+        new MakeLowUniverse().parseArguments(arg);
         noPair();
         summary();
         onePair();

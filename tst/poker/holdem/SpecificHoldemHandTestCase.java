@@ -19,7 +19,7 @@ public class SpecificHoldemHandTestCase extends TestCase {
 			if (card1.rank().ordinal()>Rank.aceLow.ordinal()) for(Card card2:Card.values())
 				if (card2.rank().ordinal()>Rank.aceLow.ordinal()) if (!card1.equals(card2)) {
 					// looks like we need to check the order here
-					SpecificHoldemHand hand=card1.rank().ordinal()>=card2.rank().ordinal()?new SpecificHoldemHand(card1,card2):new SpecificHoldemHand(card2,card1);
+					SpecificHoldemHand hand=SpecificHoldemHand.of(card1,card2);
 				}
 	}
 	public void testForSmoke() {

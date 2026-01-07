@@ -44,8 +44,7 @@ public class CardRemoval {
             boolean didAnyoneOpen=false;
             for(int j=0;j<cardsInDeck/2;j+=2) {
                 Card card1=cards[j],card2=cards[j+1];
-                SpecificHoldemHand h=card1.ordinal()>=card2.ordinal()?new SpecificHoldemHand(card1,card2)
-                        :new SpecificHoldemHand(card2,card1);
+                SpecificHoldemHand h=SpecificHoldemHand.of(card1,card2);
                 if(h.holdemHand().ordinal()<=HoldemHand.sevenSeven.ordinal()) { didAnyoneOpen=true; break; }
             }
             if(didAnyoneOpen) {
@@ -59,8 +58,7 @@ public class CardRemoval {
                 if(false) {
                     for(int j=0;j<cardsInDeck/2;j+=2) {
                         Card card1=cards[j],card2=cards[j+1];
-                        SpecificHoldemHand h=card1.ordinal()>=card2.ordinal()?new SpecificHoldemHand(card1,card2)
-                                :new SpecificHoldemHand(card2,card1);
+                        SpecificHoldemHand h=SpecificHoldemHand.of(card1,card2);
                         System.out.print(h.holdemHand()+" ");
                     }
                     System.out.println();
@@ -112,8 +110,7 @@ public class CardRemoval {
                 boolean didAnyoneOpen=false;
                 for(int j=0;j<2*folds;j+=2) {
                     Card card1=cards[j],card2=cards[j+1];
-                    SpecificHoldemHand h=card1.ordinal()>=card2.ordinal()?new SpecificHoldemHand(card1,card2)
-                            :new SpecificHoldemHand(card2,card1);
+                    SpecificHoldemHand h=SpecificHoldemHand.of(card1,card2);
                     if(h.holdemHand().ordinal()<=HoldemHand.sevenSeven.ordinal()) { didAnyoneOpen=true; break; }
                 }
                 if(didAnyoneOpen) {
@@ -125,8 +122,7 @@ public class CardRemoval {
                     if(false) {
                         for(int j=0;j<2*folds;j+=2) {
                             Card card1=cards[j],card2=cards[j+1];
-                            SpecificHoldemHand h=card1.ordinal()>=card2.ordinal()?new SpecificHoldemHand(card1,card2)
-                                    :new SpecificHoldemHand(card2,card1);
+                            SpecificHoldemHand h=SpecificHoldemHand.of(card1,card2);
                             System.out.print(h.holdemHand()+" ");
                         }
                         System.out.println();

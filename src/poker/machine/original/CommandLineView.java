@@ -1,9 +1,9 @@
 package poker.machine.original;
-import java.io.*;
+import poker.machine.CommandLineBase;
 import equipment.*;
 import poker.*;
 import poker.machine.*;
-public class CommandLineView implements View {
+public class CommandLineView extends CommandLineBase implements View {
 	@Override public void update(State state) {
 		this.state=state;
 		String s="";
@@ -31,18 +31,6 @@ public class CommandLineView implements View {
 		println("r - draw");
 		println("[1-5] - toggle hold");
 		println("q - quit");
-	}
-	int get() {
-		int c=-1;
-		if(!automatic)
-			c=getChar();
-		else
-			c=switch(++n%3) {
-				case 0 -> 'b';
-				case 1 -> 'd';
-				default -> 'r';
-			};
-		return c;
 	}
 	String info(final Hand hand,final int pokerHandNumber) {
 		int highHandNumber=pokerHandNumber;
@@ -91,28 +79,6 @@ public class CommandLineView implements View {
 	void println(String s) {
 		System.out.println(s);
 	}
-	int getChar() {
-		int c=-1;
-		if(true) {
-			try {
-				c=System.in.read();
-			} catch(IOException e) {}
-		}
-		if(lineSeparator.indexOf(c)!=-1)
-			return getChar();
-		return c;
-	}
-	void waitForEnter(String s) {
-		println(s);
-		waitForEnter();
-	}
-	void waitForEnter() {
-		println("type enter to continue");
-		System.out.flush();
-		try {
-			System.in.read();
-		} catch(IOException e) {}
-	}
 	public static void main(String[] args) {
 		try {
 			CommandLineView poker=new CommandLineView();
@@ -128,8 +94,5 @@ public class CommandLineView implements View {
 	private PokerMachine pokerMachine;
 	private final Controller controller=new Controller();
 	private State state;
-	static int n=2;
 	private static final String prompt="b - bet, d - deal, [1-5] - toggle, r - draw";
-	boolean automatic=false;
-	static String lineSeparator=System.getProperty("line.separator");
 }

@@ -222,32 +222,20 @@ public class MakeHighUniverse extends MakeUniverse {
                                 put();
                             }
     }
-    static void usage() {
-        System.err.println("MakeHighUniverse -[wds]");
-        System.err.println("-d - details");
-        System.err.println("-s - summary");
-        System.err.println("-w - wild");
+    @Override protected String commandName() {
+        return "MakeHighUniverse";
     }
-    static void option(String option) {
-        switch (option) {
-            case "d" -> includeDetails=true;
-            case "s" -> includeSummary=true;
-            case "w" -> includeAllFiveOfAKinds=true;
-            default -> {
-                usage();
-                System.exit(1);
-            }
-        }
+    @Override protected void setDetails(boolean value) {
+        includeDetails=value;
     }
-    static void argument(String argument) {
-        usage();
-        System.exit(1);
+    @Override protected void setSummary(boolean value) {
+        includeSummary=value;
+    }
+    @Override protected void setWild(boolean value) {
+        includeAllFiveOfAKinds=value;
     }
     public static void main(String[] arg) {
-        for(String argValue:arg) {
-            if(argValue.startsWith("-")) option(argValue.substring(1));
-            else argument(argValue);
-        }
+        new MakeHighUniverse().parseArguments(arg);
         n=t52=tj=0;
         fiveOfAKind();
         summary();

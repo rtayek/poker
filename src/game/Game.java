@@ -25,9 +25,7 @@ public class Game {
 			if (table.players[dealTo] != null) {
 				Card card1 = deck.draw();
 				Card card2 = deck.draw();
-				SpecificHoldemHand hand = card1.rank().ordinal() >= card2.rank().ordinal()
-						? new SpecificHoldemHand(card1, card2)
-						: new SpecificHoldemHand(card2, card1);
+				SpecificHoldemHand hand = SpecificHoldemHand.of(card1, card2);
 				table.players[dealTo].hand = hand;
 				System.out.println("dealt a " + hand + " (" + hand.holdemHand() + ") to player " + dealTo);
 			} else

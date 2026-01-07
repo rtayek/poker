@@ -18,7 +18,7 @@ public class Poker5856odds {
 	    for(int player=0;player<players;player++) {
 		Card card1=deck.draw();
 		Card card2=deck.draw();
-		SpecificHoldemHand hand=card1.rank().ordinal()>=card2.rank().ordinal()?new SpecificHoldemHand(card1,card2):new SpecificHoldemHand(card2,card1);
+		SpecificHoldemHand hand=SpecificHoldemHand.of(card1,card2);
 		// p(player+" "+hand+" "+hand.holdemHand());
 		specificHoldemHands[player]=hand;
 		set.add(hand.holdemHand());

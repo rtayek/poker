@@ -6,6 +6,10 @@ import equipment.Rank;
 import equipment.Suit;
 // should be an enum, but there are 1326 of them, so write a program later to generate the enums
 public class SpecificHoldemHand extends Hand {
+	public static SpecificHoldemHand of(Card card1,Card card2) {
+		if (card1.rank().ordinal()<card2.rank().ordinal()) return new SpecificHoldemHand(card2,card1);
+		return new SpecificHoldemHand(card1,card2);
+	}
 	public SpecificHoldemHand(HoldemHand holdemHand,Suit suit1,Suit suit2) {
 		super(Card.instance(holdemHand.r1(),suit1),Card.instance(holdemHand.r1(),suit2));
 		this.holdemHand=holdemHand;
