@@ -7,16 +7,16 @@ public class CommandLineView implements View {
 	@Override public void update(State state) {
 		this.state=state;
 		String s="";
-		if(state.pokerHand()==null||state.subState()==state.betMade)
+		if(state.pokerHand()==null||state.isBetMade())
 			s+="XXXXX";
 		else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber());
 		s=s+lineSeparator;
-		if(!(state.pokerHand()==null||state.subState()==state.betMade)) {
+		if(!(state.pokerHand()==null||state.isBetMade())) {
 			for(int i=0;i<5;i++)
-				s+=" "+(state.holds[i]?'H':'T');
+				s+=" "+(state.isHeld(i)?'H':'T');
 			s=s+lineSeparator;
 		}
-		if(state.subState()==state.afterDraw&&state.payoff()>0)
+		if(state.isAfterDraw()&&state.payoff()>0)
 			s+="payoff "+state.payoff()+lineSeparator;
 		s+=("hand "+state.hands()+", "+state.coins()+" Coins, "+state.credits()+" credits");
 		if(/* true|| */!automatic||state.hands()%250==0)
@@ -36,17 +36,12 @@ public class CommandLineView implements View {
 		int c=-1;
 		if(!automatic)
 			c=getChar();
-		else switch(++n%3) {
-			case 0:
-				c='b';
-				break;
-			case 1:
-				c='d';
-				break;
-			case 2:
-				c='r';
-				break;
-		}
+		else
+			c=switch(++n%3) {
+				case 0 -> 'b';
+				case 1 -> 'd';
+				default -> 'r';
+			};
 		return c;
 	}
 	String info(final Hand hand,final int pokerHandNumber) {

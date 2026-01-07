@@ -24,11 +24,11 @@ public class HandOrder {
 	    int n=0;
 	    for(Integer i:handOrder.r2hh.keySet()) {
 		HoldemHand h=handOrder.r2hh.get(i);
-		n+=h.type.frequency();
-		p+=h.type.frequency()/(double)HoldemHand.universe;
+		n+=h.declaredType().frequency();
+		p+=h.declaredType().frequency()/(double)HoldemHand.universe;
 		String s=h.toString();
 		if(s.length()==2) s+=' ';
-		System.out.println(s+" "+h.value+" "+n+" "+(float)p);
+		System.out.println(s+" "+h.value()+" "+n+" "+(float)p);
 	    }
 	}
 	final HandOrder handOrder;
@@ -65,9 +65,9 @@ public class HandOrder {
 	double p=0;
 	int n=0;
 	for(HoldemHand holdemHand:HoldemHand.values()) {
-	    n+=holdemHand.type.frequency();
-	    p+=holdemHand.type.frequency()/(double)HoldemHand.universe;
-	    System.out.println(""+holdemHand+" "+holdemHand.name()+" "+holdemHand.value+" "+n+" "+(float)p);
+	    n+=holdemHand.declaredType().frequency();
+	    p+=holdemHand.declaredType().frequency()/(double)HoldemHand.universe;
+	    System.out.println(""+holdemHand+" "+holdemHand.name()+" "+holdemHand.value()+" "+n+" "+(float)p);
 	}
     }
     static String[] sklanskyOrder() {
@@ -114,9 +114,7 @@ public class HandOrder {
     static String[] someOtherOnlineOrder() {
 	File file=new File("somehandranks.csv");
 	List<String> strings=new ArrayList<>(169);
-	BufferedReader br=null;
-	try {
-	    br=new BufferedReader(new FileReader(file));
+	try (BufferedReader br=new BufferedReader(new FileReader(file))) {
 	    int n=0;
 	    for(String string=br.readLine();string!=null;string=br.readLine()) {
 		String[] parts=string.split(",");
@@ -128,19 +126,13 @@ public class HandOrder {
 		}
 		n++;
 	    }
-	} catch(Exception e) {
+	} catch(IOException e) {
 	    throw new RuntimeException(e);
-	} finally {
-	    try {
-		br.close();
-	    } catch(IOException e) {
-		throw new RuntimeException(e);
-	    }
 	}
-	return strings.toArray(new String[strings.size()]);
+	return strings.toArray(String[]::new);
     }
     private static String format(Double x) {
-	String s=new Float(x).toString();
+	String s=Float.toString(x.floatValue());
 	return (s.length()==4?"":" ")+s;
     }
     private static String format(String s) {
@@ -151,23 +143,15 @@ public class HandOrder {
     }
     static String[] sklanskyChubukovOrder() {
 	File file=new File("sklanskynumbers.txt");
-	BufferedReader r=null;
-	try {
-	    r=new BufferedReader(new FileReader(file));
-	    StringBuffer sb=new StringBuffer();
+	try (BufferedReader r=new BufferedReader(new FileReader(file))) {
+	    StringBuilder sb=new StringBuilder();
 	    for(String line=r.readLine();line!=null;line=r.readLine()) {
 		String[] parts=line.split("\t");
 		HoldemHand h=HoldemHand.fromCharacters(parts[0]);
 		sb.append(h.toString()).append(' ');
 	    }
-	    r.close();
 	    return sb.toString().split(" ");
 	} catch(IOException e) {
-	    try {
-		r.close();
-	    } catch(IOException e1) {
-		throw new RuntimeException(e1);
-	    }
 	    throw new RuntimeException(e);
 	}
     }
@@ -176,8 +160,8 @@ public class HandOrder {
 	for(Integer i:r2hh.keySet()) {
 	    HoldemHand h=r2hh.get(i);
 	    if(h!=null) {
-		n+=h.type.frequency();
-		System.out.println(h+" "+h.type.frequency()+" "+(float)(n/(double)HoldemHand.universe));
+		n+=h.declaredType().frequency();
+		System.out.println(h+" "+h.declaredType().frequency()+" "+(float)(n/(double)HoldemHand.universe));
 	    }
 	}
     }
@@ -185,8 +169,8 @@ public class HandOrder {
 	int n=0;
 	for(String s:hands) {
 	    HoldemHand h=HoldemHand.fromCharacters(s);
-	    n+=h.type.frequency();
-	    System.out.println(h+" "+h.type.frequency()+" "+(float)(n/(double)HoldemHand.universe));
+	    n+=h.declaredType().frequency();
+	    System.out.println(h+" "+h.declaredType().frequency()+" "+(float)(n/(double)HoldemHand.universe));
 	}
     }
     static void check(String name,String[] strings) {
@@ -250,7 +234,7 @@ public class HandOrder {
 	System.out.println("hand\tchen*\tonline\tother\thelmuth\tsklansky\tmjc\tsklansky2");
 	for(int i=0;i<HoldemHand.values().length;i++) {
 	    System.out.print(""+format(HoldemHand.values()[i].toString()));
-	    System.out.print("\t"+format(HoldemHand.values()[i].value));
+	    System.out.print("\t"+format(HoldemHand.values()[i].value()));
 	    System.out.print("\t"+format(online,i));
 	    System.out.print("\t"+format(someOtherOnlineOrder,i));
 	    System.out.print("\t"+format(helmuth,i));

@@ -41,7 +41,7 @@ public class PokerHand extends Hand { // a five card poker hand
 			return s+" ("+last+"-"+first+")"+" "+"("+lastSample+" - "+firstSample+")";
 		}
 		public Character toCharacter() {
-			return new Character(c);
+			return Character.valueOf(c);
 		}
 		public static HighType fromCharacter(char c) {
 			for(HighType t:HighType.values())

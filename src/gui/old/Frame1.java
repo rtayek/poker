@@ -50,10 +50,10 @@ public class Frame1 extends Frame implements View {
 		System.out.println(s);
 	}
 	/*
-	 * public void update(State state) { this.state=state; String s=""; if(state.pokerHand()==null||state.subState()==state.betMade) s+="XXXXX"; else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber()); s=s+lineSeparator; if(!(state.pokerHand()==null||state.subState()==state.betMade)) { for(int i=0;i<5;i++) s+=" "+(state.holds[i]?'H':'T'); s=s+lineSeparator; } if(state.subState()==state.afterDraw&&state.payoff()>0) s+="payoff "+state.payoff()+lineSeparator; s+=("hand "+state.hands()+", "+state.coins()+ " Coins, "+state.credits()+" credits"); if(!automatic||state.hands()%250==0) println(s); this.state=state; }
+	 * public void update(State state) { this.state=state; String s=""; if(state.pokerHand()==null||state.isBetMade()) s+="XXXXX"; else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber()); s=s+lineSeparator; if(!(state.pokerHand()==null||state.isBetMade())) { for(int i=0;i<5;i++) s+=" "+(state.holds[i]?'H':'T'); s=s+lineSeparator; } if(state.isAfterDraw()&&state.payoff()>0) s+="payoff "+state.payoff()+lineSeparator; s+=("hand "+state.hands()+", "+state.coins()+ " Coins, "+state.credits()+" credits"); if(!automatic||state.hands()%250==0) println(s); this.state=state; }
 	 */public void update(final State state) {
 		String s="";
-		if(state.subState()==state.afterDraw) {
+		if(state.isAfterDraw()) {
 			if(state.pokerHand()!=null) {
 				s+=state.pokerHand().toCharacters();
 				s+=" "+info(state.pokerHand(),state.handNumber())+" ";
@@ -67,14 +67,14 @@ public class Frame1 extends Frame implements View {
 					}
 			}
 			if(state.payoff()>0) s+=" payoff "+state.payoff();
-		} else if(state.subState()==state.betMade) {
+		} else if(state.isBetMade()) {
 			if(state.pokerHand()==null||state.coins()==1) // first hand or first bet?
 				for(int i=0;i<5;i++) {
 					System.err.println("foo");
 					cardCanvas[i].setCard(null);
 					repaintThread[i].requestRepaint();
 				}
-		} else if(state.subState()==state.inAHand) {
+		} else if(state.isInAHand()) {
 			s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber())+" ";
 			Card[] cards=new Card[5]; // state.pokerHand().cards();
 			for(int i=0;i<5;i++)
@@ -89,7 +89,7 @@ public class Frame1 extends Frame implements View {
 			System.exit(1);
 		}
 		for(int i=0;i<5;i++)
-			holds[i].setBackground(state.holds[i]?new Color(255,0,0):new Color(128,0,0));
+			holds[i].setBackground(state.isHeld(i)?new Color(255,0,0):new Color(128,0,0));
 		creditsValue.setText(state.credits()+"");
 		coinsValue.setText(state.coins()+"");
 		s+=(" hand "+state.hands());

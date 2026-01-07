@@ -229,12 +229,14 @@ public class MakeHighUniverse extends MakeUniverse {
         System.err.println("-w - wild");
     }
     static void option(String option) {
-        if(option.equals("d")) includeDetails=true;
-        else if(option.equals("s")) includeSummary=true;
-        else if(option.equals("w")) includeAllFiveOfAKinds=true;
-        else {
-            usage();
-            System.exit(1);
+        switch (option) {
+            case "d" -> includeDetails=true;
+            case "s" -> includeSummary=true;
+            case "w" -> includeAllFiveOfAKinds=true;
+            default -> {
+                usage();
+                System.exit(1);
+            }
         }
     }
     static void argument(String argument) {
@@ -242,9 +244,9 @@ public class MakeHighUniverse extends MakeUniverse {
         System.exit(1);
     }
     public static void main(String[] arg) {
-        for(int i=0;i<arg.length;i++) {
-            if(arg[i].startsWith("-")) option(arg[i].substring(1));
-            else argument(arg[i]);
+        for(String argValue:arg) {
+            if(argValue.startsWith("-")) option(argValue.substring(1));
+            else argument(argValue);
         }
         n=t52=tj=0;
         fiveOfAKind();

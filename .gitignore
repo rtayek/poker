@@ -1,0 +1,33 @@
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Directories for build artifacts
+/bin/
+/target/
+/out/
+/build/
+
+# IDE-specific files and directories
+.idea/         # IntelliJ IDEA project files
+.classpath     # Eclipse project files
+.project       # Eclipse project files
+.settings/     # Eclipse project settings
+.vscode/       # VS Code settings
+nbproject/     # NetBeans project files
+*.iml          # IntelliJ IDEA module files
+
+# Log files
+*.log
+hs_err_pid*    # Virtual machine crash logs
+
+# Operating system files
+.DS_Store      # macOS files
+Thumbs.db      # Windows files
+

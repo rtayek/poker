@@ -19,9 +19,9 @@ public class Poker5856odds {
 		Card card1=deck.draw();
 		Card card2=deck.draw();
 		SpecificHoldemHand hand=card1.rank().ordinal()>=card2.rank().ordinal()?new SpecificHoldemHand(card1,card2):new SpecificHoldemHand(card2,card1);
-		// p(player+" "+hand+" "+hand.holdemHand);
+		// p(player+" "+hand+" "+hand.holdemHand());
 		specificHoldemHands[player]=hand;
-		set.add(hand.holdemHand);
+		set.add(hand.holdemHand());
 	    }
 	    histogram.add(set.size());
 	    if(set.size()!=players) {
@@ -29,7 +29,7 @@ public class Poker5856odds {
 		if(true&&set.size()<7) {
 		    pn(set.size()+" ");
                     for(int player=0;player<players;player++)
-                        pn(specificHoldemHands[player].holdemHand+" ");
+                        pn(specificHoldemHands[player].holdemHand()+" ");
                     p("");
 		    //for(int player=0;player<players;player++)
 			//pn(specificHoldemHands[player]+" ");

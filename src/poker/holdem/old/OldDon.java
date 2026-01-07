@@ -17,58 +17,52 @@ public class OldDon {
 	static String ls2a(int x) { return(ls2aa[x]); }
 	static String h2a(int x) { return(h2aa[x]); }
 	static String lh2a(int x) { return(lh2aa[x]); }
-	static int a2r(char c)
-	{
-	switch(c)
-		{
-		case 'a':return(Constant.ace_low);
-		case '2':return(Constant.duece);
-		case '3':return(Constant.trey);
-		case '4':return(Constant.four);
-		case '5':return(Constant.five);
-		case '6':return(Constant.six);
-		case '7':return(Constant.seven);
-		case '8':return(Constant.eight);
-		case '9':return(Constant.nine);
-		case 'T':return(Constant.ten);
-		case 'J':return(Constant.jack);
-		case 'Q':return(Constant.queen);
-		case 'K':return(Constant.king);
-		case 'A':return(Constant.ace_high);
-		case '*':return(Constant.joker);
-		case '?':return(Constant.nac);
-		default:return(Constant.nac);
-		}
+	static int a2r(char c) {
+		return switch (c) {
+			case 'a' -> Constant.ace_low;
+			case '2' -> Constant.duece;
+			case '3' -> Constant.trey;
+			case '4' -> Constant.four;
+			case '5' -> Constant.five;
+			case '6' -> Constant.six;
+			case '7' -> Constant.seven;
+			case '8' -> Constant.eight;
+			case '9' -> Constant.nine;
+			case 'T' -> Constant.ten;
+			case 'J' -> Constant.jack;
+			case 'Q' -> Constant.queen;
+			case 'K' -> Constant.king;
+			case 'A' -> Constant.ace_high;
+			case '*' -> Constant.joker;
+			case '?' -> Constant.nac;
+			default -> Constant.nac;
+		};
 	}
-int a2s(char c)
-	{
-	switch((int)c)
-		{
-		case 'c':return(Constant.clubs);
-		case 'd':return(Constant.diamonds);
-		case 'h':return(Constant.hearts);
-		case 's':return(Constant.spades);
-		case '?':return(Constant.nas);
-		default:return(Constant.nas);
-		}
+	int a2s(char c) {
+		return switch (c) {
+			case 'c' -> Constant.clubs;
+			case 'd' -> Constant.diamonds;
+			case 'h' -> Constant.hearts;
+			case 's' -> Constant.spades;
+			case '?' -> Constant.nas;
+			default -> Constant.nas;
+		};
 	}
-int a2h(char c)
-	{
-	switch((int)c)
-		{
-		case 'n':return(Constant.no_pair);
-		case '1':return(Constant.one_pair);
-		case '2':return(Constant.two_pair);
-		case '3':return(Constant.three_of_a_kind);
-		case 's':return(Constant.straight);
-		case 'f':return(Constant.flush);
-		case 'p':return(Constant.full_house);
-		case '4':return(Constant.four_of_a_kind);
-		case 'S':return(Constant.straight_flush);
-		case '5':return(Constant.five_of_a_kind);
-		case '?':return(Constant.nah);
-		default:return(Constant.nah);
-		}
+	int a2h(char c) {
+		return switch (c) {
+			case 'n' -> Constant.no_pair;
+			case '1' -> Constant.one_pair;
+			case '2' -> Constant.two_pair;
+			case '3' -> Constant.three_of_a_kind;
+			case 's' -> Constant.straight;
+			case 'f' -> Constant.flush;
+			case 'p' -> Constant.full_house;
+			case '4' -> Constant.four_of_a_kind;
+			case 'S' -> Constant.straight_flush;
+			case '5' -> Constant.five_of_a_kind;
+			case '?' -> Constant.nah;
+			default -> Constant.nah;
+		};
 	}
 static boolean verbose,werbose,xerbose,yerbose,zerbose,aerbose;
 static boolean board,fourth,fifth,distribution;
@@ -97,20 +91,25 @@ output_name="";
 for(i=0;i<argument.length;i++)
 	if(argument[i].startsWith("-"))
 		{
-		if(argument[i].equals('v')) verbose=true;
-		if(argument[i].equals('w')) werbose=true;
-		if(argument[i].equals('x')) xerbose=true;
-		if(argument[i].equals('y')) yerbose=true;
-		if(argument[i].equals('z')) zerbose=true;
-		if(argument[i].equals('b')) board=true;
-		if(argument[i].equals('4')) fourth=true;
-		if(argument[i].equals('5')) fifth=true;
-		if(argument[i].equals('0')) report_frequency=1;
-		if(argument[i].equals('1')) report_frequency=10;
-		if(argument[i].equals('2')) report_frequency=100;
-		if(argument[i].equals('s')) highest_card_in_deck=Constant.six;
-		if(argument[i].equals('t')) highest_card_in_deck=Constant.five;
-		if(argument[i].equals('d')) distribution=true;
+		if(argument[i].length()<2) continue;
+		switch(argument[i].charAt(1))
+			{
+			case 'v': verbose=true; break;
+			case 'w': werbose=true; break;
+			case 'x': xerbose=true; break;
+			case 'y': yerbose=true; break;
+			case 'z': zerbose=true; break;
+			case 'b': board=true; break;
+			case '4': fourth=true; break;
+			case '5': fifth=true; break;
+			case '0': report_frequency=1; break;
+			case '1': report_frequency=10; break;
+			case '2': report_frequency=100; break;
+			case 's': highest_card_in_deck=Constant.six; break;
+			case 't': highest_card_in_deck=Constant.five; break;
+			case 'd': distribution=true; break;
+			default: break;
+			}
 		}
 		else
 		{

@@ -24,16 +24,16 @@ public class SpecificHoldemHandTestCase extends TestCase {
 	}
 	public void testForSmoke() {
 		SpecificHoldemHand h=new SpecificHoldemHand(Card.aceOfDiamonds,Card.aceOfHearts);
-		assertEquals(HoldemHand.aceAce,h.holdemHand);
+		assertEquals(HoldemHand.aceAce,h.holdemHand());
 		h=new SpecificHoldemHand(Card.aceOfDiamonds,Card.queenOfHearts);
-		assertEquals(HoldemHand.aceQueen,h.holdemHand);
+		assertEquals(HoldemHand.aceQueen,h.holdemHand());
 		h=new SpecificHoldemHand(Card.aceOfDiamonds,Card.kingOfDiamonds);
-		assertEquals(HoldemHand.aceKingSuited,h.holdemHand);
+		assertEquals(HoldemHand.aceKingSuited,h.holdemHand());
 	}
 	public void testIsHandInDeck() {
 		int n=0;
 		for(HoldemHand holdemHand:HoldemHand.values())
-			switch (holdemHand.type) {
+			switch (holdemHand.declaredType()) {
 				case pair:
 					for(Suit s1:Suit.values())
 						if (!s1.equals(Suit.jokerSuit)) for(Suit s2:Suit.values())
@@ -66,7 +66,7 @@ public class SpecificHoldemHandTestCase extends TestCase {
 	public void testFindHandInDeck() {
 		int n=0;
 		for(HoldemHand holdemHand:HoldemHand.values())
-			switch (holdemHand.type) {
+			switch (holdemHand.declaredType()) {
 				case pair:
 					for(Suit s1:Suit.values())
 						for(Suit s2:Suit.values())

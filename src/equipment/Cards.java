@@ -65,8 +65,8 @@ public abstract class Cards {
 		cards[2]=card3;
 		cards[3]=card4;
 		cards[4]=card5;
-		cards[6]=card6;
-		cards[7]=card7;
+		cards[5]=card6;
+		cards[6]=card7;
 		return cards;
 	}
 	public static Suit[] suits(final Card[] card) {

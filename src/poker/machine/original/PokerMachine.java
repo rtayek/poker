@@ -11,27 +11,27 @@ public class PokerMachine implements State.Context,State.HoldController { // may
 		this.view=view;
 	}
 	public final void bet() {
-		state.subStates.get(state.subState).bet();
+		state.currentSubState().bet();
 		view.update(state);
 	}
 	public final void deal() {
-		state.subStates.get(state.subState).deal();
+		state.currentSubState().deal();
 		view.update(state);
 	}
 	public final void draw() {
-		state.subStates.get(state.subState).draw();
+		state.currentSubState().draw();
 		view.update(state);
 	}
 	public final void toggleHold(int n) {
-		state.subStates.get(state.subState).toggleHold(n);
+		state.currentSubState().toggleHold(n);
 		view.update(state);
 	}
 	public final void quit() {
-		state.subStates.get(state.subState).quit();
+		state.currentSubState().quit();
 		view.update(state);
 	}
 	public final boolean hold(int i) {
-		return state.holds[i];
+		return state.isHeld(i);
 	}
 	public final State state() {
 		return state;

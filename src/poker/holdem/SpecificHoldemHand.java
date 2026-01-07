@@ -7,7 +7,7 @@ import equipment.Suit;
 // should be an enum, but there are 1326 of them, so write a program later to generate the enums
 public class SpecificHoldemHand extends Hand {
 	public SpecificHoldemHand(HoldemHand holdemHand,Suit suit1,Suit suit2) {
-		super(Card.instance(holdemHand.r1,suit1),Card.instance(holdemHand.r1,suit2));
+		super(Card.instance(holdemHand.r1(),suit1),Card.instance(holdemHand.r1(),suit2));
 		this.holdemHand=holdemHand;
 		this.suit1=suit1;
 		this.suit2=suit2;
@@ -28,14 +28,14 @@ public class SpecificHoldemHand extends Hand {
 		return true;
 	}
 	static boolean isHandInDeck(SpecificHoldemHand h,boolean[][] deck) {
-		if (!deck[h.holdemHand.r1.ordinal()][h.suit1.ordinal()]) return false;
-		if (!deck[h.holdemHand.r2.ordinal()][h.suit2.ordinal()]) return false;
+		if (!deck[h.holdemHand().r1().ordinal()][h.suit1.ordinal()]) return false;
+		if (!deck[h.holdemHand().r2().ordinal()][h.suit2.ordinal()]) return false;
 		return true;
 	}
-	public static List<SpecificHoldemHand> findAllHandsInDeck(HoldemHand holdemHand,boolean[][] deck) {
+	static List<SpecificHoldemHand> findAllHandsInDeck(HoldemHand holdemHand,boolean[][] deck) {
 		return null;
 	}
-	public static SpecificHoldemHand findHandInDeck(HoldemHand holdemHand,boolean[][] deck) {
+	static SpecificHoldemHand findHandInDeck(HoldemHand holdemHand,boolean[][] deck) {
 		// needs to be cased out by type of hand.
 		// then generate all samples of these as static a final collection
 		// then get them with SpecificHoldemHand[]=get(HoldemHand,boolean[][]
@@ -56,7 +56,7 @@ public class SpecificHoldemHand extends Hand {
 				}
 		return null;
 	}
-	public static SpecificHoldemHand fromCharacters(String s) {
+	static SpecificHoldemHand fromCharacters(String s) {
 		// don needs the fix aces for lookup, do we need it????
 		Rank r1=Rank.fromCharacter(s.charAt(0)).fixAces();
 		Suit s1=Suit.fromCharacter(s.charAt(1));
@@ -75,6 +75,9 @@ public class SpecificHoldemHand extends Hand {
 		HoldemHand holdemHand=HoldemHand.from(r1,r2,type);
 		return new SpecificHoldemHand(holdemHand,s1,s2);
 	}
-	public final HoldemHand holdemHand;
-	public final Suit suit1,suit2;
+	public HoldemHand holdemHand() {
+		return holdemHand;
+	}
+	private final HoldemHand holdemHand;
+	private final Suit suit1,suit2;
 }

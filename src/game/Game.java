@@ -29,7 +29,7 @@ public class Game {
 						? new SpecificHoldemHand(card1, card2)
 						: new SpecificHoldemHand(card2, card1);
 				table.players[dealTo].hand = hand;
-				System.out.println("dealt a " + hand + " (" + hand.holdemHand + ") to player " + dealTo);
+				System.out.println("dealt a " + hand + " (" + hand.holdemHand() + ") to player " + dealTo);
 			} else
 				System.out.println("dealing out player " + dealTo);
 		}

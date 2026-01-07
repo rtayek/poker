@@ -58,7 +58,7 @@ public class MyTopJPanel extends JPanel {
 	public static void main(String[] args) {
 		new MyTopJPanel(null);
 	}
-	public final JFrame frame;
+	private final JFrame frame;
 	final MyJApplet applet;
 	private static final long serialVersionUID=1;
 }

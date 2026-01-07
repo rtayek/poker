@@ -63,7 +63,7 @@ public class OldCheckConvertedFiles {
 				int index=part.indexOf(delimiter);
 				if(index<0) throw new RuntimeException("oops");
 				part=part.substring(0,index);
-				handNumber=new Long(part);
+				handNumber=Long.valueOf(part);
 				if(handNumber<=0) throw new RuntimeException("oops");
 				endOfHand(strings,startIndex,i,oldHandNumber,hands);
 				startIndex=i;

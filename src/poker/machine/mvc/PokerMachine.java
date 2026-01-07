@@ -8,32 +8,32 @@ public class PokerMachine extends Observable implements State.Context,State.Hold
 		this.payMaster=payMaster;
 	}
 	public final void bet() {
-		state.subStates.get(state.subState).bet();
+		state.currentSubState().bet();
 		setChanged();
 		notifyObservers();
 	}
 	public final void deal() {
-		state.subStates.get(state.subState).deal();
+		state.currentSubState().deal();
 		setChanged();
 		notifyObservers();
 	}
 	public final void draw() {
-		state.subStates.get(state.subState).draw();
+		state.currentSubState().draw();
 		setChanged();
 		notifyObservers();
 	}
 	public final void toggleHold(int n) {
-		state.subStates.get(state.subState).toggleHold(n);
+		state.currentSubState().toggleHold(n);
 		setChanged();
 		notifyObservers();
 	}
 	public final void quit() {
-		state.subStates.get(state.subState).quit();
+		state.currentSubState().quit();
 		setChanged();
 		notifyObservers();
 	}
 	public final boolean hold(int i) {
-		return state.holds[i];
+		return state.isHeld(i);
 	}
 	public final State state() {
 		return state;

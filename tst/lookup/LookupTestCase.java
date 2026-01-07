@@ -32,7 +32,7 @@ public class LookupTestCase extends TestCase {
 		assertEquals(0,OldLookup.key(zero,false));
 		Rank[] big= {Rank.ace,Rank.ace,Rank.ace,Rank.ace,Rank.ace};
 		assertEquals(1957340,OldLookup.key(big,false)); // magic number!
-		System.out.println(Integer.toString(new Integer(1957340/2),13));
+		System.out.println(Integer.toString(1957340/2,13));
 		assertEquals(1957341,OldLookup.key(big,true)); // magic number!
 	}
 	public void testKeyInverse() { // key and ketInverse may be for old code

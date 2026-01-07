@@ -50,13 +50,13 @@ public class Open extends JFrame {
 			int i0=l/n,j0=l%n;
 			int i=n-i0-1,j=n-j0-1;
 			pane.add(buttons[i][j]); // flip both
-			double hue=hands[i][j].value/HoldemHand.aceAce.value;
+			double hue=hands[i][j].value()/HoldemHand.aceAce.value();
 			hue*=.5;
 			if(hue<0) hue=0;
 			int rgb=Color.HSBtoRGB((float)hue,(float).8,(float).8);
 			Color color=new Color(rgb);
 			buttons[i][j].setBackground(color);
-			System.out.println(i+" "+j+" "+hands[i][j]+" "+hands[i][j].value+" "+hue);
+			System.out.println(i+" "+j+" "+hands[i][j]+" "+hands[i][j].value()+" "+hue);
 		}
 		pane.addComponentListener(new ComponentListener() {
 			public void componentMoved(ComponentEvent event) {}

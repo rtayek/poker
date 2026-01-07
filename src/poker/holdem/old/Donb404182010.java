@@ -84,72 +84,46 @@ public class Donb404182010 {
 			for(int j=0;j<Suit.values().length;j++)
 				deck[i][j]=true;
 		output_name="";
-		for(int i=0;i<argument.length;i++)
-			switch (argument[i].charAt(0)) {
-				case '-':
-					switch (argument[i].charAt(1)) {
-						case 'v':
-							verbose=true;
-							break;
-						case 'w':
-							werbose=true;
-							break;
-						case 'x':
-							xerbose=true;
-							break;
-						case 'y':
-							yerbose=true;
-							break;
-						case 'z':
-							zerbose=true;
-							break;
-						case 'b':
-							board=true;
-							break;
-						case '4':
-							fourth=true;
-							break;
-						case '5':
-							fifth=true;
-							break;
-						case '0':
-							report_frequency=1;
-							break;
-						case '1':
-							report_frequency=10;
-							break;
-						case '2':
-							report_frequency=100;
-							break;
-						case 's':
-							highest_card_in_deck=Rank.six;
-							break;
-						case 't':
-							highest_card_in_deck=Rank.five;
-							break;
-						case 'd':
-							distribution=true;
-							break;
-						default:
-							throw new RuntimeException(argument[i]+" is an illeagal option");
+		for(int i=0;i<argument.length;i++) {
+			String arg=argument[i];
+			switch (arg.charAt(0)) {
+				case '-' -> {
+					switch (arg.charAt(1)) {
+						case 'v' -> verbose=true;
+						case 'w' -> werbose=true;
+						case 'x' -> xerbose=true;
+						case 'y' -> yerbose=true;
+						case 'z' -> zerbose=true;
+						case 'b' -> board=true;
+						case '4' -> fourth=true;
+						case '5' -> fifth=true;
+						case '0' -> report_frequency=1;
+						case '1' -> report_frequency=10;
+						case '2' -> report_frequency=100;
+						case 's' -> highest_card_in_deck=Rank.six;
+						case 't' -> highest_card_in_deck=Rank.five;
+						case 'd' -> distribution=true;
+						default -> throw new RuntimeException(arg+" is an illeagal option");
 					}
-					break;
-				default:
-					final Rank rr=Rank.fromCharacter(argument[i].charAt(0));
-					if(rr==null) throw new RuntimeException(argument[i]+" is an illegal argument");
-					output_name+=argument[i]+'_';
+				}
+				default -> {
+					final Rank rr=Rank.fromCharacter(arg.charAt(0));
+					if(rr==null) throw new RuntimeException(arg+" is an illegal argument");
+					output_name+=arg+'_';
 					final Player p=new Player();
 					players.add(p);
 					p.id=players.size();
-					p.holeRanks[0]=Rank.fromCharacter(argument[i].charAt(0));
+					p.holeRanks[0]=Rank.fromCharacter(arg.charAt(0));
 					if(p.holeRanks[0]==Rank.ace) p.holeRanks[0]=Rank.aceLow;
-					p.holeSuits[0]=Suit.fromCharacter(argument[i].charAt(1));
+					p.holeSuits[0]=Suit.fromCharacter(arg.charAt(1));
 					remove(p.holeRanks[0],p.holeSuits[0]);
-					p.holeRanks[1]=Rank.fromCharacter(argument[i].charAt(2));
+					p.holeRanks[1]=Rank.fromCharacter(arg.charAt(2));
 					if(p.holeRanks[1]==Rank.ace) p.holeRanks[1]=Rank.aceLow;
-					p.holeSuits[1]=Suit.fromCharacter(argument[i].charAt(3));
+					p.holeSuits[1]=Suit.fromCharacter(arg.charAt(3));
 					remove(p.holeRanks[1],p.holeSuits[1]);
+				}
 			}
+		}
 		if(fifth) fourth=true;
 		number_of_cards=4*(highest_card_in_deck.ordinal()); // check this!
 		System.out.println("number_of_cards="+number_of_cards);

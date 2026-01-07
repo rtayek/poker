@@ -128,7 +128,7 @@ class SwingBindings extends JPanel implements Observer {
 	public void update(State state) {
 		this.state=state;
 		String s="";
-		if(state.pokerHand()==null||state.subState()==state.betMade)
+		if(state.pokerHand()==null||state.isBetMade())
 			for(JLabel jLabel:cardCanvas)
 				jLabel.setText("ii");
 		else {
@@ -137,15 +137,15 @@ class SwingBindings extends JPanel implements Observer {
 				cardCanvas[i].setText(state.pokerHand().card(i).toCharacters());
 		}
 		s=s+lineSeparator;
-		if(!(state.pokerHand()==null||state.subState()==state.betMade))
+		if(!(state.pokerHand()==null||state.isBetMade()))
 			for(int i=0;i<5;i++)
-				holds[i].setText(state.holds[i]?"Hold":"Discard");
-		if(state.subState()==state.afterDraw&&state.payoff()>0)
+				holds[i].setText(state.isHeld(i)?"Hold":"Discard");
+		if(state.isAfterDraw()&&state.payoff()>0)
 			s+="payoff "+state.payoff()+lineSeparator;
 		s+="hand "+state.hands();
 		coinsValue.setText(""+state.coins());
 		creditsValue.setText(""+state.credits());
-		if(state.pokerHand()!=null&&(state.subState()==state.inAHand||state.subState()==state.afterDraw))
+		if(state.pokerHand()!=null&&(state.isInAHand()||state.isAfterDraw()))
 			status.setText(state.pokerHand().toCharacters()+" is hand #"+state.handNumber());
 		else status.setText("");
 		if(/* true|| */!automatic||state.hands()%250==0)

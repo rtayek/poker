@@ -28,17 +28,12 @@ public class CommandLineController {
 		int c=-1;
 		if(!automatic)
 			c=getChar();
-		else switch(++n%3) {
-			case 0:
-				c='b';
-				break;
-			case 1:
-				c='d';
-				break;
-			case 2:
-				c='r';
-				break;
-		}
+		else
+			c=switch(++n%3) {
+				case 0 -> 'b';
+				case 1 -> 'd';
+				default -> 'r';
+			};
 		return c;
 	}
 	static void waitForEnter(String s) {
@@ -54,38 +49,28 @@ public class CommandLineController {
 	}
 	public boolean processEvent(final PokerMachine pokerMachine,final char c) {
 		switch(c) {
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-				pokerMachine.toggleHold(c-'1');
-				break;
-			case 'a':
-				if(pokerMachine.state().subState()!=pokerMachine.state().inAHand) {
+			case '1','2','3','4','5' -> pokerMachine.toggleHold(c-'1');
+			case 'a' -> {
+				if(!pokerMachine.state().isInAHand()) {
 					processEvent(pokerMachine,'B');
 					processEvent(pokerMachine,'r');
 				}
-				break;
-			case 'b':
-				pokerMachine.bet();
-				break;
-			case 'B':
-				if(pokerMachine.state().subState()!=pokerMachine.state().inAHand)
-					while(pokerMachine.state().coins()<PokerMachine.maxBets&&pokerMachine.state().credits>0)
+			}
+			case 'b' -> pokerMachine.bet();
+			case 'B' -> {
+				if(!pokerMachine.state().isInAHand())
+					while(pokerMachine.state().coins()<PokerMachine.maxBets&&pokerMachine.state().credits()>0)
 						processEvent(pokerMachine,'b');
-				break;
-			case 'd':
-				pokerMachine.deal();
-				break;
-			case 'r':
-				pokerMachine.draw();
-				break;
-			case 'q':
+			}
+			case 'd' -> pokerMachine.deal();
+			case 'r' -> pokerMachine.draw();
+			case 'q' -> {
 				return false;
-			default:
+			}
+			default -> {
 				System.err.println("exiting!");
 				System.exit(1);
+			}
 		}
 		return true;
 	}
@@ -117,7 +102,7 @@ public class CommandLineController {
 		waitForEnter("done");
 	}
 	boolean playMore;
-	public boolean automatic;
+	private boolean automatic;
 	PokerMachine pokerMachine;
 	private static final String prompt="b - bet, B - bet max, d - deal, [1-5] - toggle, r - draw, q - quit";
 	static int n=2;

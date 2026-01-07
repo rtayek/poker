@@ -100,10 +100,10 @@ public class Sax extends DefaultHandler {
                 hand[i]=hand[i].substring(0,2)+"s";
             }
             HoldemHand holdemHand=HoldemHand.fromCharacters(hand[i]);
-            System.out.println(holdemHand+" "+hand[i]+": "+mean[i]+" "+holdemHand.type.frequency());
-            cumulativeFrequency[i]=holdemHand.type.frequency();
+            System.out.println(holdemHand+" "+hand[i]+": "+mean[i]+" "+holdemHand.declaredType().frequency());
+            cumulativeFrequency[i]=holdemHand.declaredType().frequency();
             if(i>0) cumulativeFrequency[i]+=cumulativeFrequency[i-1];
-            n+=holdemHand.type.frequency();
+            n+=holdemHand.declaredType().frequency();
             map.put(holdemHand,mean[i]);
             if(!pairs.add(new MyPair(holdemHand,mean[i]))) System.out.println("oops: "+new MyPair(holdemHand,mean[i]));
         }
@@ -118,8 +118,8 @@ public class Sax extends DefaultHandler {
         int n=0;
         for(int i=0;i<rows_;i++) {
             HoldemHand holdemHand=pairs.get(i).first;
-            average+=mean[i]*holdemHand.type.frequency();
-            n+=holdemHand.type.frequency();
+            average+=mean[i]*holdemHand.declaredType().frequency();
+            n+=holdemHand.declaredType().frequency();
         }
         average/=n;
         System.out.println(rows_+"/"+rows+", average expectation: "+average);

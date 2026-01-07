@@ -95,12 +95,21 @@ public class State {
 		this.pokerMachine=pokerMachine;
 	}
 	Context pokerMachine;
-	public final boolean holds[]=new boolean[5];
-	public final Phase afterDraw=Phase.afterDraw;
-	public final Phase betMade=Phase.betMade;
-	public final Phase inAHand=Phase.inAHand;
+	private final boolean holds[]=new boolean[5];
+	public boolean isHeld(int i) {
+		return holds[i];
+	}
 	public Phase subState() {
 		return subState;
+	}
+	public boolean isAfterDraw() {
+		return subState==Phase.afterDraw;
+	}
+	public boolean isBetMade() {
+		return subState==Phase.betMade;
+	}
+	public boolean isInAHand() {
+		return subState==Phase.inAHand;
 	}
 	public int hands() {
 		return hands;
@@ -121,25 +130,20 @@ public class State {
 		return hand;
 	}
 	public String toString() {
-		switch(subState) {
-			case afterDraw:
-				return "afterDraw"; // same as before a hand
-			case betMade:
-				return "betMade";
-			case inAHand:
-				return "inAHand";
-			default:
-				throw new RuntimeException(subState+" is an illegal value for subState");
-		}
+		return switch (subState) {
+			case afterDraw -> "afterDraw"; // same as before a hand
+			case betMade -> "betMade";
+			case inAHand -> "inAHand";
+		};
 	}
 	private final void changeSubState(Phase subState) {
 		this.subState=subState;
 	}
-	int handNumber;
-	public Hand hand;
-	public PokerHand.HighType typeOfPokerHand;
-	public Phase subState=afterDraw;
-	public int hands=0,coins=0,credits=2000,payoff;
+	private int handNumber;
+	private Hand hand;
+	private PokerHand.HighType typeOfPokerHand;
+	private Phase subState=Phase.afterDraw;
+	private int hands=0,coins=0,credits=2000,payoff;
 	public abstract class SubState {
 		public void bet() {}
 		public void deal() {}
@@ -155,7 +159,7 @@ public class State {
 			// pokerHandNumbers=Lookup.instance.lookup(pokerHand);
 			handNumber=OldLookup.lookup(cards);
 			typeOfPokerHand=PokerHand.HighType.type(handNumber);
-			changeSubState(inAHand);
+			changeSubState(Phase.inAHand);
 			pokerMachine.analyze();
 		}
 	}
@@ -166,7 +170,7 @@ public class State {
 					holds[i]=false;
 				credits--;
 				coins++;
-				changeSubState(betMade);
+				changeSubState(Phase.betMade);
 			}
 		}
 	}
@@ -196,10 +200,13 @@ public class State {
 			credits+=payoff*coins;
 			hands++;
 			coins=0;
-			changeSubState(afterDraw);
+			changeSubState(Phase.afterDraw);
 		}
 	}
-	public final EnumMap<Phase,State.SubState> subStates=buildSubStates();
+	public SubState currentSubState() {
+		return subStates.get(subState);
+	}
+	private final EnumMap<Phase,State.SubState> subStates=buildSubStates();
 	private EnumMap<Phase,State.SubState> buildSubStates() {
 		EnumMap<Phase,State.SubState> states=new EnumMap<>(Phase.class);
 		states.put(Phase.afterDraw,new AfterDraw());

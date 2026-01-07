@@ -1,7 +1,6 @@
 package poker.holdem;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import equipment.Card;
 import equipment.Cards;
@@ -70,8 +69,9 @@ public enum HoldemHand {
 		this.r2=r2;
 		if (r1.ordinal()<r2.ordinal()) throw new RuntimeException("oops");
 		this.type=type;
-		if(value==Double.NaN) System.out.println(value);
-		this.value=value==Double.NaN?(ordinal()+1):value;
+		boolean isNaN=value.isNaN();
+		if(isNaN) System.out.println(value);
+		this.value=isNaN?(ordinal()+1):value;
 	}
 	HoldemHand(Rank r1,Rank r2,Type type) {
 		this(r1,r2,type,Double.NaN);
@@ -82,18 +82,18 @@ public enum HoldemHand {
 	Card[] cards(Suit suit1,Suit suit2) {
 		Card[] cards=new Card[2];
 		switch (type) {
-			case pair:
+			case pair -> {
 				cards[0]=Card.instance(r1,suit1);
 				cards[1]=Card.instance(r2,suit2);
-				break;
-			case suited:
+			}
+			case suited -> {
 				cards[0]=Card.instance(r1,suit1);
 				cards[1]=Card.instance(r2,suit1);
-				break;
-			case offsuit:
+			}
+			case offsuit -> {
 				cards[0]=Card.instance(r1,suit1);
 				cards[1]=Card.instance(r2,suit2);
-				break;
+			}
 		}
 		return cards;
 	}
@@ -116,70 +116,59 @@ public enum HoldemHand {
 		throw new RuntimeException("oops");
 		// return null;
 	}
-	public static String fTU(String s) {
+	private static String fTU(String s) {
 		return s.substring(0,1).toUpperCase()+s.substring(1);
 	}
-	public static String fTL(String s) {
+	private static String fTL(String s) {
 		return s.substring(0,1).toLowerCase()+s.substring(1);
 	}
-	public static String fTU(Rank r) {
+	private static String fTU(Rank r) {
 		return fTU(r.name());
 	}
-	public static String fTL(Rank r) {
+	private static String fTL(Rank r) {
 		return fTL(r.name());
 	}
 	public static enum Type { // or calculate from name?
 		pair,suited,offsuit;
 		public int frequency() {
-			switch (this) {
-				case pair:
-					return pairFrequency;
-				case suited:
-					return suitedFrequency;
-				case offsuit:
-					return offsuitFrequency;
-				default:
-					throw new RuntimeException("oops");
-			}
+			return switch (this) {
+				case pair -> pairFrequency;
+				case suited -> suitedFrequency;
+				case offsuit -> offsuitFrequency;
+			};
 		}
 	}
-	static class Range { // i.e. 22+ or AT+
+static record Range(HoldemHand.Type type,List<Rank> ranks) { // i.e. 22+ or AT+
 		// seems like this is never used.
 		Range(HoldemHand holdemHand) {
-			this.type=holdemHand.type;
-			ArrayList<Rank> ranks=new ArrayList<>(2);
-			ranks.add(holdemHand.r1);
-			ranks.add(holdemHand.r2);
-			this.ranks=ranks;
+			this(holdemHand.type,List.of(holdemHand.r1,holdemHand.r2));
 		}
 		// top 11%, i.e. 77+, A9s+, KTs+, QTs+, ATo+, KQo. test this!
 		Range(HoldemHand.Type type,Rank[] ranks) {
-			this.type=type;
+			this(type,toRanks(ranks));
+		}
+		private static List<Rank> toRanks(Rank[] ranks) {
 			if (ranks.length!=2) throw new RuntimeException("oops");
-			this.ranks=(ArrayList<Rank>)Collections.unmodifiableList(Arrays.asList(ranks));
+			return List.of(ranks[0],ranks[1]);
 		}
 		public List<HoldemHand> hands() {
 			ArrayList<HoldemHand> hands=new ArrayList<>();
 			switch (type) {
-				case pair:
+				case pair -> {
 					for(Rank rank:Rank.values())
 						if (rank.ordinal()>=ranks.get(0).ordinal()) hands.add(from(rank,rank,type));
 						else System.out.println("skipping pair: "+rank);
-					break;
-				case suited:
-				case offsuit:
+				}
+				case suited, offsuit -> {
 					Rank highCard=ranks.get(0);
 					for(Rank rank:Rank.values())
 						if (ranks.get(1).ordinal()<=rank.ordinal()&&rank.ordinal()<highCard.ordinal()) hands.add(from(highCard,rank,type));
 						else System.out.println("skipping non pair: "+rank);
-					break;
-				default:
-					throw new RuntimeException("oops");
+				}
+				default -> throw new RuntimeException("oops");
 			}
 			return hands;
 		}
-		final HoldemHand.Type type;
-		final ArrayList<Rank> ranks;
 	}
 	int countCaps() {
 		int n=0;
@@ -189,21 +178,19 @@ public enum HoldemHand {
 	}
 	Type type() {
 		int n=countCaps();
-		switch (n) {
-			case 1: {
-				if (name().length()%2!=0) return Type.offsuit;
+		return switch (n) {
+			case 1 -> {
+				if (name().length()%2!=0) yield Type.offsuit;
 				String first=name().substring(0,name().length()/2);
 				String second=fTL(name().substring(name().length()/2));
-				if (first.equals(second)) return Type.pair;
-				return Type.offsuit;
+				if (first.equals(second)) yield Type.pair;
+				yield Type.offsuit;
 			}
-			case 2:
-				return Type.suited;
-			default:
-				throw new RuntimeException("oops");
-		}
+			case 2 -> Type.suited;
+			default -> throw new RuntimeException("oops");
+		};
 	}
-	public static HoldemHand type(Card[] cards) {
+	static HoldemHand type(Card[] cards) {
 		boolean suited=cards[0].suit()==cards[1].suit();
 		for(HoldemHand h:values())
 			if (suited) {
@@ -212,7 +199,7 @@ public enum HoldemHand {
 		System.out.println("can not find hand for: "+Arrays.asList(cards));
 		throw new RuntimeException();
 	}
-	public static void printFrequencies() {
+	private static void printFrequencies() {
 		System.out.println(Arrays.asList(values()));
 		System.out.println("pair frequency "+Type.pair.frequency());
 		System.out.println("suited frequency "+Type.suited.frequency());
@@ -249,10 +236,25 @@ public enum HoldemHand {
 	public static void main(String[] args) {
 		printFrequencies();
 	}
-	public final Rank r1,r2;
-	public Double value; // for sort order
-	public Double probability; // of getting this hand or better
-	public final Type type;
+	public Rank r1() {
+		return r1;
+	}
+	public Rank r2() {
+		return r2;
+	}
+	public Type declaredType() {
+		return type;
+	}
+	public Double value() {
+		return value;
+	}
+	Double probability() {
+		return probability;
+	}
+	private final Rank r1,r2;
+	private final Double value; // for sort order
+	private Double probability; // of getting this hand or better
+	private final Type type;
 	static int ranks;
 	static final int pairs=(int)Cards.c(13,1),suited=(int)Cards.c(13,2),unsuited=(int)Cards.c(13,2);
 	static final int pairFrequency=(int)Cards.c(4,2);
