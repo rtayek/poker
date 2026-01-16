@@ -235,6 +235,11 @@ public class MakeHighUniverse extends MakeUniverse {
         includeAllFiveOfAKinds=value;
     }
     public static void main(String[] arg) {
+        includeAllFiveOfAKinds=false;
+        includeDetails=false;
+        includeSummary=false;
+        pt52=0;
+        ptj=0;
         new MakeHighUniverse().parseArguments(arg);
         n=t52=tj=0;
         fiveOfAKind();

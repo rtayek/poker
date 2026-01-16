@@ -15,15 +15,15 @@ public class SevenCards {
                     if(!c3.equals(c2)&&!c3.equals(c1)) for(Card c4:Card.naturals)
                         if(!c4.equals(c3)&&!c4.equals(c2)&&!c4.equals(c1)) for(Card c5:Card.naturals)
                             if(!c5.equals(c4)&&!c5.equals(c3)&&!c5.equals(c2)&&!c5.equals(c1)) for(Card c6:Card.naturals)
-                                if(!c6.equals(c5)&&c6.equals(c4)&&!c6.equals(c3)&&!c6.equals(c2)&&!c6.equals(c1)) for(Card c7:Card.naturals)
-                                    if(!c7.equals(c6)&&c7.equals(c5)&&c7.equals(c4)&&!c7.equals(c3)&&!c7.equals(c2)&&!c7.equals(c1)) {
+                                if(!c6.equals(c5)&&!c6.equals(c4)&&!c6.equals(c3)&&!c6.equals(c2)&&!c6.equals(c1)) for(Card c7:Card.naturals)
+                                    if(!c7.equals(c6)&&!c7.equals(c5)&&!c7.equals(c4)&&!c7.equals(c3)&&!c7.equals(c2)&&!c7.equals(c1)) {
                                         cards[0]=c1;
                                         cards[1]=c2;
                                         cards[2]=c3;
                                         cards[3]=c4;
                                         cards[4]=c5;
-                                        cards[4]=c6;
-                                        cards[4]=c7;
+                                        cards[5]=c6;
+                                        cards[6]=c7;
                                         //lookup(cards);
                                         n++;
                                     }

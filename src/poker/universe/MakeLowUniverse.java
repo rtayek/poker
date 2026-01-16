@@ -178,6 +178,12 @@ public class MakeLowUniverse extends MakeUniverse {
         wild=value;
     }
     public static void main(String[] arg) {
+        wild=false;
+        details=false;
+        summary=false;
+        n=t52=tj=0;
+        pt52=0;
+        ptj=0;
         new MakeLowUniverse().parseArguments(arg);
         noPair();
         summary();

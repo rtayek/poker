@@ -1,5 +1,6 @@
 package poker.holdem;
 import java.util.List;
+import equipment.Card;
 import poker.holdem.HoldemHand;
 import junit.framework.TestCase;
 public class HoldemHandTestCase extends TestCase {
@@ -13,6 +14,10 @@ public class HoldemHandTestCase extends TestCase {
 	public void testOrder() {
 		for(HoldemHand h:HoldemHand.values())
 			assertTrue(h.r1().ordinal()>=h.r2().ordinal());
+	}
+	public void testTypeAllowsUnOrderedCards() {
+		Card[] unordered=new Card[] {Card.kingOfDiamonds,Card.aceOfClubs};
+		HoldemHand.type(unordered);
 	}
 	public void testRange() {
 		for(HoldemHand holdemHand:HoldemHand.values()) {

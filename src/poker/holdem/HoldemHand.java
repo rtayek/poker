@@ -191,6 +191,8 @@ static record Range(HoldemHand.Type type,List<Rank> ranks) { // i.e. 22+ or AT+
 		};
 	}
 	static HoldemHand type(Card[] cards) {
+		if(cards[0].rank().ordinal()<cards[1].rank().ordinal())
+			return type(new Card[] {cards[1],cards[0]}); // may not be teh right thing to do.
 		boolean suited=cards[0].suit()==cards[1].suit();
 		for(HoldemHand h:values())
 			if (suited) {
