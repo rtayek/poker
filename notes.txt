@@ -9,3 +9,13 @@ dabinary has 7 bytes for each hand (5 ranks and a hand number in little endian f
 da binary uses 00000 for the first hand - five aces AAAAA. - seems old and not used.
 the lookup table in Lookup goes from 22222 to AAAAA - reproduce from high universe!
 fix make da binary to output just the hand numbers (or ignore them when reading the file);
+
+1/15/26 codex  says:
+  - src/equipment/Hand.java ignores cards 3–5 in the 5‑card constructor and isNatural() always returns true; both look like correctness bugs.
+  - src/equipment/Deck.java uses card(++nextCard) after shuffle() sets nextCard=0, so the first draw skips index 0 (likely off‑by‑one).
+  - src/equipment/Cards.java shuffles with random.nextInt(i); this biases the Fisher‑Yates shuffle (should be nextInt(i+1)).
+  - src/ai/PokerHandEvaluator.java parses ranks via Rank.valueOf, so inputs like “Ah” won’t parse; also isStraight() doesn’t handle A‑2‑3‑4‑5.
+  - src/poker/holdem/HoldemHand.java type(Card[]) assumes cards are ordered by rank; if not, it won’t match the enum and throws.
+  
+  add a test watcher so we can see where the printouts are coming from.
+  

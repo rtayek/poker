@@ -2,6 +2,7 @@ package gui;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.concurrent.CountDownLatch;
 import javax.swing.*;
 import equipment.Deck;
 import poker.machine.*;
@@ -11,13 +12,10 @@ public class Main extends MainGui {
 		super(applet);
 		// if(applet==null) setPlaf=false;
 		// plaf(this);
-		addComponentListener(new ComponentListener() {
+		addComponentListener(new ComponentAdapter() {
 			@Override public void componentResized(ComponentEvent e) {
 				//System.out.println(getSize());
 			}
-			@Override public void componentMoved(ComponentEvent e) {}
-			@Override public void componentShown(ComponentEvent e) {}
-			@Override public void componentHidden(ComponentEvent e) {}
 		});
 		Container c=frame.getContentPane();
 		//c.setLayout(new BoxLayout(c,BoxLayout.Y_AXIS));
@@ -26,20 +24,18 @@ public class Main extends MainGui {
 	static void plaf(final Container c) {
 		if(setPlaf)
 			try {
-				SwingUtilities.invokeAndWait(new Runnable() {
-					@Override public void run() {
-						try {
-							UIManager.setLookAndFeel("HighContrastLAF");
-							SwingUtilities.updateComponentTreeUI(c);
-						} catch(ClassNotFoundException e) {
-							e.printStackTrace();
-						} catch(InstantiationException e) {
-							e.printStackTrace();
-						} catch(IllegalAccessException e) {
-							e.printStackTrace();
-						} catch(UnsupportedLookAndFeelException e) {
-							e.printStackTrace();
-						}
+				SwingUtilities.invokeAndWait(() -> {
+					try {
+						UIManager.setLookAndFeel("HighContrastLAF");
+						SwingUtilities.updateComponentTreeUI(c);
+					} catch(ClassNotFoundException e) {
+						e.printStackTrace();
+					} catch(InstantiationException e) {
+						e.printStackTrace();
+					} catch(IllegalAccessException e) {
+						e.printStackTrace();
+					} catch(UnsupportedLookAndFeelException e) {
+						e.printStackTrace();
 					}
 				});
 			} catch(InterruptedException e1) {
@@ -64,6 +60,7 @@ public class Main extends MainGui {
 			swingBindings.pokerMachine=pokerMachine;
 			swingBindings.controller=controller;
 			this.commandLineView=commandLineView;
+			commandLineReady.countDown();
 		} catch(Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
@@ -72,18 +69,21 @@ public class Main extends MainGui {
 	}
 	public static void main(String[] args) {
 		Main main=new Main(null);
-		while(main.commandLineView==null)
-			try {
-				Thread.sleep(10);
-			} catch(InterruptedException e) {
-				e.printStackTrace();
-			}
+		main.awaitCommandLineReady();
 		main.controller.run();
+	}
+	private void awaitCommandLineReady() {
+		try {
+			commandLineReady.await();
+		} catch(InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
 	}
 	CommandLineView commandLineView;
 	private SwingBindings swingBindings;
 	private PokerMachine pokerMachine;
 	private CommandLineController controller;
+	private final CountDownLatch commandLineReady=new CountDownLatch(1);
 	static boolean setPlaf=true;
 	private static final long serialVersionUID=1L;
 }

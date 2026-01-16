@@ -1,13 +1,13 @@
 package poker.holdem;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 // http://holdemtight.com/pgs/od/oddpgs/3-169holdemhands.htm
 public class HandOrder {
     enum Name {
@@ -112,24 +112,14 @@ public class HandOrder {
 	return s.split(" ");
     }
     static String[] someOtherOnlineOrder() {
-	File file=new File("somehandranks.csv");
-	List<String> strings=new ArrayList<>(169);
-	try (BufferedReader br=new BufferedReader(new FileReader(file))) {
-	    int n=0;
-	    for(String string=br.readLine();string!=null;string=br.readLine()) {
-		String[] parts=string.split(",");
-		if(n>0) {
-		    if(parts[0].contains(" ")) {
-			parts[0].replaceFirst(" ","");
-		    }
-		    strings.add(parts[0]);
-		}
-		n++;
-	    }
+	Path file=Path.of("somehandranks.csv");
+	try (Stream<String> lines=Files.lines(file,Charset.defaultCharset())) {
+	    return lines.skip(1)
+		    .map(line -> line.split(",")[0])
+		    .toArray(String[]::new);
 	} catch(IOException e) {
 	    throw new RuntimeException(e);
 	}
-	return strings.toArray(String[]::new);
     }
     private static String format(Double x) {
 	String s=Float.toString(x.floatValue());
@@ -142,15 +132,13 @@ public class HandOrder {
 	return (i<s.length?(format(s[i])):"   ");
     }
     static String[] sklanskyChubukovOrder() {
-	File file=new File("sklanskynumbers.txt");
-	try (BufferedReader r=new BufferedReader(new FileReader(file))) {
-	    StringBuilder sb=new StringBuilder();
-	    for(String line=r.readLine();line!=null;line=r.readLine()) {
-		String[] parts=line.split("\t");
-		HoldemHand h=HoldemHand.fromCharacters(parts[0]);
-		sb.append(h.toString()).append(' ');
-	    }
-	    return sb.toString().split(" ");
+	Path file=Path.of("sklanskynumbers.txt");
+	try (Stream<String> lines=Files.lines(file,Charset.defaultCharset())) {
+	    return lines
+		    .map(line -> line.split("\t")[0])
+		    .map(HoldemHand::fromCharacters)
+		    .map(HoldemHand::toString)
+		    .toArray(String[]::new);
 	} catch(IOException e) {
 	    throw new RuntimeException(e);
 	}

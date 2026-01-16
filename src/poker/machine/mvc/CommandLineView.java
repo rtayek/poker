@@ -15,19 +15,20 @@ public class CommandLineView implements Observer {
 			return;
 		State state=((PokerMachine)o).state();
 		this.state=state;
-		String s="";
+		StringBuilder sb=new StringBuilder();
 		if(state.pokerHand()==null||state.isBetMade())
-			s+="XXXXX";
-		else s+=state.pokerHand().toCharacters()+" "+info(state.pokerHand(),state.handNumber());
-		s=s+CommandLineController.lineSeparator;
+			sb.append("XXXXX");
+		else sb.append(state.pokerHand().toCharacters()).append(" ").append(info(state.pokerHand(),state.handNumber()));
+		sb.append(CommandLineController.lineSeparator);
 		if(!(state.pokerHand()==null||state.isBetMade())) {
 			for(int i=0;i<5;i++)
-				s+=" "+(state.isHeld(i)?'H':'T');
-			s+=CommandLineController.lineSeparator;
+				sb.append(" ").append(state.isHeld(i)?'H':'T');
+			sb.append(CommandLineController.lineSeparator);
 		}
 		if(state.isAfterDraw()&&state.payoff()>0)
-			s+="payoff "+state.payoff()+CommandLineController.lineSeparator;
-		s+=("hand "+state.hands()+", "+state.coins()+" Coins, "+state.credits()+" credits");
+			sb.append("payoff ").append(state.payoff()).append(CommandLineController.lineSeparator);
+		sb.append("hand ").append(state.hands()).append(", ").append(state.coins()).append(" Coins, ").append(state.credits()).append(" credits");
+		String s=sb.toString();
 		if(/* true|| */!automatic||state.hands()%250==0)
 			System.out.println(s);
 		this.state=state;

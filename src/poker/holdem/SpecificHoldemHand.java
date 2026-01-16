@@ -11,7 +11,9 @@ public class SpecificHoldemHand extends Hand {
 		return new SpecificHoldemHand(card1,card2);
 	}
 	public SpecificHoldemHand(HoldemHand holdemHand,Suit suit1,Suit suit2) {
-		super(Card.instance(holdemHand.r1(),suit1),Card.instance(holdemHand.r1(),suit2));
+		super(Card.instance(holdemHand.r1(),suit1),Card.instance(holdemHand.r2(),suit2));
+		//System.out.println(Card.instance(holdemHand.r1(),suit1));
+		//System.out.println(Card.instance(holdemHand.r2(),suit2));
 		this.holdemHand=holdemHand;
 		this.suit1=suit1;
 		this.suit2=suit2;

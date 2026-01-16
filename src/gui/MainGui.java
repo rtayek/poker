@@ -13,11 +13,7 @@ public class MainGui extends JPanel {
 		} else frame=null;
 		// setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(640,480));
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				MainGui.this.run();
-			}
-		});
+		SwingUtilities.invokeLater(this::run);
 	}
 	String title() {
 		return "Title";

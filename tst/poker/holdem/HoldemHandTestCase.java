@@ -7,7 +7,7 @@ public class HoldemHandTestCase extends TestCase {
 		super.setUp();
 	}
 	public void testType() {
-		for(HoldemHand h:HoldemHand.values())
+		for(HoldemHand h:HoldemHand.values()) // may not be testing anything.
 			assertEquals(h.declaredType(),h.type());
 	}
 	public void testOrder() {

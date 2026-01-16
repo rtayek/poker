@@ -26,11 +26,7 @@ public class JFrame2 extends JFrame {
 		hack=frame;
 	}
 	public static void main(String[] args) throws Exception {
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
+		javax.swing.SwingUtilities.invokeLater(JFrame2::createAndShowGUI);
 		Thread.sleep(2000);
 		System.out.println("in main:");
 		for(JButton h:hack.holds)

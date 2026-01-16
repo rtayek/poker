@@ -1,5 +1,9 @@
 package com.tayek.utilities;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.util.*;
 public class Utilities {
 	public static String method() {
@@ -58,33 +62,25 @@ public class Utilities {
 		}
 	}
 	public static void storeXml(final File propertiesFile,Properties p) {
-		try {
-			final OutputStream out=new FileOutputStream(propertiesFile);
+		try (OutputStream out=Files.newOutputStream(propertiesFile.toPath())) {
 			storeXml(out,p);
-			out.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 	public static Properties load(final File propertiesFile) {
-		Properties p=null;
-		try {
-			final InputStream in=new FileInputStream(propertiesFile);
-			p=load(in);
-		} catch(FileNotFoundException e) {
+		try (InputStream in=Files.newInputStream(propertiesFile.toPath())) {
+			return load(in);
+		} catch(NoSuchFileException|AccessDeniedException e) {
 			System.out.println(e);
+			return null;
+		} catch(IOException e) {
+			throw new RuntimeException(e);
 		}
-		return p;
 	}
 	public static void store(final File propertiesFile,Properties p) {
-		try {
-			final OutputStream out=new FileOutputStream(propertiesFile);
+		try (OutputStream out=Files.newOutputStream(propertiesFile.toPath())) {
 			store(out,p);
-			out.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -92,10 +88,10 @@ public class Utilities {
 	public static byte[] save(final Object o) {
 		try {
 			ByteArrayOutputStream baos=new ByteArrayOutputStream();
-			ObjectOutputStream out=new ObjectOutputStream(baos);
-			out.writeObject(o);
-			out.flush();
-			out.close();
+			try (ObjectOutputStream out=new ObjectOutputStream(baos)) {
+				out.writeObject(o);
+				out.flush();
+			}
 			return baos.toByteArray();
 		} catch(IOException e) {
 			throw new RuntimeException(e);
@@ -121,8 +117,7 @@ public class Utilities {
 		}
 	}
 	public static Object restore(final File file) {
-		try {
-			ObjectInputStream in=new ObjectInputStream(new FileInputStream(file));
+		try (ObjectInputStream in=new ObjectInputStream(Files.newInputStream(file.toPath()))) {
 			return restore(in);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
@@ -130,35 +125,23 @@ public class Utilities {
 	}
 	public static void toFile(final byte[] b,final File file) {
 		try {
-			OutputStream out=new FileOutputStream(file);
-			out.write(b);
-			out.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
+			Files.write(file.toPath(),b);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 	public static void toFile(final String s,final File file) {
-		try {
-			Writer out=new FileWriter(file);
+		try (Writer out=Files.newBufferedWriter(file.toPath(),Charset.defaultCharset())) {
 			out.write(s);
-			out.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 	public static void fromFile(final StringBuffer stringBuffer,final File file) {
-		try {
-			Reader r=new FileReader(file);
+		try (Reader r=Files.newBufferedReader(file.toPath(),Charset.defaultCharset())) {
 			int c=0;
 			while ((c=r.read())!=-1)
 				stringBuffer.append((char)c);
-			r.close();
-		} catch(FileNotFoundException e) {
-			throw new RuntimeException(e);
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -180,12 +163,8 @@ public class Utilities {
 		return sb.toString();
 	}
 	public static List<String> getFileAsListOfStrings(final File file) {
-		BufferedReader r=null;
 		try {
-			r=new BufferedReader(new FileReader(file));
-			final List<String> l=toStrings(r);
-			r.close();
-			return l;
+			return Files.readAllLines(file.toPath(),Charset.defaultCharset());
 		} catch(IOException e) {
 			throw new RuntimeException(e);
 		}

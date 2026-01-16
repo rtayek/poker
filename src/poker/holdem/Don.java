@@ -17,12 +17,11 @@ public class Don {
 			return equity;
 		}
 	}
-	static class Frequency {
-		final WTL flop=new WTL();
-		final WTL fourth=new WTL();
-		final WTL fifth=new WTL();
-		final WTL board=new WTL();
-	};
+	static record Frequency(WTL flop,WTL fourth,WTL fifth,WTL board) {
+		Frequency() {
+			this(new WTL(),new WTL(),new WTL(),new WTL());
+		}
+	}
 	class Player {
 		String holeCards() {
 			return ""+holeRanks[0].toCharacter()+holeSuits[0].toCharacter()+holeRanks[1].toCharacter()+holeSuits[1].toCharacter();
@@ -43,16 +42,16 @@ public class Don {
 					+' '+decimalFormat.format(wtl.losses/total);
 		}
 		String flopInfo() {
-			return holeCards2()+' '+info(total.flop)+" (flop)";
+			return holeCards2()+' '+info(total.flop())+" (flop)";
 		}
 		String fourthInfo() {
-			return holeCards2()+' '+info(total.fourth)+" (fourth)";
+			return holeCards2()+' '+info(total.fourth())+" (fourth)";
 		}
 		String fifthInfo() {
-			return holeCards2()+' '+info(total.fifth)+" (fifth) "+total.fifth.equity(players.size());
+			return holeCards2()+' '+info(total.fifth())+" (fifth) "+total.fifth().equity(players.size());
 		}
 		String boardInfo() {
-			return holeCards()+' '+info(total.board)+" (board)";
+			return holeCards()+' '+info(total.board())+" (board)";
 		}
 		@Override public String toString() {
 			return holeCards();
@@ -67,8 +66,7 @@ public class Don {
 		final short type[]=new short[PokerHand.HighType.values().length];
 		final Frequency[] individual=new Frequency[Don.total+1]; // 1-7475
 		{ // maybe the +1 above is a mistake?
-			for(int i=0;i<individual.length;i++)
-				individual[i]=new Frequency();
+			Arrays.setAll(individual,i -> new Frequency());
 		}
 	}
 	boolean remove(Rank r,Suit s) {
@@ -328,26 +326,26 @@ public class Don {
 					for(Player p:players)
 						if(p.bestFifthHand==best_hand) if(ties==1) {
 							if(xerbose&&anybody_improved||zerbose||aerbose) System.out.print(p.id);
-							p.individual[p.bestFifthHand].fifth.wins++;
-							p.total.fifth.wins++;
+							p.individual[p.bestFifthHand].fifth().wins++;
+							p.total.fifth().wins++;
 							if(p.bestFifthHand==p.boardHand) {
-								p.individual[p.bestFifthHand].board.wins++;
-								p.total.board.wins++;
+								p.individual[p.bestFifthHand].board().wins++;
+								p.total.board().wins++;
 							}
 						} else {
-							p.individual[p.bestFifthHand].fifth.ties++;
-							p.total.fifth.ties++;
+							p.individual[p.bestFifthHand].fifth().ties++;
+							p.total.fifth().ties++;
 							if(p.bestFifthHand==p.boardHand) {
-								p.individual[p.bestFifthHand].board.ties++;
-								p.total.board.ties++;
+								p.individual[p.bestFifthHand].board().ties++;
+								p.total.board().ties++;
 							}
 						}
 						else {
-							p.individual[p.bestFifthHand].fifth.losses++;
-							p.total.fifth.losses++;
+							p.individual[p.bestFifthHand].fifth().losses++;
+							p.total.fifth().losses++;
 							if(p.bestFifthHand==p.boardHand) {
-								p.individual[p.bestFifthHand].board.losses++;
-								p.total.board.losses++;
+								p.individual[p.bestFifthHand].board().losses++;
+								p.total.board().losses++;
 							}
 						}
 					if(xerbose&&ties>1) System.out.print(-ties);
@@ -399,15 +397,15 @@ public class Don {
 					for(Player p:players)
 						if(p.bestFourthHand==best_hand) if(ties==1) {
 							if(werbose&&anybody_improved||yerbose) System.out.print(p.id);
-							p.individual[p.bestFourthHand].fourth.wins++;
-							p.total.fourth.wins++;
+							p.individual[p.bestFourthHand].fourth().wins++;
+							p.total.fourth().wins++;
 						} else {
-							p.individual[p.bestFourthHand].fourth.ties++;
-							p.total.fourth.ties++;
+							p.individual[p.bestFourthHand].fourth().ties++;
+							p.total.fourth().ties++;
 						}
 						else {
-							p.individual[p.bestFourthHand].fourth.losses++;
-							p.total.fourth.losses++;
+							p.individual[p.bestFourthHand].fourth().losses++;
+							p.total.fourth().losses++;
 						}
 					if(werbose&&ties>1) System.out.print(-ties);
 					if(werbose&&anybody_improved||yerbose) System.out.println();
@@ -426,7 +424,7 @@ public class Don {
 			p.flopRanks[1]=p.holeRanks[1];
 			p.flopSuits[1]=p.holeSuits[1];
 			t=p.total;
-			t.flop.wins=t.flop.ties=t.flop.losses=t.fourth.wins=t.fourth.ties=t.fourth.losses=t.fifth.wins=t.fifth.ties=t.fifth.losses=t.board.wins=t.board.ties=t.board.losses=0;
+			t.flop().wins=t.flop().ties=t.flop().losses=t.fourth().wins=t.fourth().ties=t.fourth().losses=t.fifth().wins=t.fifth().ties=t.fifth().losses=t.board().wins=t.board().ties=t.board().losses=0;
 			for(PokerHand.HighType type:PokerHand.HighType.values())
 				p.type[type.ordinal()]=0;
 		}
@@ -478,15 +476,15 @@ public class Don {
 											for(Player p:players)
 												if(p.flopHand==best_flop_hand) if(ties==1) {
 													if(verbose) System.out.print(p.id);
-													p.individual[p.flopHand].flop.wins++;
-													p.total.flop.wins++;
+													p.individual[p.flopHand].flop().wins++;
+													p.total.flop().wins++;
 												} else {
-													p.individual[p.flopHand].flop.ties++;
-													p.total.flop.ties++;
+													p.individual[p.flopHand].flop().ties++;
+													p.total.flop().ties++;
 												}
 												else {
-													p.individual[p.flopHand].flop.losses++;
-													p.total.flop.losses++;
+													p.individual[p.flopHand].flop().losses++;
+													p.total.flop().losses++;
 												}
 											if(verbose&&ties>1) System.out.print(-ties);
 											if(verbose)

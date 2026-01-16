@@ -251,7 +251,7 @@ static record Range(HoldemHand.Type type,List<Rank> ranks) { // i.e. 22+ or AT+
 	Double probability() {
 		return probability;
 	}
-	private final Rank r1,r2;
+	final Rank r1,r2;
 	private final Double value; // for sort order
 	private Double probability; // of getting this hand or better
 	private final Type type;

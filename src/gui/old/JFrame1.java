@@ -28,11 +28,7 @@ public class JFrame1 extends JFrame implements View {
 		frame.setVisible(true);
 	}
 	public static void main(String[] args) {
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
+		javax.swing.SwingUtilities.invokeLater(JFrame1::createAndShowGUI);
 	}
 	private final JButton bet,deal,draw;
 	private final JLabel coins,coinsValue,credits,creditsValue;

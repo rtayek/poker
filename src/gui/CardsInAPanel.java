@@ -1,6 +1,6 @@
 package gui;
 import java.awt.*;
-
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.border.Border;
 public class CardsInAPanel {
@@ -67,13 +67,11 @@ public class CardsInAPanel {
 	}
 	JLabel cardCanvas[]=new JLabel[5];
 	{
-		for(int i=0;i<5;i++)
-			cardCanvas[i]=new JLabel("a card");
+		Arrays.setAll(cardCanvas,i -> new JLabel("a card"));
 	}
 	JButton holds[]=new JButton[5];
 	{
-		for(int i=0;i<5;i++)
-			holds[i]=new JButton("Discard");
+		Arrays.setAll(holds,i -> new JButton("Discard"));
 	}
 	Border b=BorderFactory.createLineBorder(Color.black);
 	Dimension d=new Dimension(45,65);
