@@ -48,7 +48,18 @@ public class Main extends MainGui {
 		if(frame!=null)
 			frame.setTitle("Video Poker");
 		swingBindings=new SwingBindings();
-		add(swingBindings);
+		if(frame!=null) {
+			Container content=frame.getContentPane();
+			content.removeAll();
+			content.setLayout(new BorderLayout());
+			content.add(swingBindings,BorderLayout.CENTER);
+			content.revalidate();
+			content.repaint();
+		} else {
+			setLayout(new BorderLayout());
+			removeAll();
+			add(swingBindings,BorderLayout.CENTER);
+		}
 		try {
 			// PokerCardFactory.instance.hack();
 			final Deck pokerDeck=new Deck();
@@ -65,7 +76,8 @@ public class Main extends MainGui {
 			System.out.println(e);
 			e.printStackTrace();
 		}
-		System.out.println(getSize());
+		if(frame!=null)
+			SwingUtilities.invokeLater(this::enableFullScreen);
 	}
 	public static void main(String[] args) {
 		Main main=new Main(null);
@@ -79,11 +91,30 @@ public class Main extends MainGui {
 			Thread.currentThread().interrupt();
 		}
 	}
+	private void enableFullScreen() {
+		if(frame==null) return;
+		GraphicsEnvironment ge=GraphicsEnvironment.getLocalGraphicsEnvironment();
+		Rectangle bounds=ge.getMaximumWindowBounds();
+		int maxWidth=Math.max(1,bounds.width/2);
+		int maxHeight=Math.max(1,bounds.height/2);
+		double targetAspect=aspectRatio>0?aspectRatio:(maxWidth/(double)maxHeight);
+		int width=maxWidth;
+		int height=(int)Math.round(width/targetAspect);
+		if(height>maxHeight) {
+			height=maxHeight;
+			width=(int)Math.round(height*targetAspect);
+		}
+		int x=bounds.x+(bounds.width-width)/2;
+		int y=bounds.y+(bounds.height-height)/2;
+		frame.setBounds(x,y,width,height);
+		frame.validate();
+	}
 	CommandLineView commandLineView;
 	private SwingBindings swingBindings;
 	private PokerMachine pokerMachine;
 	private CommandLineController controller;
 	private final CountDownLatch commandLineReady=new CountDownLatch(1);
 	static boolean setPlaf=true;
+	static final float aspectRatio=2f;
 	private static final long serialVersionUID=1L;
 }

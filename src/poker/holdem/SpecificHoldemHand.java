@@ -71,6 +71,7 @@ public class SpecificHoldemHand extends Hand {
 		HoldemHand.Type type=null;
 		if (r1==r2) {
 			if (s1==s2) throw new RuntimeException("oops");
+			if(!r1.equals(r2)) throw new RuntimeException("oops");
 			type=HoldemHand.Type.pair;
 		} else {
 			if (r1.ordinal()<r2.ordinal()) throw new RuntimeException("oops");

@@ -1,5 +1,6 @@
 package gui.old;
 import java.awt.*;
+import java.io.File;
 import java.net.*;
 import equipment.Card;
 import equipment.Deck;
@@ -12,6 +13,11 @@ class CardImage {
         for(int i=0;i<cards.length;i++) {
             Card card=cards[i];
             int n=cardToImageIndex(card);
+            URL url=toUrl(card.toCharacters());
+            if(url==null)
+				System.err.println("null url for "+card.toCharacters());
+            else System.err.println("url for "+card.toCharacters()+": "+url);
+            
             Image image=get(component,toUrl(card.toCharacters()));
             CardImage.images[n]=image;
         }
@@ -23,9 +29,13 @@ class CardImage {
         return images[n];
     }
     static Image backImage() { return images[backImageIndex()]; }
-    private static String toFilename(String name) { return path+name+".gif"; }
+    private static String toFilename(String name) { return new File(path,name+".gif").getPath(); }
     private static URL toUrl(String name) {
-        return clazz.getResource("big/"+name+".gif");
+        try {
+            return new File(path,name+".gif").toURI().toURL();
+        } catch(MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
     private static int cardToImageIndex(Card card) {
         Rank rank=card.rank();
@@ -69,7 +79,6 @@ class CardImage {
         }
         return scaled;
     }
-    private static final Class<CardImage> clazz=CardImage.class;
-    private static final String path="d:/usr/ray/java/poker/image/big/";
+    private static final String path="resources/cards";
     private static final Image[] images=new Image[60+1]; // magic #!!!!!
 }

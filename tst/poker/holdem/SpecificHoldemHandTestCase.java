@@ -105,5 +105,14 @@ public class SpecificHoldemHandTestCase extends TestCase {
 					break;
 			}
 	}
+	public void testFindHandInDeckSuitedUsesSameSuit() {
+		SpecificHoldemHand hand=SpecificHoldemHand.findHandInDeck(HoldemHand.aceKingSuited,deck);
+		assertNotNull(hand);
+		System.out.println(HoldemHand.aceKingSuited);
+		System.out.println(Arrays.asList(HoldemHand.aceKingSuited.cards()));
+		System.out.println(hand.card(0).suit());
+		System.out.println(hand.card(1).suit());
+		assertEquals(hand.card(0).suit(),hand.card(1).suit());
+	}
 	boolean[][] deck=new boolean[Rank.values().length][Suit.values().length];
 }

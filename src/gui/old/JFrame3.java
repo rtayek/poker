@@ -10,7 +10,7 @@ public class JFrame3 extends JFrame {
 		frame.setLayout(null);
 		frame.setSize(640, 480);
 		JButton b = new JButton("Foo");
-		ImageIcon icon=new ImageIcon("gui.big.Kd.gif","Kd");
+		ImageIcon icon=new ImageIcon("resources/cards/Kd.gif","Kd");
 		int status=icon.getImageLoadStatus();
 		System.out.println(status);
 		b.setSize(100, 100);
